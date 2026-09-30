@@ -1,0 +1,96 @@
+{
+  "editor_id": "opencode",
+  "matrix": {
+    "form": "TUI/CLI",
+    "os_windows": "○",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○",
+    "custom_endpoint": "○",
+    "local_llm": "○ ollama provider",
+    "proxy_key_hiding": "○",
+    "token_saving": "○ キャッシュトークンをコスト内訳に表示",
+    "telemetry": "△ 匿名収集・OPENCODE_DISABLE_TELEMETRYでoff",
+    "auto_approve": "○ runで自動許可",
+    "parallel": "△ 複数セッション",
+    "checkpoint": "○ snapshot/revert",
+    "mcp": "○",
+    "cost_display": "○",
+    "account_required": "不要",
+    "target_audience": "中級者"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "npm",
+    "hw_spec": "?",
+    "difficulty": "○",
+    "notes": "npm i -g opencode-ai で即導入"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 2,
+        "learning": 3,
+        "steering": 4,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 4,
+        "overall": 2
+      },
+      "comment": "npm導入だけで非対話runが回り、BYOK T1–T6を介入0・20–60秒台で完走した実力者。ただしTUI前提で初学者の心理的ハードルは高く、LocalLLMではヘッダータイムアウト後もプロセスがCPUを握ったまま残る問題を確認。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "1.18.32",
+      "scores": {
+        "audience": 3,
+        "ui": 2,
+        "learning": 3,
+        "steering": 4,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 2,
+        "overall": 1
+      },
+      "comment": "`npm i -g opencode-ai`で導入でき、非対話モード（opencode run）を活用したBYOK環境（Gemini）では全タスクを介入0かつ20〜60秒台の高速で完走できます。一方でターミナル（TUI）前提の操作体系のため黒い画面に慣れていない初学者には心理的ハードルが高く、ローカルLLM環境ではシステムプロンプトの重さから300秒超のヘッダータイムアウトを起こす上に、CPUを占有したままプロセスが残存する重大な挙動が確認されました。ローカル実行時の自己回復性や詰まりにくさに欠けるため、初心者や弱小環境ユーザーにはおすすめできません。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 3,
+        "learning": 3,
+        "steering": 5,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 4,
+        "overall": 3
+      },
+      "comment": "npmで即導入でき、BYOKではT1〜T6が20〜62秒・介入0回で非対話完結しており、指示通りに作業を進める性能は高く出ています。一方、対象は中級者で、ローカルLLMでは初回トークンが300秒を超えてheader timeoutとなり、タイムアウト後もプロセスがCPUを占有し続け、L2・L3も計測不能でした。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 3,
+        "learning": 3,
+        "steering": 4,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 4,
+        "overall": 2
+      },
+      "comment": "npm i -g opencode-ai で即導入でき、BYOK(gemini-3.5-flash-lite)ではT1〜T6の全6件が20〜62秒・介入0回で成功し、公開API維持が問われたT3も通っており、操縦性と速度は非常に良好です。ただし対象は中級者向けのTUIで、ローカルLLM(qwen3.5:4b)ではOpenAI互換endpointを自分で追加設定する必要があり、しかもシステムプロンプトが重すぎて初回トークンが300秒のheader timeoutを超え、L1が失敗、L2/L3は計測不能でした。さらにタイムアウト後もプロセスが残ってollamaへのリクエストとCPU占有が続くため、弱いモデルや非力なPCを使う初学者にはおすすめしにくいです。"
+    }
+  ]
+}

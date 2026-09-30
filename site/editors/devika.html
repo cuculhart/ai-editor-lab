@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devika — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="../index.html">トップ</a>
+      <a href="../method.html">測定方法</a>
+      <a href="../about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container">
+      <h2>Devika</h2>
+      <div class="row">
+        <div class="col-md-5 mb-3"><div class="card-pop"><h5>基本情報</h5>
+          <table class="table table-sm"><tr><th>形態</th><td>Web UI（Python）</td></tr><tr><th>ライセンス</th><td>MIT</td></tr><tr><th>公式サイト</th><td><span class="unknown">?</span></td></tr><tr><th>リポジトリ</th><td><a href='https://github.com/stitionai/devika'>https://github.com/stitionai/devika</a></td></tr><tr><th>メモ</th><td>最終コミット 2025-09 で開発停滞。依存が重く導入試行を断念 — 計測不可として記録</td></tr></table></div></div>
+        <div class="col-md-7 mb-3"><div class="card-pop"><h5>導入の容易さ</h5>
+          <table class="table table-sm"><tr><th>所要時間（分）</th><td><span class="unknown">?</span></td></tr><tr><th>手順数</th><td><span class="unknown">?</span></td></tr><tr><th>依存要件</th><td>Python + Playwright + 重い依存</td></tr><tr><th>必要スペック</th><td><span class="unknown">?</span></td></tr><tr><th>難易度</th><td><span class="mark mark-no">×</span></td></tr><tr><th>導入メモ</th><td>導入試行を断念。最終コミット 2025-09</td></tr></table></div></div>
+      </div>
+      <div class="card-pop mb-3"><h5>機能マトリクス</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>項目</th><th class="text-center">評価</th><th>備考</th></tr></thead>
+        <tbody><tr><th>形態</th><td class='text-center'></td><td>Webアプリ</td></tr><tr><th>Windows</th><td class='text-center'><span class="mark mark-no">×</span></td><td>依存解決困難（実測で断念）</td></tr><tr><th>macOS</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>Python+uv/bun（公式docs）</td></tr><tr><th>Linux</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>Python+uv/bun（公式docs）</td></tr><tr><th>BYOK</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>カスタムエンドポイント</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>config.tomlのAPI_ENDPOINTSでOLLAMA/OPENAI先を差し替え可</td></tr><tr><th>ローカルLLM</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>Ollama対応</td></tr><tr><th>プロキシでキー隠蔽</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>config.tomlにローカル保存。プロキシ経由は自前</td></tr><tr><th>トークン節約</th><td class='text-center'><span class="mark mark-no">×</span></td><td>コード全体をMarkdown化して送る設計・キャッシュなし</td></tr><tr><th>テレメトリー</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>収集機能なし（OSS・開発停滞）</td></tr><tr><th>自動実行</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>自律実行型</td></tr><tr><th>マルチターミナル/並走</th><td class='text-center'><span class="mark mark-no">×</span></td><td></td></tr><tr><th>やりなおし</th><td class='text-center'><span class="mark mark-no">×</span></td><td>復元機能なし</td></tr><tr><th>MCP 対応</th><td class='text-center'><span class="mark mark-no">×</span></td><td>未対応（2025-09に開発停滞）</td></tr><tr><th>コスト表示</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>token使用量のみ表示（コスト換算なし）</td></tr><tr><th>アカウント登録</th><td class='text-center'></td><td>不要</td></tr><tr><th>ターゲット層</th><td class='text-center'></td><td>中級者（開発停滞）</td></tr></tbody></table></div></div>
+      <div class="card-pop mb-3"><h5>定量ベンチ結果</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>タスク</th><th>カテゴリ</th><th>回</th><th>成功</th><th>秒</th><th>USD</th><th>介入</th><th>日付</th></tr></thead>
+        <tbody><tr><td>L1</td><td>LocalLLM系</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="unknown">?</span></td></tr><tr><td>L2</td><td>LocalLLM系</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="unknown">?</span></td></tr><tr><td>L3</td><td>LocalLLM系</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="unknown">?</span></td></tr></tbody></table></div></div>
+      <h5 class="mt-4 mb-3">使用感レビュー（4者）</h5>
+      <div class="row">
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">ChatGPT</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 Web UIという形態ですが、Windowsでは依存解決が困難で導入試行を断念しており、L1〜L3はすべて計測不能でした。実測上は動作確認まで到達できず、Python・Playwrightと重い依存に加えて開発停滞も記録されているため、初学者が難しい設定なしに使えることを確認できる材料がありません。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Gemini</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>0</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 依存関係が非常に重くWindows環境での依存解決が困難であり、ベンチマークの計測以前に導入試行の段階で断念する結果となりました。最終コミットも2025年9月で開発が停滞しており、環境構築すらまともに進められない状況です。難しい設定なしに動かすことが前提の初学者には一切おすすめできません。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Claude</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>0</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 Windows環境でPython+Playwrightなどの重い依存が解決できず導入を断念したため、L1〜L3を含む全ベンチマークが計測不能で、操縦性や速度、エラー時の挙動は評価できず0点としています（データ不足による最低点で、実際の性能が低いという意味ではありません）。対象は中級者と記されている上、最終コミットが2025-09で開発が停滞しており、初学者が難しい設定なしに使い始められるツールとは言えません。BYOKとOllamaには対応するものの、導入の時点でつまずくため、初学者にはおすすめできません。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Devin (SWE-2)</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>0</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 依存解決の時点で導入が成立せず計測不能。最終コミットも古く開発停止。評価以前の問題。</p>
+      </div></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

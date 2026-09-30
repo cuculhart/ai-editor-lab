@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #2d3436;
+}
+
+.game-container {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #2d3436;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.info-box {
+    background: #dfe6e9;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+    background: #f1f2f6;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background: #b2bec3;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mole {
+    width: 60px;
+    height: 60px;
+    background: #e17055;
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    bottom: -70px;
+    left: 10px;
+    transition: bottom 0.15s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cell.up .mole {
+    bottom: 10px;
+}
+
+/* モグラの目や鼻の装飾 */
+.mole::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 14px;
+    width: 8px;
+    height: 8px;
+    background: #2d3436;
+    border-radius: 50%;
+    box-shadow: 24px 0 0 #2d3436;
+}
+
+.mole::after {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 24px;
+    width: 12px;
+    height: 8px;
+    background: #2d3436;
+    border-radius: 50%;
+}
+
+#start-button {
+    background: #00b894;
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
+}
+
+#start-button:hover {
+    background: #00cec9;
+}
+
+#start-button:active {
+    transform: scale(0.98);
+}
+
+#start-button:disabled {
+    background: #b2bec3;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 12px;
+    color: #d63031;
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#restart-button {
+    background: #0984e3;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background: #74b9ff;
+}

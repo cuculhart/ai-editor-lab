@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teaspoon IDE — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="../index.html">トップ</a>
+      <a href="../method.html">測定方法</a>
+      <a href="../about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container">
+      <h2>Teaspoon IDE</h2>
+      <div class="row">
+        <div class="col-md-5 mb-3"><div class="card-pop"><h5>基本情報</h5>
+          <table class="table table-sm"><tr><th>形態</th><td>独立 Electron アプリ</td></tr><tr><th>ライセンス</th><td>FSL-1.1-MIT</td></tr><tr><th>公式サイト</th><td><a href='https://cuculhart.com/forger.html'>https://cuculhart.com/forger.html</a></td></tr><tr><th>リポジトリ</th><td><a href='https://github.com/cuculhart/teaspoon-ide'>https://github.com/cuculhart/teaspoon-ide</a></td></tr><tr><th>メモ</th><td>エクスプローラー/Monaco/Git/TTY一体型。旧称 Forger</td></tr></table></div></div>
+        <div class="col-md-7 mb-3"><div class="card-pop"><h5>導入の容易さ</h5>
+          <table class="table table-sm"><tr><th>所要時間（分）</th><td><span class="unknown">?</span></td></tr><tr><th>手順数</th><td><span class="unknown">?</span></td></tr><tr><th>依存要件</th><td>単一 exe</td></tr><tr><th>必要スペック</th><td><span class="unknown">?</span></td></tr><tr><th>難易度</th><td><span class="mark mark-yes">○</span></td></tr><tr><th>導入メモ</th><td>配布 zip/exe</td></tr></table></div></div>
+      </div>
+      <div class="card-pop mb-3"><h5>機能マトリクス</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>項目</th><th class="text-center">評価</th><th>備考</th></tr></thead>
+        <tbody><tr><th>形態</th><td class='text-center'></td><td>スタンドアロンIDE</td></tr><tr><th>Windows</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>macOS</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>Git clone + npm run dev</td></tr><tr><th>Linux</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>deb提供（またはGit clone + npm run dev）</td></tr><tr><th>BYOK</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>カスタムエンドポイント</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>LLM_PROXY_URL でLiteLLMプロキシ指定可</td></tr><tr><th>ローカルLLM</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>Ollama対応</td></tr><tr><th>プロキシでキー隠蔽</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>プロキシ側に本物のキーを置ける</td></tr><tr><th>トークン節約</th><td class='text-center'><span class="mark mark-yes">◎</span></td><td>ファイルツリー優先送信＋オンデマンド取得で大幅削減（Context optimization）</td></tr><tr><th>テレメトリー</th><td class='text-center'><span class="mark mark-yes">◎</span></td><td>テレメトリー自体が存在しない</td></tr><tr><th>自動実行</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>マルチターミナル/並走</th><td class='text-center'><span class="mark mark-no">×</span></td><td></td></tr><tr><th>やりなおし</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>MCP 対応</th><td class='text-center'><span class="mark mark-no">×</span></td><td>独自プロトコル</td></tr><tr><th>コスト表示</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>非組織モードでは非表示</td></tr><tr><th>アカウント登録</th><td class='text-center'></td><td>不要（ソロ）</td></tr><tr><th>ターゲット層</th><td class='text-center'></td><td>初学者〜中級者</td></tr></tbody></table></div></div>
+      <div class="card-pop mb-3"><h5>定量ベンチ結果</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>タスク</th><th>カテゴリ</th><th>回</th><th>成功</th><th>秒</th><th>USD</th><th>介入</th><th>日付</th></tr></thead>
+        <tbody><tr><td>T1</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>901</td><td><span class="unknown">?</span></td><td>3</td><td>2026-09-30</td></tr><tr><td>T2</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td>902</td><td><span class="unknown">?</span></td><td>0</td><td>2026-09-30</td></tr><tr><td>T3</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td>901</td><td><span class="unknown">?</span></td><td>0</td><td>2026-09-30</td></tr><tr><td>T4</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td>501</td><td><span class="unknown">?</span></td><td>1</td><td>2026-09-30</td></tr><tr><td>T5</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>712</td><td><span class="unknown">?</span></td><td>1</td><td>2026-09-30</td></tr><tr><td>T6</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td></tr><tr><td>T6</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>10</td><td><span class="unknown">?</span></td><td>2</td><td>2026-09-27</td></tr><tr><td>L1</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>283</td><td><span class="unknown">?</span></td><td>1</td><td>2026-09-28</td></tr><tr><td>L2</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>298</td><td><span class="unknown">?</span></td><td>1</td><td>2026-09-28</td></tr><tr><td>L3</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>740</td><td><span class="unknown">?</span></td><td>3</td><td>2026-09-28</td></tr></tbody></table></div></div>
+      <h5 class="mt-4 mb-3">使用感レビュー（4者）</h5>
+      <div class="row">
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">ChatGPT</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 単一exeで導入でき、対象も初学者〜中級者とされているうえ、L1〜L3はローカルLLMでも要件達成でき、L3は誘導なしでpytest実行から原因特定・修正まで完遂しました。一方、T2・T3はEDIT構文の誤生成を繰り返して約15分でタイムアウトし、成功タスクもT1が901秒、L3が740秒と体感速度には課題があります。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Gemini</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 単一exeで導入でき、Monacoエディタやファイルツリーが一体化しているため初学者でも迷わず扱いやすい独立型IDEです。Gemini環境ではT6を10秒で完走する驚異的な速さを見せたほか、ローカルLLM環境でも自力でpytestを実行して修正（L3）したり全要件を満たす新規作成（L1）をこなすなど高い自己回復力を示しました。一方でSEARCH/REPLACE構文の誤生成によるタイムアウト（T2, T3）が発生することもあり、モデルの出力精度に左右される面があります。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Claude</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 単一exeで導入でき、エクスプローラー/Monaco/Git/TTYが一体化した初学者〜中級者向けIDEで、弱いローカルLLM(qwen3.5:4b)でもL1〜L3を全て完遂しました。特にL3では誘導なしでpytest実行から原因特定・修正まで自力で完走し（740秒）、BYOK(gemini-3.5-flash-lite)のT6も10秒と最速で、コンテキスト軽量化の効果が出ています。一方でT2/T3ではSEARCH/REPLACE構文の誤生成を繰り返して900秒でタイムアウトし、T1も検証ループの空転で上限に達したため、複雑な編集タスクでの詰まりやすさと待ち時間は残ります。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Devin (SWE-2)</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 自社製かつ唯一の独立IDEで、Playwright/CDP自動化まで回るDOM設計。LocalLLMで最も多くのタスク(L1–L3+T1,T5,T6=6件)を完走したが、T2–T4ではEDIT構文の誤生成やテスト誤認で失敗。検証中にパッケージ版がOllamaに接続できない欠陥(CSP+Origin:null)を発見しており、現在はプロキシ回避が必要。</p>
+      </div></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

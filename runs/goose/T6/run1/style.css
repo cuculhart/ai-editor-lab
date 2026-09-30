@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.game-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2d3436;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.info-box {
+    background: #f1f2f6;
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+#timer {
+    color: #e74c3c;
+}
+
+#score {
+    color: #27ae60;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+    background: #81ecec;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: #63cdda;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.mole {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: #d35400;
+    border-radius: 50% 50% 40% 40%;
+    bottom: -100%;
+    left: 10%;
+    transition: bottom 0.1s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cell.up .mole {
+    bottom: 10%;
+}
+
+/* モグラの顔のデザイン */
+.mole::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    width: 12%;
+    height: 12%;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 24px 0 0 #333;
+}
+
+.mole::after {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    width: 30%;
+    height: 20%;
+    background: #e67e22;
+    border-radius: 50%;
+}
+
+#start-button, #restart-button {
+    background: #0984e3;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(9, 132, 227, 0.3);
+}
+
+#start-button:hover, #restart-button:hover {
+    background: #74b9ff;
+}
+
+#start-button:active, #restart-button:active {
+    transform: scale(0.95);
+}
+
+#start-button:disabled {
+    background: #b2bec3;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.3s ease;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: #2d3436;
+}
+
+.modal-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}

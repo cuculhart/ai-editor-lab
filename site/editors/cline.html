@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cline — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="../index.html">トップ</a>
+      <a href="../method.html">測定方法</a>
+      <a href="../about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container">
+      <h2>Cline</h2>
+      <div class="row">
+        <div class="col-md-5 mb-3"><div class="card-pop"><h5>基本情報</h5>
+          <table class="table table-sm"><tr><th>形態</th><td>VS Code 拡張</td></tr><tr><th>ライセンス</th><td>Apache-2.0</td></tr><tr><th>公式サイト</th><td><a href='https://cline.bot'>https://cline.bot</a></td></tr><tr><th>リポジトリ</th><td><a href='https://github.com/cline/cline'>https://github.com/cline/cline</a></td></tr><tr><th>メモ</th><td>人気最大級。BYOK・Ollama 対応</td></tr></table></div></div>
+        <div class="col-md-7 mb-3"><div class="card-pop"><h5>導入の容易さ</h5>
+          <table class="table table-sm"><tr><th>所要時間（分）</th><td><span class="unknown">?</span></td></tr><tr><th>手順数</th><td><span class="unknown">?</span></td></tr><tr><th>依存要件</th><td>VS Code 拡張</td></tr><tr><th>必要スペック</th><td><span class="unknown">?</span></td></tr><tr><th>難易度</th><td><span class="mark mark-yes">○</span></td></tr><tr><th>導入メモ</th><td>Marketplace から通常導入</td></tr></table></div></div>
+      </div>
+      <div class="card-pop mb-3"><h5>機能マトリクス</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>項目</th><th class="text-center">評価</th><th>備考</th></tr></thead>
+        <tbody><tr><th>形態</th><td class='text-center'></td><td>VS Code 拡張</td></tr><tr><th>Windows</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>macOS</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>Linux</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>BYOK</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>カスタムエンドポイント</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>ローカルLLM</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>Ollama等</td></tr><tr><th>プロキシでキー隠蔽</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>LiteLLM/OpenAI互換経由可</td></tr><tr><th>トークン節約</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>プロンプトキャッシュ対応</td></tr><tr><th>テレメトリー</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>収集あり・opt-out可</td></tr><tr><th>自動実行</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>設定で介入0可</td></tr><tr><th>マルチターミナル/並走</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>単一タスク主体</td></tr><tr><th>やりなおし</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>MCP 対応</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>コスト表示</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>タスク毎に表示</td></tr><tr><th>アカウント登録</th><td class='text-center'></td><td>不要</td></tr><tr><th>ターゲット層</th><td class='text-center'></td><td>初学者〜中級者</td></tr></tbody></table></div></div>
+      <div class="card-pop mb-3"><h5>定量ベンチ結果</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>タスク</th><th>カテゴリ</th><th>回</th><th>成功</th><th>秒</th><th>USD</th><th>介入</th><th>日付</th></tr></thead>
+        <tbody><tr><td>T6</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td></tr><tr><td>T6</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>&lt;60</td><td>0.0145</td><td>4</td><td>2026-09-27</td></tr><tr><td>T6</td><td>BYOK（Gemini系）</td><td>2</td><td><span class="mark mark-yes">○</span></td><td>30</td><td>0.0091</td><td>0</td><td>2026-09-27</td></tr><tr><td>L1</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>2</td><td>2026-09-28</td></tr><tr><td>L2</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>0</td><td>2026-09-30</td></tr><tr><td>L3</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>5</td><td>2026-09-30</td></tr></tbody></table></div></div>
+      <h5 class="mt-4 mb-3">使用感レビュー（4者）</h5>
+      <div class="row">
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">ChatGPT</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>5</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>4</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張でMarketplaceから通常導入でき、対象も初学者〜中級者のため、初学者が始めやすい構成です。ローカルLLMでもL2は介入0回で全7テスト合格、L3も介入5回ながら自力デバッグを完走して全7テスト合格しましたが、L1ではパス誘導など2回の介入が必要で余分なサブディレクトリも作成しました。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Gemini</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張機能として導入しやすく直感的に操作できますが、ローカルLLM環境ではパスタイポやPowerShellのコマンドエラーを発生させるなど初学者にはやや手がかかる面があります。一方でエラー発生時には自力で再確認を行って最終的にデバッグ（L3）を成功させており、BYOK環境ではT6タスクを30秒で完走するなど高いポテンシャルを示しています。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Claude</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>4</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張としてMarketplaceから通常導入でき、対象も初学者〜中級者と明記されているため、Aiderのようなgit前提や環境依存の詰まりがなく入りやすいです。弱いローカルLLM(qwen3.5:4b)でもL1〜L3を全て完走し、L3ではテキスト不一致や文字化けで初回編集に失敗しても再確認して自力回復（介入5回・全7テスト合格）しており、エラー時の粘り強さが際立ちます。一方でL1ではパスのタイポと余分なcalc/ディレクトリ作成で要件から逸脱し、T6のBYOKでも動的検証が3回中2回の不安定さがあったため、操縦性は満点にはできません。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Devin (SWE-2)</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 Marketplace導入だけで動き、T6を30秒・$0.0091で完走。LocalLLMのL-suiteも全完走したが、L1はパス誘導が必要、L3は編集不一致→type再確認(文字化け)→再編集と5介入を要した。自動承認設定で実用圏だが、弱いモデルでの手戻りは残る。</p>
+      </div></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

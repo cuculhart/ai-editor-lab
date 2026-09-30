@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plandex — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="../index.html">トップ</a>
+      <a href="../method.html">測定方法</a>
+      <a href="../about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container">
+      <h2>Plandex</h2>
+      <div class="row">
+        <div class="col-md-5 mb-3"><div class="card-pop"><h5>基本情報</h5>
+          <table class="table table-sm"><tr><th>形態</th><td>CLI</td></tr><tr><th>ライセンス</th><td>MIT</td></tr><tr><th>公式サイト</th><td><a href='https://plandex.ai'>https://plandex.ai</a></td></tr><tr><th>リポジトリ</th><td><a href='https://github.com/plandex-ai/plandex'>https://github.com/plandex-ai/plandex</a></td></tr><tr><th>メモ</th><td>公式に Windows ビルドなし（darwin/linux/freebsd のみ）。WSL 必須のため本ベンチでは計測不可 — 導入可否の記録対象</td></tr></table></div></div>
+        <div class="col-md-7 mb-3"><div class="card-pop"><h5>導入の容易さ</h5>
+          <table class="table table-sm"><tr><th>所要時間（分）</th><td><span class="unknown">?</span></td></tr><tr><th>手順数</th><td><span class="unknown">?</span></td></tr><tr><th>依存要件</th><td>WSL 必須</td></tr><tr><th>必要スペック</th><td><span class="unknown">?</span></td></tr><tr><th>難易度</th><td><span class="mark mark-no">×</span></td></tr><tr><th>導入メモ</th><td>公式に Windows ビルドなし（darwin/linux/freebsd のみ）</td></tr></table></div></div>
+      </div>
+      <div class="card-pop mb-3"><h5>機能マトリクス</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>項目</th><th class="text-center">評価</th><th>備考</th></tr></thead>
+        <tbody><tr><th>形態</th><td class='text-center'></td><td>CLI</td></tr><tr><th>Windows</th><td class='text-center'><span class="mark mark-no">×</span></td><td>Windowsビルドなし（WSL必須）</td></tr><tr><th>macOS</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>Linux</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>BYOK</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>カスタムエンドポイント</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>カスタムプロバイダ/モデルパック設定</td></tr><tr><th>ローカルLLM</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>OpenRouter等経由</td></tr><tr><th>プロキシでキー隠蔽</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>セルフホスト・envキー管理可</td></tr><tr><th>トークン節約</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>プロンプトキャッシュ内蔵・tree-sitterプロジェクトマップ</td></tr><tr><th>テレメトリー</th><td class='text-center'><span class="unknown">?</span></td><td></td></tr><tr><th>自動実行</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>全自動モードあり</td></tr><tr><th>マルチターミナル/並走</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>branchで代替案管理（並列実行ではない）</td></tr><tr><th>やりなおし</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>バージョン管理・rewind・branchが中核機能</td></tr><tr><th>MCP 対応</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>plandex mcp connect</td></tr><tr><th>コスト表示</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>plandex usage でplan/branch/model別に集計</td></tr><tr><th>アカウント登録</th><td class='text-center'><span class="mark mark-mid">△</span></td><td></td></tr><tr><th>ターゲット層</th><td class='text-center'></td><td>中級者</td></tr></tbody></table></div></div>
+      <div class="card-pop mb-3"><h5>定量ベンチ結果</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>タスク</th><th>カテゴリ</th><th>回</th><th>成功</th><th>秒</th><th>USD</th><th>介入</th><th>日付</th></tr></thead>
+        <tbody><tr><td>L1</td><td>LocalLLM系</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="unknown">?</span></td></tr><tr><td>L2</td><td>LocalLLM系</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="unknown">?</span></td></tr><tr><td>L3</td><td>LocalLLM系</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="unknown">?</span></td></tr></tbody></table></div></div>
+      <h5 class="mt-4 mb-3">使用感レビュー（4者）</h5>
+      <div class="row">
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">ChatGPT</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
+        <p class="small mb-0">💬 対象は中級者で、Windowsでは公式ビルドがなくWSLが必須のため、今回の環境では導入段階からL1〜L3をすべて計測できませんでした。実測タスクの成功・速度・エラー対応を確認できるデータがないため、初学者が難しい設定なしに使えることを裏付ける材料はありません。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Gemini</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 公式にWindowsビルドが提供されておらずWSL環境が必須となるため、ベンチマークの計測以前にネイティブなWindows環境への導入が不可能です。CLI形態であることに加えてWSLの構築まで求められるのは、プログラミング初学者にとって非常に高いハードルとなります。難しい設定なしに動かすことが評価の前提である本観点においては、初学者におすすめできる要素がありません。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Claude</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>0</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 公式にWindowsビルドがなく(darwin/linux/freebsdのみ)WSLが必須のため、本ベンチのWindows環境ではL1〜L3を含む全タスクが計測不能で、操縦性・速度・エラー時の挙動は評価できず0点としています（データ不足による最低点で、実際の性能が低いという意味ではありません）。対象も中級者とされ、accountの要否は△、ローカルLLMもOpenRouter等の経由という記載にとどまり、初学者が難しい設定なしに使い始められる条件を満たしていません。macOS/Linuxでは動作する可能性がありますが、Windowsが主流の初学者にはおすすめしにくいです。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Devin (SWE-2)</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 Windowsビルド非提供でWSL必須。計測以前に導入不能。</p>
+      </div></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

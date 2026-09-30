@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>トップ — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="index.html">トップ</a>
+      <a href="method.html">測定方法</a>
+      <a href="about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">BYOK・エージェント型のみ集めました</span>
+      <h1>AIエディターラボ</h1>
+      <p class="lead">サブスクなし・自分のAPIキーで動くエージェント型 AI エディターだけを本気で比較</p>
+      <p class="mb-0"><small class="text-muted">計測: 2026年9月 ｜ Windows 11 + Ryzen 5 4500U の一般的なPCで実測</small></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-pop">
+        <strong>このサイトの比較対象は「エージェント型」だけです。</strong>
+        ファイルの読み書き・コマンド実行まで自律で回るツールのみを集めています。
+        補完・チャット補助型（GitHub Copilot 等）や、月額サブスクの大手有料ツール
+        （Claude Code / Devin / Cursor 等）は対象外です。
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>🏆 BYOK（Gemini系） <small class="text-muted fs-6">gemini-3.5-flash-lite</small></h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功タスク（成功数/試行数・成功率）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>ターミナル（TUI）</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code 拡張</small></td><td>2 / 2 （100%）</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code 拡張 + CLI</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a><br><small class='text-muted'>独立 Electron アプリ</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + デスクトップ</small></td><td>5 / 6 （83%）</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains 拡張</small></td><td>1 / 2 （50%）</td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a><br><small class='text-muted'>CLI（Docker バックエンド）</small></td><td>0 / 1 （0%）</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code フォーク</small></td><td>0 / 1 （0%）</td></tr></tbody></table></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>🏆 その他系 <small class="text-muted fs-6"></small></h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功タスク（成功数/試行数・成功率）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>0 / 1 （0%）</td></tr></tbody></table></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>🏆 LocalLLM系 <small class="text-muted fs-6">qwen3.5:4b (Ollama)</small></h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功タスク（成功数/試行数・成功率）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code 拡張</small></td><td>4 / 4 （100%）</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a><br><small class='text-muted'>独立 Electron アプリ</small></td><td>6 / 9 （67%）</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code フォーク</small></td><td>2 / 3 （67%）</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>2 / 4 （50%）</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code 拡張 + CLI</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains 拡張</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>ターミナル（TUI）</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + デスクトップ</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>0 / 3 （0%）</td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a><br><small class='text-muted'>Web UI（Python）</small></td><td>0 / 3 （0%）</td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a><br><small class='text-muted'>CLI</small></td><td>0 / 3 （0%）</td></tr></tbody></table></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>📋 機能マトリクス</h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>Windows</th><th>BYOK</th><th>ローカルLLM</th><th>テレメトリー</th><th>自動実行</th><th>マルチターミナル/並走</th><th>やりなおし</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama等">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 収集あり・opt-out可">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ 設定で介入0可">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 単一タスク主体">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 設定上は可能だが実際に API が応答せず">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama等（実測ではバックエンド停止で応答なし）">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 収集あり">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ 設定あり">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 単一タスク主体">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama等">○</span></td><td class='text-center'><span class="unknown">?</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 単一タスク主体">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama等">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 収集あり・opt-out可">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 単一タスク主体">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ config.yaml">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama定番">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 匿名収集・opt-out可">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ ポリシー設定">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ 単一タスク主体">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a></td><td class='text-center'><span class="mark mark-mid" title="△ WSL2+Docker必須・winnat問題あり">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ litellm形式で指定">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ litellm経由">○</span></td><td class='text-center'><span class="mark mark-mid" title="△">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ 確認モード切替">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ 複数会話可">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ サンドボックス内git管理">△</span></td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a></td><td class='text-center'><span class="mark mark-no" title="× 依存解決困難（実測で断念）">×</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama対応">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ 収集機能なし（OSS・開発停滞）">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ 自律実行型">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-no" title="× 復元機能なし">×</span></td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a></td><td class='text-center'><span class="mark mark-mid" title="△ Docker必須・cp932回避(PYTHONUTF8)・空リポ不可・autocrlf環境のcloneでsubmit不可（ツールスクリプトCRLF化）">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ litellm">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ tool calling要検証">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ 収集機能なし">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ 全自動">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ ollama provider">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 匿名収集・OPENCODE_DISABLE_TELEMETRYでoff">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ runで自動許可">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ 複数セッション">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ snapshot/revert">○</span></td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a></td><td class='text-center'><span class="mark mark-mid" title="△ --no-fancy-input必須・git前提">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ ollama">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ analytics・opt-out可">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ --yes-always">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-yes" title="○ git commit/undo">○</span></td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ ollama">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ opt-out可">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ セッションresume">△</span></td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a></td><td class='text-center'><span class="mark mark-no" title="× Windowsビルドなし（WSL必須）">×</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ OpenRouter等経由">○</span></td><td class='text-center'><span class="unknown">?</span></td><td class='text-center'><span class="mark mark-yes" title="○ 全自動モードあり">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ branchで代替案管理（並列実行ではない）">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ バージョン管理・rewind・branchが中核機能">○</span></td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama対応を標榜">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ プライバシー重視設計">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ gemini-3.5-liteでツール呼出し破綻">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ 複数スレッド（エージェント並走ではない）">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama対応">○</span></td><td class='text-center'><span class="mark mark-yes" title="◎ テレメトリー自体が存在しない">◎</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>⭐ 4者レビュー（初学者におすすめ度・0〜5）</h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>製品名</th><th class='text-center'>平均スコア</th><th class='text-center'>ChatGPT</th><th class='text-center'>Gemini</th><th class='text-center'>Claude</th><th class='text-center'>Devin (SWE-2)</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a></td><td class='text-center'><strong>3.8</strong></td><td class='text-center'>4</td><td class='text-center'>4</td><td class='text-center'>4</td><td class='text-center'>3</td></tr><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a></td><td class='text-center'><strong>3.5</strong></td><td class='text-center'>4</td><td class='text-center'>3</td><td class='text-center'>4</td><td class='text-center'>3</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a></td><td class='text-center'><strong>2.2</strong></td><td class='text-center'>3</td><td class='text-center'>2</td><td class='text-center'>2</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a></td><td class='text-center'><strong>2.0</strong></td><td class='text-center'>3</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a></td><td class='text-center'><strong>2.0</strong></td><td class='text-center'>3</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a></td><td class='text-center'><strong>1.8</strong></td><td class='text-center'>3</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>1</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a></td><td class='text-center'><strong>1.8</strong></td><td class='text-center'>3</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>1</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a></td><td class='text-center'><strong>1.5</strong></td><td class='text-center'>2</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>1</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a></td><td class='text-center'><strong>1.5</strong></td><td class='text-center'>2</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>1</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a></td><td class='text-center'><strong>1.2</strong></td><td class='text-center'>2</td><td class='text-center'>1</td><td class='text-center'>1</td><td class='text-center'>1</td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a></td><td class='text-center'><strong>0.2</strong></td><td class='text-center'>1</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a></td><td class='text-center'><strong>0.2</strong></td><td class='text-center'>1</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a></td><td class='text-center'><strong>0.0</strong></td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a></td><td class='text-center'><strong>0.0</strong></td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        ※ ChatGPT / Gemini / Claude は本サイトの実測データ（結果・ログ）を読んで採点したレビューで、
+        各AIが実際にツールを操作した評価ではありません。Devin (SWE-2) は本ベンチの計測実行者です。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>🧰 対象ツール一覧（14 本）</h2>
+      <div class="row"><div class="col-md-4 mb-3"><a class="card-link" href="editors/cline.html">
+        <div class="card-pop"><div class="editor-name">Cline</div>
+        <div class="text-muted small">VS Code 拡張 / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">人気最大級。BYOK・Ollama 対応</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/roocode.html">
+        <div class="card-pop"><div class="editor-name">Roo Code</div>
+        <div class="text-muted small">VS Code 拡張 / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">v3.54.0 で開発終了・リポアーカイブ済み（2026-05-15）。後継 Roomote はクラウドエージェント製品でIDEツールではないため対象外。コミュニティ継続は Zoo Code 系へ。計測試行は Gemini・Ollama 両経路で無応答（バックエンド停止の可能性）→ 評価不能として記録</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/zoocode.html">
+        <div class="card-pop"><div class="editor-name">Zoo Code</div>
+        <div class="text-muted small">VS Code 拡張 + CLI / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Roo Code のコミュニティフォーク。CLI 実行可</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/kilocode.html">
+        <div class="card-pop"><div class="editor-name">Kilo Code</div>
+        <div class="text-muted small">VS Code 拡張 / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Roo Code 系フォーク。ユーザー数大 LocalLLM計測はL1で全システムフリーズ(強制電源断)により断念</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/continue.html">
+        <div class="card-pop"><div class="editor-name">Continue</div>
+        <div class="text-muted small">VS Code/JetBrains 拡張 / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">チャット型だがエージェントモードあり</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/openhands.html">
+        <div class="card-pop"><div class="editor-name">OpenHands</div>
+        <div class="text-muted small">Web UI + Docker / MIT</div>
+        <p class="mb-0 mt-2 small">自律エージェント型。CLI もあり</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/devika.html">
+        <div class="card-pop"><div class="editor-name">Devika</div>
+        <div class="text-muted small">Web UI（Python） / MIT</div>
+        <p class="mb-0 mt-2 small">最終コミット 2025-09 で開発停滞。依存が重く導入試行を断念 — 計測不可として記録</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/sweagent.html">
+        <div class="card-pop"><div class="editor-name">SWE-agent</div>
+        <div class="text-muted small">CLI（Docker バックエンド） / MIT</div>
+        <p class="mb-0 mt-2 small">SWE-bench チーム製の自律エージェント。sweagent run で駆動。Docker サンドボックス前提。T6 失敗後、現バージョン(v1.1.0)は Windows 標準 clone(autocrlf) で submit 不能と判明し以降の計測を見送り — 評価不能として記録</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/opencode.html">
+        <div class="card-pop"><div class="editor-name">OpenCode</div>
+        <div class="text-muted small">ターミナル（TUI） / MIT</div>
+        <p class="mb-0 mt-2 small">SST 製。opencode run で非対話実行可</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/aider.html">
+        <div class="card-pop"><div class="editor-name">Aider</div>
+        <div class="text-muted small">CLI / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">CLI の代表格。--yes で自動化しやすい</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/goose.html">
+        <div class="card-pop"><div class="editor-name">Goose</div>
+        <div class="text-muted small">CLI + デスクトップ / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Block 製 OSS エージェント</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/plandex.html">
+        <div class="card-pop"><div class="editor-name">Plandex</div>
+        <div class="text-muted small">CLI / MIT</div>
+        <p class="mb-0 mt-2 small">公式に Windows ビルドなし（darwin/linux/freebsd のみ）。WSL 必須のため本ベンチでは計測不可 — 導入可否の記録対象</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/void.html">
+        <div class="card-pop"><div class="editor-name">Void</div>
+        <div class="text-muted small">VS Code フォーク / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">OSS の Cursor 代替。独立エディタ</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="editors/forger.html">
+        <div class="card-pop"><div class="editor-name">Teaspoon IDE</div>
+        <div class="text-muted small">独立 Electron アプリ / FSL-1.1-MIT</div>
+        <p class="mb-0 mt-2 small">エクスプローラー/Monaco/Git/TTY一体型。旧称 Forger</p></div></a></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

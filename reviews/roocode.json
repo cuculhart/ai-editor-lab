@@ -1,0 +1,96 @@
+{
+  "editor_id": "roocode",
+  "matrix": {
+    "form": "VS Code 拡張（開発終了）",
+    "os_windows": "○",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "△ 設定上は可能だが実際に API が応答せず",
+    "custom_endpoint": "○ OpenAI互換",
+    "local_llm": "○ Ollama等（実測ではバックエンド停止で応答なし）",
+    "proxy_key_hiding": "○ OpenAI互換経由可",
+    "token_saving": "○ プロンプトキャッシュ対応",
+    "telemetry": "△ 収集あり",
+    "auto_approve": "○ 設定あり",
+    "parallel": "△ 単一タスク主体",
+    "checkpoint": "○",
+    "mcp": "○",
+    "cost_display": "○ タスク毎に表示",
+    "account_required": "不要",
+    "target_audience": "非推奨（2026-05 開発終了・API無応答）"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "VS Code 拡張",
+    "hw_spec": "?",
+    "difficulty": "△",
+    "notes": "Marketplace最終版 v3.54.0。gemini-3.5-flash-lite 非対応。別モデルでも API リクエスト無応答で実使用不能"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 3,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "開発終了・バックエンド停止済みで、'こんにちは'への応答すら得られず。記録保存として残しているのみ。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 3,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "VS Code拡張としてUIの見やすさは維持されているものの、2026年5月に開発終了・バックエンド停止済みであり、GeminiおよびOllamaのどちらの経路でも「APIリクエスト...」のまま応答が得られず動作しません。ローカルLLM環境でもリクエスト自体が発生せずにハング（L1）するなど実用不能な状態となっています。新規導入するメリットは皆無であり、初学者には絶対におすすめできません。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 0,
+        "ui": 3,
+        "learning": 1,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "VS Code拡張として導入できますが、開発終了済みで、Gemini・Ollamaの両経路ともAPIリクエストが無応答となり、T6は2分以上、L1は3分以上待っても進まず計測不能でした。エラー表示もなくハング状態が続いたため、初学者が難しい設定なしに使えることや、弱いモデルで動作することを実測から確認できません。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 0,
+        "ui": 2,
+        "learning": 1,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "2026-05に開発終了・リポジトリがアーカイブされ、運営メモ上も対象は非推奨です。最終版v3.54.0はgemini-3.5-flash-liteに非対応で、BYOK(Gemini)のT6は2分以上「APIリクエスト...」のまま無応答、ローカルLLM(qwen3.5:4b)のL1も「こんにちは」に3分以上応答せず、いずれもタイムアウトやエラー表示すらなく原因が分からない点は初学者に致命的です。L2/L3も計測不能で、Marketplaceから導入できてもまともに使えない状態のため、初学者にはおすすめできません（uiのみ導入自体は可能な点を考慮して最低点にはしていません）。"
+    }
+  ]
+}

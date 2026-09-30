@@ -1,0 +1,96 @@
+{
+  "editor_id": "kilocode",
+  "matrix": {
+    "form": "VS Code 拡張（Roo系フォーク）",
+    "os_windows": "○",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○",
+    "custom_endpoint": "○",
+    "local_llm": "○ Ollama等",
+    "proxy_key_hiding": "△ モデル選択肢のデフォルトがKilo gateway経由（透かし表示）で、BYOKには自分でGoogleプロバイダ選択が必要",
+    "token_saving": "○ キャッシュ実測 hit 69.5%",
+    "telemetry": "△ 収集あり・opt-out可",
+    "auto_approve": "○",
+    "parallel": "△ 単一タスク主体",
+    "checkpoint": "○",
+    "mcp": "○",
+    "cost_display": "○ in/out/reasoning/cache の詳細内訳",
+    "account_required": "△ BYOKなら不要（gateway選択時は要Kiloアカウント）",
+    "target_audience": "初学者〜中級者"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "VS Code 拡張",
+    "hw_spec": "?",
+    "difficulty": "○",
+    "notes": "Marketplace から通常導入。初回のモデル選択で Kilo アカウントログイン画面 (app.kilo.ai) に誘導される （管理者メモ）使用していない間も欄外にエラー・通知を出し続ける。原因はオートコンプリート(Next Edit)機能が Kilo Gateway 経由の Mercury Edit 2 を使う設計で、BYOK(Google)のみの構成ではアクセスできず通知が出続ける模様。BYOK設定後もgateway依存が残る点は要注意"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 3,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 1,
+        "overall": 1
+      },
+      "comment": "UI・導入は良好でT6も42秒だが、LocalLLM L1実行中に応答待ちが続いた末PCが完全フリーズし強制電源断を要した。BugCheckなしのOS応答不能は重大な安定性問題で、一般ビジネスPCでの実用は困難と判断し計測断念。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 3,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 1,
+        "overall": 1
+      },
+      "comment": "VS Code拡張として手軽に導入できUIも見やすいものの、BYOK利用時にデフォルトのKilo Gatewayから手動でプロバイダを切り替える必要があり、初回認証の誘導も含めてやや戸惑う設計です。Gemini環境ではT6を42秒でこなす一方、ローカルLLM環境（L1）では実行中にPCが完全フリーズして強制電源断に至るなど、動作の安定性に重大な問題が確認されました。一般的スペックのPC環境においてフリーズリスクがあるため、初学者には安全面からおすすめできません。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 5,
+        "ui": 4,
+        "learning": 4,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 3,
+        "overall": 2
+      },
+      "comment": "VS Code Marketplaceから通常導入でき、対象も初学者〜中級者で、BYOKならアカウント不要ですが、初回のモデル選択ではKiloアカウントへの誘導があります。BYOKのT6は42秒・介入5回で成功した一方、ローカルLLMではL1実行中にPC全体がフリーズして強制電源断となり、L2・L3も計測断念となったため、弱いモデルを使う初学者には大きな不確実性があります。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 4,
+        "learning": 3,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "overall": 2
+      },
+      "comment": "VS Code拡張としてMarketplaceから通常導入でき、対象は初学者〜中級者と明記され、コストやキャッシュ(hit率69.5%)の内訳表示も詳しい一方、初回のモデル選択でKiloアカウントのログイン画面に誘導され、BYOKには自分でGoogleプロバイダを選び直す必要があるため、初学者には最初の分かれ道が分かりにくいです。BYOK(gemini-3.5-flash-lite)のT6は静的・動的検証ともに成功しましたが42秒・介入5回と、他ツールと比べて承認操作が多めです。ローカルLLM(qwen3.5:4b)ではL1で5分超の応答待ちの末にPCが完全フリーズして強制電源断となり、L1〜L3が全て計測断念となったため、一般的なミニPCで弱いモデルを使う用途には安全におすすめできません。"
+    }
+  ]
+}

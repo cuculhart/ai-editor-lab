@@ -1,0 +1,97 @@
+{
+  "editor_id": "continue",
+  "matrix": {
+    "form": "VS Code / JetBrains 拡張",
+    "os_windows": "○",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○ config.yaml",
+    "custom_endpoint": "○",
+    "local_llm": "○ Ollama定番",
+    "proxy_key_hiding": "○",
+    "token_saving": "△ 明示的なキャッシュ設定なし",
+    "telemetry": "△ 匿名収集・opt-out可",
+    "auto_approve": "△ ポリシー設定",
+    "parallel": "△ 単一タスク主体",
+    "checkpoint": "○",
+    "mcp": "○",
+    "cost_display": "× 表示なし",
+    "account_required": "△ Hub利用時のみ要（BYOKはローカル設定可）",
+    "target_audience": "中級者（config.yaml編集前提）",
+    "session_persist": "△ gemini-3.5-flash-lite で2回連続ハング（生成途中・生成完了直後）"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "VS Code 拡張",
+    "hw_spec": "?",
+    "difficulty": "○",
+    "notes": "Marketplace から通常導入"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 3,
+        "learning": 2,
+        "steering": 1,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 2,
+        "overall": 1
+      },
+      "comment": "GUIでのモデル追加は容易だが、qwen3.5:4bではcapabilities:tool_useを有効化してもツール呼び出しが発行されず、L2では説明テキストのみで編集不発を2回確認。L3はPythonプロジェクトにnpm testを誤実行して停止。L1の生成物もソート欠落で仕様未達だった。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 3,
+        "learning": 2,
+        "steering": 1,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 1,
+        "overall": 1
+      },
+      "comment": "VS Code拡張から簡単に導入できるものの、設定にconfig.yamlの編集が必要でGemini環境でも生成途中や完了直後に5分以上ハングする問題が多発しました。ローカルLLM環境ではツール呼び出しが機能せずファイル編集が適用されない（L2）ほか、Python環境でnpm testを誤実行（L3）するなどエラー時の挙動や安定性に大きな課題があります。応答停止や仕様未達が目立ち、初学者がストレスなく使うには厳しい評価です。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 4,
+        "learning": 3,
+        "steering": 2,
+        "stuck_free": 1,
+        "error_handling": 2,
+        "speed_feel": 2,
+        "overall": 2
+      },
+      "comment": "Marketplaceから通常導入できるVS Code/JetBrains拡張ですが、config.yaml編集前提で対象は中級者とされており、初学者向けとしては学習コストが残ります。ローカルLLMではL1が仕様未達、L2・L3は編集を一切適用できず、T6でも生成途中や完了直後のハングが複数回発生しているため、弱いモデル利用時の詰まりやすさが目立ちます。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 3,
+        "learning": 2,
+        "steering": 1,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 2,
+        "overall": 1
+      },
+      "comment": "Marketplaceから通常導入できるものの、BYOKやOllamaの利用にはconfig.yamlの編集が前提で、対象も中級者と明記されており、初学者には最初の設定から壁があります。BYOK(gemini-3.5-flash-lite)ではT6で3ファイル生成後のハングと、script.js生成中に5分以上『Generating...』のまま止まる失敗が起きています。ローカルLLM(qwen3.5:4b)でもL2は編集が一切適用されず、L3はPythonプロジェクトでnpm testを誤実行して停止、L1も昇順ソート漏れで、弱いモデルではツール呼び出しが機能せずL系タスクを1件も達成できませんでした。"
+    }
+  ]
+}

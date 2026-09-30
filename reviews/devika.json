@@ -1,0 +1,96 @@
+{
+  "editor_id": "devika",
+  "matrix": {
+    "form": "Webアプリ",
+    "os_windows": "× 依存解決困難（実測で断念）",
+    "os_mac": "○ Python+uv/bun（公式docs）",
+    "os_linux": "○ Python+uv/bun（公式docs）",
+    "byok": "○",
+    "custom_endpoint": "△ config.tomlのAPI_ENDPOINTSでOLLAMA/OPENAI先を差し替え可",
+    "local_llm": "○ Ollama対応",
+    "proxy_key_hiding": "△ config.tomlにローカル保存。プロキシ経由は自前",
+    "token_saving": "× コード全体をMarkdown化して送る設計・キャッシュなし",
+    "telemetry": "○ 収集機能なし（OSS・開発停滞）",
+    "auto_approve": "○ 自律実行型",
+    "parallel": "×",
+    "checkpoint": "× 復元機能なし",
+    "mcp": "× 未対応（2025-09に開発停滞）",
+    "cost_display": "△ token使用量のみ表示（コスト換算なし）",
+    "account_required": "不要",
+    "target_audience": "中級者（開発停滞）"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "Python + Playwright + 重い依存",
+    "hw_spec": "?",
+    "difficulty": "×",
+    "notes": "導入試行を断念。最終コミット 2025-09"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 0,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "依存解決の時点で導入が成立せず計測不能。最終コミットも古く開発停止。評価以前の問題。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 0,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "依存関係が非常に重くWindows環境での依存解決が困難であり、ベンチマークの計測以前に導入試行の段階で断念する結果となりました。最終コミットも2025年9月で開発が停滞しており、環境構築すらまともに進められない状況です。難しい設定なしに動かすことが前提の初学者には一切おすすめできません。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 2,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "Web UIという形態ですが、Windowsでは依存解決が困難で導入試行を断念しており、L1〜L3はすべて計測不能でした。実測上は動作確認まで到達できず、Python・Playwrightと重い依存に加えて開発停滞も記録されているため、初学者が難しい設定なしに使えることを確認できる材料がありません。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 0,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "Windows環境でPython+Playwrightなどの重い依存が解決できず導入を断念したため、L1〜L3を含む全ベンチマークが計測不能で、操縦性や速度、エラー時の挙動は評価できず0点としています（データ不足による最低点で、実際の性能が低いという意味ではありません）。対象は中級者と記されている上、最終コミットが2025-09で開発が停滞しており、初学者が難しい設定なしに使い始められるツールとは言えません。BYOKとOllamaには対応するものの、導入の時点でつまずくため、初学者にはおすすめできません。"
+    }
+  ]
+}

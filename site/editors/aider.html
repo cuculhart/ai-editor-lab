@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aider — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="../index.html">トップ</a>
+      <a href="../method.html">測定方法</a>
+      <a href="../about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container">
+      <h2>Aider</h2>
+      <div class="row">
+        <div class="col-md-5 mb-3"><div class="card-pop"><h5>基本情報</h5>
+          <table class="table table-sm"><tr><th>形態</th><td>CLI</td></tr><tr><th>ライセンス</th><td>Apache-2.0</td></tr><tr><th>公式サイト</th><td><a href='https://aider.chat'>https://aider.chat</a></td></tr><tr><th>リポジトリ</th><td><a href='https://github.com/Aider-AI/aider'>https://github.com/Aider-AI/aider</a></td></tr><tr><th>メモ</th><td>CLI の代表格。--yes で自動化しやすい</td></tr></table></div></div>
+        <div class="col-md-7 mb-3"><div class="card-pop"><h5>導入の容易さ</h5>
+          <table class="table table-sm"><tr><th>所要時間（分）</th><td><span class="unknown">?</span></td></tr><tr><th>手順数</th><td><span class="unknown">?</span></td></tr><tr><th>依存要件</th><td>Python</td></tr><tr><th>必要スペック</th><td><span class="unknown">?</span></td></tr><tr><th>難易度</th><td><span class="mark mark-mid">△</span></td></tr><tr><th>導入メモ</th><td>Python 3.14 では依存ビルド不可 → uv で 3.12 環境に導入</td></tr></table></div></div>
+      </div>
+      <div class="card-pop mb-3"><h5>機能マトリクス</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>項目</th><th class="text-center">評価</th><th>備考</th></tr></thead>
+        <tbody><tr><th>形態</th><td class='text-center'></td><td>CLI</td></tr><tr><th>Windows</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>--no-fancy-input必須・git前提</td></tr><tr><th>macOS</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>Linux</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>BYOK</th><td class='text-center'><span class="mark mark-yes">○</span></td><td></td></tr><tr><th>カスタムエンドポイント</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>litellm</td></tr><tr><th>ローカルLLM</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>ollama</td></tr><tr><th>プロキシでキー隠蔽</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>litellm経由</td></tr><tr><th>トークン節約</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>repo-map・cache prompts</td></tr><tr><th>テレメトリー</th><td class='text-center'><span class="mark mark-mid">△</span></td><td>analytics・opt-out可</td></tr><tr><th>自動実行</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>--yes-always</td></tr><tr><th>マルチターミナル/並走</th><td class='text-center'><span class="mark mark-no">×</span></td><td></td></tr><tr><th>やりなおし</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>git commit/undo</td></tr><tr><th>MCP 対応</th><td class='text-center'><span class="mark mark-no">×</span></td><td></td></tr><tr><th>コスト表示</th><td class='text-center'><span class="mark mark-yes">○</span></td><td>message/session毎</td></tr><tr><th>アカウント登録</th><td class='text-center'></td><td>不要</td></tr><tr><th>ターゲット層</th><td class='text-center'></td><td>中級者（git前提）</td></tr></tbody></table></div></div>
+      <div class="card-pop mb-3"><h5>定量ベンチ結果</h5>
+        <div class="table-responsive"><table class="table table-sm">
+        <thead><tr><th>タスク</th><th>カテゴリ</th><th>回</th><th>成功</th><th>秒</th><th>USD</th><th>介入</th><th>日付</th></tr></thead>
+        <tbody><tr><td>T1</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>21</td><td>0.0021</td><td>0</td><td>2026-09-27</td></tr><tr><td>T2</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>11</td><td>0.00078</td><td>0</td><td>2026-09-27</td></tr><tr><td>T3</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>20</td><td>0.0021</td><td>0</td><td>2026-09-27</td></tr><tr><td>T4</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>13</td><td>0.0014</td><td>0</td><td>2026-09-27</td></tr><tr><td>T5</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>13</td><td>0.0018</td><td>0</td><td>2026-09-27</td></tr><tr><td>T6</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td></tr><tr><td>T6</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>17</td><td>0.0037</td><td>0</td><td>2026-09-27</td></tr><tr><td>L1</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td>420</td><td><span class="unknown">?</span></td><td>0</td><td>2026-09-28</td></tr><tr><td>L2</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>120</td><td><span class="unknown">?</span></td><td>0</td><td>2026-09-28</td></tr><tr><td>L3</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td>622</td><td><span class="unknown">?</span></td><td>0</td><td>2026-09-28</td></tr></tbody></table></div></div>
+      <h5 class="mt-4 mb-3">使用感レビュー（4者）</h5>
+      <div class="row">
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">ChatGPT</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 CLIかつGit前提で、Windowsでは--no-fancy-inputが必要、Python 3.14では依存ビルド不可で3.12環境が必要なため、初学者には導入・操作の学習コストが高めです。一方、BYOKではT1〜T6が11〜21秒・介入0回ですべて成功し、指示通りに動く一方、ローカルLLMではL1が420秒で要件を落とし、L3が622秒で文字化けを構文エラーと誤診して本物のバグに未着手だったため、弱いモデル利用時の詰まりやエラー対応には課題があります。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Gemini</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
+        <p class="small mb-0">💬 Git環境でないとファイルを見つけられず、Windowsでは--no-fancy-inputが必須など導入のハードルが高いツールです。Gemini環境ではT1〜T6を10〜20秒台・介入0でこなす圧倒的な速さを見せる一方、ローカルLLMではCP932文字化けにより誤ったファイルを上書きする失敗が発生しました。環境構築やGitの知識が求められるため、プログラミング初学者にはおすすめできません。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Claude</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)ではT1〜T6が全て成功し、11〜21秒・介入0回と速度と操縦性は非常に良好でした。一方で、git前提（--no-git ではrepo-mapが無効になりファイル未発見）、Python 3.14で依存ビルド不可、Windowsで--no-fancy-input必須と、導入と初期設定でつまずく要素が多く、運営メモ上も対象は中級者です。ローカルLLM(qwen3.5:4b)ではL1で要件漏れ、L2で編集後にハング、L3で文字化けの誤診により無関係なファイルを上書きしており、弱いモデルでの自己回復力は低いため、初学者には積極的におすすめしにくいです。</p>
+      </div></div>
+      <div class="col-md-6 mb-3"><div class="card-pop">
+        <span class="reviewer-chip">Devin (SWE-2)</span>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 BYOK環境ではT1–T6全完走・介入0という唯一無二の記録。一方CLI+Git前提で、Windowsでは--no-fancy-input必須、ローカルLLMではCP932文字化けでファイルを誤上書きする障害を確認。コマンドラインに慣れた中級者向きで、初学者にはハードルが高い。</p>
+      </div></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

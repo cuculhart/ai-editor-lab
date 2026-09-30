@@ -1,0 +1,182 @@
+/* AIエディターラボ — ポップ系カスタムCSS（Bootstrap 5 併用） */
+
+:root {
+  --pop-pink: #e8a0b4;
+  --pop-blue: #96bcd8;
+  --pop-yellow: #ecd9a0;
+  --pop-mint: #a5d4bd;
+  --pop-purple: #bfadd8;
+  --pop-bg: #faf6f1;
+  --pop-ink: #4a4458;
+}
+
+body {
+  background: var(--pop-bg);
+  color: var(--pop-ink);
+  font-family: "Hiragino Sans", "BIZ UDPGothic", "Yu Gothic UI", Meiryo,
+    "Noto Sans JP", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 丸文字は見出し・ロゴ・バッジ等の大きい要素だけに限定 */
+h1, h2, h3, h4, h5, h6,
+.site-logo, .site-nav a, .hero-badge, .hero .lead,
+.editor-name, .reviewer-chip, .score-num {
+  font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN",
+    "Hiragino Sans", "BIZ UDPGothic", "Yu Gothic UI", Meiryo, sans-serif;
+}
+
+.site-header {
+  background: linear-gradient(120deg, var(--pop-pink), var(--pop-yellow) 55%, var(--pop-mint));
+  padding: 1rem 0;
+  border-bottom: 4px solid #fff;
+  box-shadow: 0 2px 12px rgba(255, 143, 179, 0.25);
+}
+
+.site-logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #3d3850;
+  text-decoration: none;
+}
+
+.site-logo:hover { color: #3d3850; opacity: 0.75; }
+
+.site-nav a {
+  color: #3d3850;
+  font-weight: 700;
+  margin-left: 0.6rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+.site-nav a:hover { background: rgba(255, 255, 255, 0.85); }
+
+.hero {
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.hero .lead {
+  font-size: 1.1rem;
+  margin-top: 0.8rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-weight: 700;
+  color: #c76b85;
+  box-shadow: 0 2px 6px rgba(232, 160, 180, 0.35);
+  margin-bottom: 1rem;
+}
+
+.section { padding: 2.2rem 0; }
+
+.section h2 {
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  padding-left: 0.6rem;
+  border-left: 8px solid var(--pop-pink);
+}
+
+.card-pop {
+  background: #fff;
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 16px rgba(201, 167, 255, 0.18);
+  padding: 1.4rem;
+  height: 100%;
+}
+
+.table-pop {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(124, 200, 255, 0.15);
+}
+
+.table-pop thead th {
+  background: var(--pop-blue);
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.table-pop td, .table-pop th {
+  padding: 0.55rem 0.8rem;
+  vertical-align: middle;
+}
+
+.unknown {
+  color: #b9b0c9;
+  font-weight: 700;
+}
+
+.badge-yes { background: var(--pop-mint); color: #35604a; }
+.badge-no { background: #e2b3bc; color: #7a3d4a; }
+.badge-mid { background: var(--pop-yellow); color: #6d5626; }
+.badge-unk { background: #e0dae8; color: #847996; }
+
+.mark {
+  display: inline-block;
+  min-width: 1.8rem;
+  text-align: center;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-weight: 800;
+}
+
+.mark-yes { background: var(--pop-mint); color: #35604a; }
+.mark-no { background: #e2b3bc; color: #7a3d4a; }
+.mark-mid { background: var(--pop-yellow); color: #6d5626; }
+.mark-unk { background: #e0dae8; color: #847996; }
+
+a.card-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.15s ease;
+}
+
+a.card-link:hover { transform: translateY(-3px); }
+
+.editor-name {
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.score-num {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #c76b85;
+}
+
+.reviewer-chip {
+  display: inline-block;
+  background: var(--pop-purple);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.15rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+footer.site-footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background: #fff;
+  border-top: 4px solid var(--pop-yellow);
+  text-align: center;
+  color: #8a80a0;
+}

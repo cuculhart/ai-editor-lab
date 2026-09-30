@@ -1,0 +1,96 @@
+{
+  "editor_id": "void",
+  "matrix": {
+    "form": "スタンドアロンIDE（VS Codeフォーク）",
+    "os_windows": "○",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○",
+    "custom_endpoint": "○",
+    "local_llm": "○ Ollama対応を標榜",
+    "proxy_key_hiding": "○ プロバイダ直接接続",
+    "token_saving": "× 未実装（issue #405）",
+    "telemetry": "○ プライバシー重視設計",
+    "auto_approve": "△ gemini-3.5-liteでツール呼出し破綻",
+    "parallel": "△ 複数スレッド（エージェント並走ではない）",
+    "checkpoint": "○",
+    "mcp": "○",
+    "cost_display": "?",
+    "account_required": "不要（プロジェクトフォルダ必須）",
+    "target_audience": "中級者"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "zip ポータブル",
+    "hw_spec": "?",
+    "difficulty": "○",
+    "notes": "Void.exe 展開して起動。インストーラ不要"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 4,
+        "learning": 3,
+        "steering": 2,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "overall": 2
+      },
+      "comment": "VS Codeフォークで導入は容易。L1・L3は完走したが、L2ではEDIT適用時に行頭インデントを喪失させてファイルをIndentationErrorで破壊。BYOK T6でもツール呼び出しが10回以上連続失敗し0バイトファイル+コピペ要求に破綻。編集適用の安定性に深刻な課題。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 4,
+        "learning": 3,
+        "steering": 2,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "overall": 2
+      },
+      "comment": "VS Codeフォークのエディタとしてzip展開のみで簡単に導入できUIも見やすい一方、BYOK（Gemini）でのT6タスクではツール呼び出しが10回以上エラーを起こして0バイトの空ファイルを生成しチャットへのコピペを求めて破綻しました。ローカルLLM環境でも、自力デバッグ（L3）で修正を成功させたものの、1行修正（L2）では行頭インデントを失わせてコードを破壊するなど編集精度の粗さが目立ちます。環境によってはコードの自動適用でファイルを破壊するリスクがあり、エラー時の適切なリカバリが難しい点から初学者にはおすすめしづらいツールです。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 3,
+        "ui": 4,
+        "learning": 3,
+        "steering": 2,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "overall": 3
+      },
+      "comment": "zip展開して起動でき、L1はローカルLLMで仕様完全一致、L3もEDIT失敗を経て全7テスト合格まで自己確認できており、基本的な開発作業は実行できています。一方、T6では81秒でツール呼び出しが10回以上エラーになり、空ファイルだけ生成して最終的にユーザーのコピペを要求し、L2でもインデント喪失によるIndentationErrorでファイルを破壊しました。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 3,
+        "learning": 3,
+        "steering": 2,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 2,
+        "overall": 2
+      },
+      "comment": "Void.exeを展開するだけで起動でき、プライバシー重視でアカウントも不要な一方、対象は中級者で、BYOK(gemini-3.5-flash-lite)のT6ではツール呼び出しが10回以上エラーとなり、0バイトの空ファイル3つしか作れず、最後はコードをチャットに出してコピペを求め、その内容も要件外(id=\"start-btn\"・class=\"hole\")でした。ローカルLLM(qwen3.5:4b)ではL1(sorted+filterで仕様一致)とL3(EDITを2回失敗後に修正し全7件合格を自己確認)は成功しましたが、L2では編集でインデントが失われIndentationErrorとなりファイルを破壊したうえで完了を宣言しており、初学者が気づきにくい危うさがあります。ファイル生成や自力デバッグは動く場面もあるものの、モデルとの相性で挙動が大きく変わるため、初学者には積極的におすすめしにくいです。"
+    }
+  ]
+}

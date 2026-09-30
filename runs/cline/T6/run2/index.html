@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>モグラ叩きゲーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>モグラ叩きゲーム</h1>
+        <div class="game-info">
+            <div class="info-box">スコア: <span id="score">0</span></div>
+            <div class="info-box">残り時間: <span id="timer">30</span>秒</div>
+        </div>
+        
+        <button id="start-button">スタート</button>
+
+        <div class="grid">
+            <div class="cell" data-id="0"><div class="mole"></div></div>
+            <div class="cell" data-id="1"><div class="mole"></div></div>
+            <div class="cell" data-id="2"><div class="mole"></div></div>
+            <div class="cell" data-id="3"><div class="mole"></div></div>
+            <div class="cell" data-id="4"><div class="mole"></div></div>
+            <div class="cell" data-id="5"><div class="mole"></div></div>
+            <div class="cell" data-id="6"><div class="mole"></div></div>
+            <div class="cell" data-id="7"><div class="mole"></div></div>
+            <div class="cell" data-id="8"><div class="mole"></div></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

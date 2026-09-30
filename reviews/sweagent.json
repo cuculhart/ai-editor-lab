@@ -1,0 +1,96 @@
+{
+  "editor_id": "sweagent",
+  "matrix": {
+    "form": "CLIエージェント（Docker sandbox）",
+    "os_windows": "△ Docker必須・cp932回避(PYTHONUTF8)・空リポ不可・autocrlf環境のcloneでsubmit不可（ツールスクリプトCRLF化）",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○ litellm",
+    "custom_endpoint": "○",
+    "local_llm": "△ tool calling要検証",
+    "proxy_key_hiding": "○",
+    "token_saving": "△ 実測で過剰消費",
+    "telemetry": "○ 収集機能なし",
+    "auto_approve": "○ 全自動",
+    "parallel": "×",
+    "checkpoint": "×",
+    "mcp": "×",
+    "cost_display": "○ trajに記録",
+    "account_required": "不要",
+    "target_audience": "研究者・上級者"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "Docker + Python 3.12",
+    "hw_spec": "?",
+    "difficulty": "△",
+    "notes": "PyPI 非対応。ソースインストール要・Windows は PYTHONUTF8=1 必須＋パス長問題あり＋git clone は core.autocrlf=false で（CRLF化するとコンテナ内 submit が恒久的に失敗）"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 1,
+        "learning": 0,
+        "steering": 2,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 1,
+        "overall": 0
+      },
+      "comment": "調査で根本原因を特定した:上流に.gitattributesが無くWindows標準clone(autocrlf)でツールスクリプトがCRLF化し、コンテナ内submitが永久に失敗する。T6もステップ上限枯渇で未提出。docs通りの初学者は同じ罠を踏む。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "1.1.0",
+      "scores": {
+        "audience": 1,
+        "ui": 1,
+        "learning": 0,
+        "steering": 2,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 1,
+        "overall": 0
+      },
+      "comment": "PyPI非対応のためソースインストールが必要な上、Windows環境ではDocker導入に加えPYTHONUTF8=1の設定や改行コード（gitのautocrlf）に起因するsubmit不能問題が発生するなど、セットアップのハードルが極めて高くなっています。実際のタスク（T6）でも、自己検証用テストの作成に多数のステップを消費してステップ上限（23 API calls）に達し、320秒経過しても完了（submit）できず大量のトークンを消費して失敗しました。動作保証や環境構築の面で難解なトラブルシューティングが必須となるため、プログラミング初学者には全くおすすめできません。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 2,
+        "learning": 1,
+        "steering": 2,
+        "stuck_free": 1,
+        "error_handling": 2,
+        "speed_feel": 2,
+        "overall": 1
+      },
+      "comment": "研究者・上級者向けで、Docker＋Python 3.12のソース導入に加え、WindowsではPYTHONUTF8やautocrlf対策など追加設定が必要なため、初学者には導入負担が大きいです。T6は320秒で3ファイル生成まで進んだものの23 API callsの上限でsubmitできず、自己検証に多数ステップを消費しており、効率と詰まりにくさにも課題があります。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 1,
+        "learning": 0,
+        "steering": 1,
+        "stuck_free": 0,
+        "error_handling": 1,
+        "speed_feel": 1,
+        "overall": 0
+      },
+      "comment": "対象は研究者・上級者と明記されており、導入もPyPI非対応でソースインストールとDockerが必要な上、Windowsでは PYTHONUTF8=1 の指定、パス長問題、git clone時の core.autocrlf=false 設定が必須で、CRLF化するとコンテナ内のsubmitが恒久的に失敗するため、初学者には非常に高い壁です。BYOK(gemini-3.5-flash-lite)のT6は3ファイルまで生成したものの、自己検証用テストの作成にステップを使い果たして23 API callsの上限でsubmitできず、320秒で失敗しトークン消費も他ツールの数倍でした。T6以外は計測見送りでデータ不足のため低評価としていますが、現状では初学者にはおすすめできません。"
+    }
+  ]
+}

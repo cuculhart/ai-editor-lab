@@ -1,0 +1,145 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    user-select: none;
+}
+
+.game-container {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+.info-box span {
+    color: #ff4500;
+}
+
+#start-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#start-button:hover {
+    background-color: #45a049;
+}
+
+#start-button:active {
+    transform: scale(0.95);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background-color: #8B4513;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cell {
+    background-color: #DEB887;
+    height: 90px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 8px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.mole {
+    width: 70px;
+    height: 70px;
+    background-color: #a0522d;
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.15s ease-in-out;
+    background-image: radial-gradient(circle at 30% 30%, #cd853f 15%, transparent 16%),
+                      radial-gradient(circle at 70% 30%, #cd853f 15%, transparent 16%),
+                      radial-gradient(circle at 50% 55%, #000 10%, transparent 11%),
+                      radial-gradient(circle at 50% 70%, #ffc0cb 15%, transparent 16%);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.cell.show .mole {
+    bottom: 10px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+#restart-button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#restart-button:hover {
+    background-color: #0b7dda;
+}

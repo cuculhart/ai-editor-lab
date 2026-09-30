@@ -1,0 +1,96 @@
+{
+  "editor_id": "cline",
+  "matrix": {
+    "form": "VS Code 拡張",
+    "os_windows": "○",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○",
+    "custom_endpoint": "○",
+    "local_llm": "○ Ollama等",
+    "proxy_key_hiding": "○ LiteLLM/OpenAI互換経由可",
+    "token_saving": "○ プロンプトキャッシュ対応",
+    "telemetry": "△ 収集あり・opt-out可",
+    "auto_approve": "○ 設定で介入0可",
+    "parallel": "△ 単一タスク主体",
+    "checkpoint": "○",
+    "mcp": "○",
+    "cost_display": "○ タスク毎に表示",
+    "account_required": "不要",
+    "target_audience": "初学者〜中級者"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "VS Code 拡張",
+    "hw_spec": "?",
+    "difficulty": "○",
+    "notes": "Marketplace から通常導入"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 3,
+        "steering": 3,
+        "stuck_free": 3,
+        "error_handling": 3,
+        "speed_feel": 4,
+        "overall": 3
+      },
+      "comment": "Marketplace導入だけで動き、T6を30秒・$0.0091で完走。LocalLLMのL-suiteも全完走したが、L1はパス誘導が必要、L3は編集不一致→type再確認(文字化け)→再編集と5介入を要した。自動承認設定で実用圏だが、弱いモデルでの手戻りは残る。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 3,
+        "steering": 3,
+        "stuck_free": 3,
+        "error_handling": 3,
+        "speed_feel": 4,
+        "overall": 3
+      },
+      "comment": "VS Code拡張機能として導入しやすく直感的に操作できますが、ローカルLLM環境ではパスタイポやPowerShellのコマンドエラーを発生させるなど初学者にはやや手がかかる面があります。一方でエラー発生時には自力で再確認を行って最終的にデバッグ（L3）を成功させており、BYOK環境ではT6タスクを30秒で完走するなど高いポテンシャルを示しています。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 5,
+        "ui": 5,
+        "learning": 4,
+        "steering": 4,
+        "stuck_free": 4,
+        "error_handling": 4,
+        "speed_feel": 4,
+        "overall": 4
+      },
+      "comment": "VS Code拡張でMarketplaceから通常導入でき、対象も初学者〜中級者のため、初学者が始めやすい構成です。ローカルLLMでもL2は介入0回で全7テスト合格、L3も介入5回ながら自力デバッグを完走して全7テスト合格しましたが、L1ではパス誘導など2回の介入が必要で余分なサブディレクトリも作成しました。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 4,
+        "steering": 3,
+        "stuck_free": 4,
+        "error_handling": 4,
+        "speed_feel": 3,
+        "overall": 4
+      },
+      "comment": "VS Code拡張としてMarketplaceから通常導入でき、対象も初学者〜中級者と明記されているため、Aiderのようなgit前提や環境依存の詰まりがなく入りやすいです。弱いローカルLLM(qwen3.5:4b)でもL1〜L3を全て完走し、L3ではテキスト不一致や文字化けで初回編集に失敗しても再確認して自力回復（介入5回・全7テスト合格）しており、エラー時の粘り強さが際立ちます。一方でL1ではパスのタイポと余分なcalc/ディレクトリ作成で要件から逸脱し、T6のBYOKでも動的検証が3回中2回の不安定さがあったため、操縦性は満点にはできません。"
+    }
+  ]
+}

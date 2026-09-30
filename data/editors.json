@@ -1,0 +1,195 @@
+{
+  "site": {
+    "name": "AIエディターラボ",
+    "tagline": "サブスクなし・自分のAPIキーで動くエージェント型 AI エディターだけを本気で比較",
+    "domain": "https://labo.mond.jp/",
+    "updated": "2026-09-30",
+    "repo": "https://github.com/cuculhart/ai-editor-lab"
+  },
+  "models": {
+    "byok-gemini": "gemini-3.5-flash-lite",
+    "localllm": "qwen3.5:4b (Ollama)"
+  },
+  "categories": {
+    "byok-gemini": "BYOK（Gemini系）",
+    "other": "その他系",
+    "localllm": "LocalLLM系"
+  },
+  "editors": [
+    {
+      "id": "cline",
+      "name": "Cline",
+      "form": "VS Code 拡張",
+      "license": "Apache-2.0",
+      "url": "https://cline.bot",
+      "repo": "https://github.com/cline/cline",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "人気最大級。BYOK・Ollama 対応"
+    },
+    {
+      "id": "roocode",
+      "name": "Roo Code",
+      "form": "VS Code 拡張",
+      "license": "Apache-2.0",
+      "url": "https://roocode.com",
+      "repo": "https://github.com/RooCodeInc/Roo-Code",
+      "categories": [
+        "other",
+        "localllm"
+      ],
+      "notes": "v3.54.0 で開発終了・リポアーカイブ済み（2026-05-15）。後継 Roomote はクラウドエージェント製品でIDEツールではないため対象外。コミュニティ継続は Zoo Code 系へ。計測試行は Gemini・Ollama 両経路で無応答（バックエンド停止の可能性）→ 評価不能として記録"
+    },
+    {
+      "id": "zoocode",
+      "name": "Zoo Code",
+      "form": "VS Code 拡張 + CLI",
+      "license": "Apache-2.0",
+      "url": "https://www.zoocode.dev",
+      "repo": "https://github.com/Zoo-Code-Org/Zoo-Code",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "Roo Code のコミュニティフォーク。CLI 実行可"
+    },
+    {
+      "id": "kilocode",
+      "name": "Kilo Code",
+      "form": "VS Code 拡張",
+      "license": "Apache-2.0",
+      "url": "https://kilocode.ai",
+      "repo": "https://github.com/Kilo-Org/kilocode",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "Roo Code 系フォーク。ユーザー数大 LocalLLM計測はL1で全システムフリーズ(強制電源断)により断念"
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "form": "VS Code/JetBrains 拡張",
+      "license": "Apache-2.0",
+      "url": "https://continue.dev",
+      "repo": "https://github.com/continuedev/continue",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "チャット型だがエージェントモードあり"
+    },
+    {
+      "id": "openhands",
+      "name": "OpenHands",
+      "form": "Web UI + Docker",
+      "license": "MIT",
+      "url": "https://openhands.dev",
+      "repo": "https://github.com/All-Hands-AI/OpenHands",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "自律エージェント型。CLI もあり"
+    },
+    {
+      "id": "devika",
+      "name": "Devika",
+      "form": "Web UI（Python）",
+      "license": "MIT",
+      "url": "?",
+      "repo": "https://github.com/stitionai/devika",
+      "categories": [],
+      "notes": "最終コミット 2025-09 で開発停滞。依存が重く導入試行を断念 — 計測不可として記録"
+    },
+    {
+      "id": "sweagent",
+      "name": "SWE-agent",
+      "form": "CLI（Docker バックエンド）",
+      "license": "MIT",
+      "url": "https://swe-agent.com",
+      "repo": "https://github.com/SWE-agent/SWE-agent",
+      "categories": [
+        "byok-gemini"
+      ],
+      "notes": "SWE-bench チーム製の自律エージェント。sweagent run で駆動。Docker サンドボックス前提。T6 失敗後、現バージョン(v1.1.0)は Windows 標準 clone(autocrlf) で submit 不能と判明し以降の計測を見送り — 評価不能として記録"
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "form": "ターミナル（TUI）",
+      "license": "MIT",
+      "url": "https://opencode.ai",
+      "repo": "https://github.com/sst/opencode",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "SST 製。opencode run で非対話実行可"
+    },
+    {
+      "id": "aider",
+      "name": "Aider",
+      "form": "CLI",
+      "license": "Apache-2.0",
+      "url": "https://aider.chat",
+      "repo": "https://github.com/Aider-AI/aider",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "CLI の代表格。--yes で自動化しやすい"
+    },
+    {
+      "id": "goose",
+      "name": "Goose",
+      "form": "CLI + デスクトップ",
+      "license": "Apache-2.0",
+      "url": "https://block.github.io/goose/",
+      "repo": "https://github.com/block/goose",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "Block 製 OSS エージェント"
+    },
+    {
+      "id": "plandex",
+      "name": "Plandex",
+      "form": "CLI",
+      "license": "MIT",
+      "url": "https://plandex.ai",
+      "repo": "https://github.com/plandex-ai/plandex",
+      "categories": [],
+      "notes": "公式に Windows ビルドなし（darwin/linux/freebsd のみ）。WSL 必須のため本ベンチでは計測不可 — 導入可否の記録対象"
+    },
+    {
+      "id": "void",
+      "name": "Void",
+      "form": "VS Code フォーク",
+      "license": "Apache-2.0",
+      "url": "https://voideditor.com",
+      "repo": "https://github.com/voideditor/void",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "OSS の Cursor 代替。独立エディタ"
+    },
+    {
+      "id": "forger",
+      "name": "Teaspoon IDE",
+      "form": "独立 Electron アプリ",
+      "license": "FSL-1.1-MIT",
+      "url": "https://cuculhart.com/forger.html",
+      "repo": "https://github.com/cuculhart/teaspoon-ide",
+      "categories": [
+        "byok-gemini",
+        "localllm"
+      ],
+      "notes": "エクスプローラー/Monaco/Git/TTY一体型。旧称 Forger"
+    }
+  ]
+}

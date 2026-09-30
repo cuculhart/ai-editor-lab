@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>モグラ叩きゲーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>モグラ叩きゲーム</h1>
+        
+        <div class="game-info">
+            <div class="info-box">
+                <span>スコア: </span><span id="score">0</span>
+            </div>
+            <div class="info-box">
+                <span>残り時間: </span><span id="timer">30</span><span>秒</span>
+            </div>
+        </div>
+
+        <button id="start-button">スタート</button>
+
+        <div class="board">
+            <!-- 3x3 grid -->
+            <div class="cell" data-index="0"><div class="mole"></div></div>
+            <div class="cell" data-index="1"><div class="mole"></div></div>
+            <div class="cell" data-index="2"><div class="mole"></div></div>
+            <div class="cell" data-index="3"><div class="mole"></div></div>
+            <div class="cell" data-index="4"><div class="mole"></div></div>
+            <div class="cell" data-index="5"><div class="mole"></div></div>
+            <div class="cell" data-index="6"><div class="mole"></div></div>
+            <div class="cell" data-index="7"><div class="mole"></div></div>
+            <div class="cell" data-index="8"><div class="mole"></div></div>
+        </div>
+
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>ゲーム終了！</h2>
+                <p>最終得点: <span id="final-score">0</span>点</p>
+                <button id="restart-button">もう一度プレイ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

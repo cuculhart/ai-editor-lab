@@ -1,0 +1,50 @@
+{
+  "editor_id": "devika",
+  "runs": [
+    {
+      "task": "L1",
+      "category": "localllm",
+      "run": 1,
+      "date": "?",
+      "model": "—",
+      "success": "—",
+      "duration_sec": "—",
+      "tokens_in": "—",
+      "tokens_out": "—",
+      "cost_usd": "—",
+      "interventions": "—",
+      "diff_url": "—",
+      "notes": "計測不能。ツール自体が開発停滞・導入断念のため"
+    },
+    {
+      "task": "L2",
+      "category": "localllm",
+      "run": 1,
+      "date": "?",
+      "model": "—",
+      "success": "—",
+      "duration_sec": "—",
+      "tokens_in": "—",
+      "tokens_out": "—",
+      "cost_usd": "—",
+      "interventions": "—",
+      "diff_url": "—",
+      "notes": "計測不能。ツール自体が開発停滞・導入断念のため"
+    },
+    {
+      "task": "L3",
+      "category": "localllm",
+      "run": 1,
+      "date": "?",
+      "model": "—",
+      "success": "—",
+      "duration_sec": "—",
+      "tokens_in": "—",
+      "tokens_out": "—",
+      "cost_usd": "—",
+      "interventions": "—",
+      "diff_url": "—",
+      "notes": "計測不能。ツール自体が開発停滞・導入断念のため"
+    }
+  ]
+}

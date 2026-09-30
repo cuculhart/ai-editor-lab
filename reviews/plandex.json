@@ -1,0 +1,96 @@
+{
+  "editor_id": "plandex",
+  "matrix": {
+    "form": "CLI",
+    "os_windows": "× Windowsビルドなし（WSL必須）",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○",
+    "custom_endpoint": "○ カスタムプロバイダ/モデルパック設定",
+    "local_llm": "○ OpenRouter等経由",
+    "proxy_key_hiding": "○ セルフホスト・envキー管理可",
+    "token_saving": "○ プロンプトキャッシュ内蔵・tree-sitterプロジェクトマップ",
+    "telemetry": "?",
+    "auto_approve": "○ 全自動モードあり",
+    "parallel": "△ branchで代替案管理（並列実行ではない）",
+    "checkpoint": "○ バージョン管理・rewind・branchが中核機能",
+    "mcp": "○ plandex mcp connect",
+    "cost_display": "○ plandex usage でplan/branch/model別に集計",
+    "account_required": "△",
+    "target_audience": "中級者"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "WSL 必須",
+    "hw_spec": "?",
+    "difficulty": "×",
+    "notes": "公式に Windows ビルドなし（darwin/linux/freebsd のみ）"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 1,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "Windowsビルド非提供でWSL必須。計測以前に導入不能。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 1,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "公式にWindowsビルドが提供されておらずWSL環境が必須となるため、ベンチマークの計測以前にネイティブなWindows環境への導入が不可能です。CLI形態であることに加えてWSLの構築まで求められるのは、プログラミング初学者にとって非常に高いハードルとなります。難しい設定なしに動かすことが評価の前提である本観点においては、初学者におすすめできる要素がありません。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 2,
+        "learning": 1,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 1
+      },
+      "comment": "対象は中級者で、Windowsでは公式ビルドがなくWSLが必須のため、今回の環境では導入段階からL1〜L3をすべて計測できませんでした。実測タスクの成功・速度・エラー対応を確認できるデータがないため、初学者が難しい設定なしに使えることを裏付ける材料はありません。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 1,
+        "ui": 0,
+        "learning": 0,
+        "steering": 0,
+        "stuck_free": 0,
+        "error_handling": 0,
+        "speed_feel": 0,
+        "overall": 0
+      },
+      "comment": "公式にWindowsビルドがなく(darwin/linux/freebsdのみ)WSLが必須のため、本ベンチのWindows環境ではL1〜L3を含む全タスクが計測不能で、操縦性・速度・エラー時の挙動は評価できず0点としています（データ不足による最低点で、実際の性能が低いという意味ではありません）。対象も中級者とされ、accountの要否は△、ローカルLLMもOpenRouter等の経由という記載にとどまり、初学者が難しい設定なしに使い始められる条件を満たしていません。macOS/Linuxでは動作する可能性がありますが、Windowsが主流の初学者にはおすすめしにくいです。"
+    }
+  ]
+}

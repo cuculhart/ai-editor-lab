@@ -1,0 +1,67 @@
+
+You can skip this check with --no-gitignore
+Added .aider* to .gitignore
+Aider v0.86.2
+Model: gemini/gemini-3.5-flash-lite with whole edit format
+Git repo: .git with 15 files
+Repo-map: using 4096 tokens, auto refresh
+
+
+README.md
+承知いたしました。初学者にも分かりやすいように `README.md` を整備します。
+
+変更するファイルは `README.md` のみです。
+
+README.md
+````
+# omise
+
+ベンチマーク用の小さなショッピングカートライブラリです。
+
+## 概要
+
+`omise` は、Pythonでシンプルなショッピングカート機能、割引計算、税込み金額の計算などを試すための小さなライブラリです。初学者の学習用やコードリーディングの題材としても最適です。
+
+## インストール
+
+現在、このパッケージはローカル環境での利用を想定しています。リポジトリをクローンまたはダウンロードしてご利用ください。
+
+## 使い方
+
+以下は、カートに商品を追加し、小計を計算する基本的なコード例です。
+
+```python
+from omise.models import Product
+from omise.cart import Cart
+
+# 商品を作成（名前, 価格）
+apple = Product("りんご", 100)
+
+# カートを作成
+cart = Cart()
+
+# カートに商品を追加（商品, 数量）
+cart.add(apple, 3)
+
+# カート内の商品の総数を取得
+print(cart.count())  # 出力: 3
+
+# 小計を取得
+print(cart.subtotal())  # 出力: 300
+```
+
+## テスト実行方法
+
+単体テストを実行するには、プロジェクトのルートディレクトリで以下のコマンドを実行してください。
+
+```bash
+python -m unittest discover -s tests -t .
+```
+
+## ライセンス
+
+このプロジェクトのライセンスについては、必要に応じて適切なライセンス（例: MIT License など）を設定してください。
+````
+Tokens: 1.4k sent, 534 received. Cost: $0.0018 message, $0.0018 session.
+Applied edit to README.md
+Commit d80df0f docs: 初学者向けにREADME.mdを整備する

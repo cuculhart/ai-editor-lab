@@ -1,0 +1,96 @@
+{
+  "editor_id": "openhands",
+  "matrix": {
+    "form": "Webアプリ（Docker必須）",
+    "os_windows": "△ WSL2+Docker必須・winnat問題あり",
+    "os_mac": "○",
+    "os_linux": "○",
+    "byok": "○ litellm形式で指定",
+    "custom_endpoint": "○",
+    "local_llm": "○ litellm経由",
+    "proxy_key_hiding": "△ litellm経由。モデル指定は litellm 形式 (gemini/...) が必要",
+    "token_saving": "○ litellm経由のプロンプトキャッシュ（モデル依存）",
+    "telemetry": "△",
+    "auto_approve": "○ 確認モード切替",
+    "parallel": "○ 複数会話可",
+    "checkpoint": "△ サンドボックス内git管理",
+    "mcp": "○",
+    "cost_display": "△ メトリクスあり",
+    "account_required": "不要",
+    "target_audience": "中〜上級者（Docker前提）"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "Docker Desktop（WSL2 必須）",
+    "hw_spec": "?",
+    "difficulty": "△",
+    "notes": "Docker Desktop (WSL2) 必須。初回は winnat ポート除外問題で失敗→net stop/start winnat で解消。LLMプロファイルのベースURL欄に壊れたURLが自動入力され404エラーになる罠あり"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 3,
+        "learning": 1,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 4,
+        "overall": 1
+      },
+      "comment": "Docker Desktop+WSL2前提で、winnatポート除外やプロファイルURL破損(404)など導入障害が連発。動けばT6を15秒でこなすが、初学者が自力で辿り着くのは現実的でない。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 3,
+        "learning": 1,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 4,
+        "overall": 1
+      },
+      "comment": "Windows環境ではWSL2やDocker Desktopが必須な上に、winnatのポート除外問題やLLMプロファイルの初期URL破損による404エラーなど導入の躓きどころが非常に多いツールです。BYOK（Gemini）環境ではT6を約15秒で完走する高い処理能力を示していますが、環境構築やトラブルシューティングのハードルが高すぎます。難しい設定なしで動かすことが前提のプログラミング初学者には全くおすすめできません。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 4,
+        "learning": 2,
+        "steering": 4,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 5,
+        "overall": 2
+      },
+      "comment": "Web UIで操作でき、BYOKのT6は約15秒で静的・動的検証とも成功していますが、Docker Desktop＋WSL2が必須で対象も中〜上級者のため、初学者には導入負担があります。Windowsではwinnat問題で初回起動に追加操作が必要だったほか、LLMプロファイルに壊れたURLが自動入力され404になるケースもあり、詰まりにくさには課題があります。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-09-30",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 3,
+        "learning": 1,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "overall": 2
+      },
+      "comment": "BYOK(gemini-3.5-flash-lite)のT6は約15秒で静的・動的検証ともに成功し、動作自体は問題ありませんが、Windowsでは Docker Desktop(WSL2)が必須で、初回はwinnatのポート除外問題で失敗しnet stop/start winnatで解消する必要があり、さらにLLMプロファイルのベースURL欄に壊れたURLが自動入力されて404になる罠もあり、初学者には導入と設定の壁が非常に高いです。対象も中〜上級者(Docker前提)と明記されており、モデル指定にlitellm形式(gemini/...)が必要な点も分かりにくいです。T1〜T5とL1〜L3は計測データがないため、修正能力や弱いローカルモデルでの動作は評価できず、T6の1件の成功だけでは判断材料が不足しています。"
+    }
+  ]
+}
