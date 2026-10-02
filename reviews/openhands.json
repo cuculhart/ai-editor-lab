@@ -42,7 +42,7 @@
         "speed_feel": 4,
         "overall": 1
       },
-      "comment": "Docker Desktop+WSL2前提で、winnatポート除外やプロファイルURL破損(404)など導入障害が連発。動けばT6を15秒でこなすが、初学者が自力で辿り着くのは現実的でない。"
+      "comment": "BYOK(gemini-3.5-flash-lite)の実力自体は非常に高く、T1〜T6全て介入0・各15〜86秒で完走。一方LocalLLM(qwen3.5:4b・CPU)は巨大システムプロンプトによりlitellm 300sタイムアウトを1ターンも完了できず構造的に不成立。さらに旧openhandsイメージのフロントエンドが全画面クラッシュする不具合があり、現行のagent-canvasイメージへの移行が必要だった。Docker Desktop+WSL2前提でwinnatポート除外やプロファイルURL破損(404)など導入障害が連発し、初学者が自力で辿り着くのは現実的でない。"
     },
     {
       "reviewer": "Gemini",

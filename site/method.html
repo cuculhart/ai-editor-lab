@@ -15,6 +15,7 @@
     <nav class="site-nav">
       <a href="index.html">トップ</a>
       <a href="method.html">測定方法</a>
+      <a href="article-harness.html">記事</a>
       <a href="about.html">運営者について</a>
     </nav>
   </div>
@@ -30,6 +31,7 @@
           <li>バックエンドモデルを統一: <strong>gemini-3.5-flash-lite</strong>（ローカル系は <strong>qwen3.5:4b (Ollama)</strong>）</li>
           <li>プロンプトはタスクごとに文言固定・全文公開（下表）</li>
           <li>承認操作は「介入回数」として記録。自動承認可能なツールは自動承認ONで統一</li>
+          <li>成功率は<strong>タスクごと直近2回の試行</strong>のみ集計。やり直しの古い失敗は分母に残さず、2連続合格すれば100%になる一方、1回だけの偶然的成功は50%止まりにします。古い試行は詳細表に全履歴として公開</li>
           <li>生データ（結果 JSON・diff・ログ）は公開リポジトリで全公開</li>
         </ul>
       </div>
@@ -42,12 +44,30 @@
         </ul>
       </div>
       <div class="card-pop mb-3">
+        <h5>受入テスト（accept.py）と判定の訂正</h5>
+        <ul>
+          <li>各タスクの「成功」は同梱の accept.py が pass を返したことで判定。テスト不変・公開API互換・成果物の実在を検査します</li>
+          <li><strong>T3 は 2026-10-02 に強化</strong>: 従来は「API互換 + TestCart 全パス」のみを見ていたため、ファイルを実質変更しない no-op でも合格し得る弱点がありました。現在は <code>real_refactor</code> 判定を追加し、(a) cart.py がベースラインとバイト同一、(b) 内部構造が「1個につき1要素」のリストのまま、のいずれかなら不合格とします</li>
+          <li>強化後の再検証により、過去に成功と記録していた一部の実行が no-op と判明し訂正されました（Teaspoon run3、ZooCode T3）。訂正は各結果 JSON の notes にも記録しています</li>
+        </ul>
+      </div>
+      <div class="card-pop mb-3">
         <h5>測定環境</h5>
         <ul>
           <li>Windows 11 Pro / <strong>Ryzen 5 4500U（APU・内蔵GPUのみ）</strong> / メモリ 32GB / GPUなし（ローカルLLMはCPU推論・常時100%）</li>
           <li>Ollama 0.21.0 / qwen3.5:4b（Q4_K_M, 6.8GB）</li>
           <li>ローカルLLM計測中のメモリ使用率は最大49%（約16GB）→ 24GB搭載機でも動作可能と見込まれる</li>
         </ul>
+      </div>
+      <div class="card-pop mb-3">
+        <h5>観察: 成功率の差はモデルではなく「ハーネス」</h5>
+        <p class="small">BYOK系は全ツール同一モデル（gemini-3.5-flash-lite）で計測しているため、ツール間の成功率差はモデル性能ではなく<strong>エージェントハーネス（ツール側の指示・フィードバック・完了判定の設計）</strong>の差を表します。T3（リファクタリング）の繰り返し計測で観察された失敗パターン:</p>
+        <ul>
+          <li><strong>no-op 完了報告</strong>: 編集に失敗した後、再試行せず読み取りやテスト実行だけを行い「リファクタリングを行いました」と報告（Teaspoon run3/5/9、ZooCode T3）。ファイルはベースラインとバイト同一でした</li>
+          <li><strong>検証済みの事実と矛盾する実装</strong>: モデル自身が <code>hash(Product)</code> を実行してハッシュ不可（exit 1）を確認した直後に、<code>dict[Product, int]</code> を実装として書いたケース（Teaspoon run11）</li>
+          <li><strong>結果と矛盾する完了報告</strong>: 直前のテスト実行が exit 1 なのに「全テストパスを確認しました」と報告</li>
+        </ul>
+        <p class="small">Cline 系（Cline・KiloCode・Roo Code）が同じモデルで安定する要因として、完了に専用ツール呼び出し（attempt_completion）を必須とする設計、編集後のファイル内容を毎回モデルへ返すフィードバック、詳細なシステムプロンプトなど「嘘の完了報告を構造的に通さない」仕組みが挙げられます。一方でこれらはトークン消費を増やす設計でもあります。Teaspoon IDE はこの観察をもとに、失敗した編集の未解決追跡・毎ステップの督促・虚偽報告時のユーザー警告を実装し改善を進めています。詳しい考察は<a href="article-harness.html">記事版</a>をご覧ください。</p>
       </div>
       <div class="card-pop">
         <h5>タスクと固定プロンプト</h5>

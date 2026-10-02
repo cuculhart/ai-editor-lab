@@ -15,6 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
+      <a href="../article-harness.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -37,7 +38,7 @@
       <div class="card-pop mb-3"><h5>定量ベンチ結果</h5>
         <div class="table-responsive"><table class="table table-sm">
         <thead><tr><th>タスク</th><th>カテゴリ</th><th>回</th><th>成功</th><th>秒</th><th>USD</th><th>介入</th><th>日付</th></tr></thead>
-        <tbody><tr><td>T6</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-yes">○</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td></tr><tr><td>T6</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>15</td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>2026-09-27</td></tr></tbody></table></div></div>
+        <tbody><tr><td>T1</td><td>BYOK（Gemini系）</td><td>2</td><td><span class="mark mark-yes">○</span></td><td>32</td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T1</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td>600+</td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>2026-10-02</td></tr><tr><td>T2</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>80</td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T2</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T3</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>86</td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T3</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T4</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>29</td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T4</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T5</td><td>BYOK（Gemini系）</td><td>1</td><td><span class="mark mark-yes">○</span></td><td>38</td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T5</td><td>LocalLLM系</td><td>1</td><td><span class="mark mark-no">×</span></td><td><span class="unknown">?</span></td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr><tr><td>T6</td><td>BYOK（Gemini系）</td><td>2</td><td><span class="mark mark-yes">○</span></td><td>25</td><td><span class="unknown">?</span></td><td>0</td><td>2026-10-02</td></tr></tbody></table></div></div>
       <h5 class="mt-4 mb-3">使用感レビュー（4者）</h5>
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
@@ -58,7 +59,7 @@
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
         <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 Docker Desktop+WSL2前提で、winnatポート除外やプロファイルURL破損(404)など導入障害が連発。動けばT6を15秒でこなすが、初学者が自力で辿り着くのは現実的でない。</p>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)の実力自体は非常に高く、T1〜T6全て介入0・各15〜86秒で完走。一方LocalLLM(qwen3.5:4b・CPU)は巨大システムプロンプトによりlitellm 300sタイムアウトを1ターンも完了できず構造的に不成立。さらに旧openhandsイメージのフロントエンドが全画面クラッシュする不具合があり、現行のagent-canvasイメージへの移行が必要だった。Docker Desktop+WSL2前提でwinnatポート除外やプロファイルURL破損(404)など導入障害が連発し、初学者が自力で辿り着くのは現実的でない。</p>
       </div></div></div>
     </div>
   </section>

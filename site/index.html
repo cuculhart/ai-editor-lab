@@ -15,6 +15,7 @@
     <nav class="site-nav">
       <a href="index.html">トップ</a>
       <a href="method.html">測定方法</a>
+      <a href="article-harness.html">記事</a>
       <a href="about.html">運営者について</a>
     </nav>
   </div>
@@ -26,7 +27,7 @@
       <span class="hero-badge">BYOK・エージェント型のみ集めました</span>
       <h1>AIエディターラボ</h1>
       <p class="lead">サブスクなし・自分のAPIキーで動くエージェント型 AI エディターだけを本気で比較</p>
-      <p class="mb-0"><small class="text-muted">計測: 2026年9月 ｜ Windows 11 + Ryzen 5 4500U の一般的なPCで実測</small></p>
+      <p class="mb-0"><small class="text-muted">計測: 2026年9月〜2026年10月 ｜ Windows 11 + Ryzen 5 4500U の一般的なPCで実測</small></p>
     </div>
   </section>
 
@@ -44,19 +45,34 @@
   <section class="section">
     <div class="container">
       <h2>🏆 BYOK（Gemini系） <small class="text-muted fs-6">gemini-3.5-flash-lite</small></h2>
-      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功タスク（成功数/試行数・成功率）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>ターミナル（TUI）</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code 拡張</small></td><td>2 / 2 （100%）</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code 拡張 + CLI</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a><br><small class='text-muted'>独立 Electron アプリ</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + デスクトップ</small></td><td>5 / 6 （83%）</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains 拡張</small></td><td>1 / 2 （50%）</td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a><br><small class='text-muted'>CLI（Docker バックエンド）</small></td><td>0 / 1 （0%）</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code フォーク</small></td><td>0 / 1 （0%）</td></tr></tbody></table></div>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功数/試行数（成功率・各タスク直近2回まで集計）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code 拡張</small></td><td>7 / 7 （100%）</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>ターミナル（TUI）</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>6 / 6 （100%）</td></tr><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a><br><small class='text-muted'>独立 Electron アプリ</small></td><td>6 / 7 （86%）</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code 拡張 + CLI</small></td><td>5 / 6 （83%）</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + デスクトップ</small></td><td>5 / 6 （83%）</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains 拡張</small></td><td>2 / 5 （40%）</td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a><br><small class='text-muted'>CLI（Docker バックエンド）</small></td><td>0 / 1 （0%）</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code フォーク</small></td><td>0 / 1 （0%）</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        ※ 成功率は各タスクの<strong>直近2回の試行</strong>のみを集計（2連続合格で100%、1回だけの成功は50%）。古い試行は各ツールの詳細表に全履歴として残ります。
+        また T3（リファクタリング）は受入テストを強化し、成果物がベースラインと同一の「no-op 合格」は不合格に訂正しています
+        （詳細: <a href="method.html">測定方法</a>）。
+      </p>
     </div>
   </section>
   <section class="section">
     <div class="container">
       <h2>🏆 その他系 <small class="text-muted fs-6"></small></h2>
-      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功タスク（成功数/試行数・成功率）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>0 / 1 （0%）</td></tr></tbody></table></div>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功数/試行数（成功率・各タスク直近2回まで集計）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>0 / 1 （0%）</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        ※ 成功率は各タスクの<strong>直近2回の試行</strong>のみを集計（2連続合格で100%、1回だけの成功は50%）。古い試行は各ツールの詳細表に全履歴として残ります。
+        また T3（リファクタリング）は受入テストを強化し、成果物がベースラインと同一の「no-op 合格」は不合格に訂正しています
+        （詳細: <a href="method.html">測定方法</a>）。
+      </p>
     </div>
   </section>
   <section class="section">
     <div class="container">
       <h2>🏆 LocalLLM系 <small class="text-muted fs-6">qwen3.5:4b (Ollama)</small></h2>
-      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功タスク（成功数/試行数・成功率）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code 拡張</small></td><td>4 / 4 （100%）</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>1 / 1 （100%）</td></tr><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a><br><small class='text-muted'>独立 Electron アプリ</small></td><td>6 / 9 （67%）</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code フォーク</small></td><td>2 / 3 （67%）</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>2 / 4 （50%）</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code 拡張 + CLI</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains 拡張</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>ターミナル（TUI）</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + デスクトップ</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>0 / 3 （0%）</td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a><br><small class='text-muted'>Web UI（Python）</small></td><td>0 / 3 （0%）</td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a><br><small class='text-muted'>CLI</small></td><td>0 / 3 （0%）</td></tr></tbody></table></div>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>ツール</th><th>成功数/試行数（成功率・各タスク直近2回まで集計）</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code 拡張</small></td><td>6 / 9 （67%）</td></tr><tr><td class='editor-name'><a href='editors/forger.html'>Teaspoon IDE</a><br><small class='text-muted'>独立 Electron アプリ</small></td><td>6 / 9 （67%）</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code フォーク</small></td><td>2 / 3 （67%）</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>2 / 4 （50%）</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code 拡張 + CLI</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains 拡張</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>ターミナル（TUI）</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + デスクトップ</small></td><td>1 / 4 （25%）</td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code 拡張</small></td><td>0 / 3 （0%）</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>0 / 5 （0%）</td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a><br><small class='text-muted'>Web UI（Python）</small></td><td>0 / 3 （0%）</td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a><br><small class='text-muted'>CLI</small></td><td>0 / 3 （0%）</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        ※ 成功率は各タスクの<strong>直近2回の試行</strong>のみを集計（2連続合格で100%、1回だけの成功は50%）。古い試行は各ツールの詳細表に全履歴として残ります。
+        また T3（リファクタリング）は受入テストを強化し、成果物がベースラインと同一の「no-op 合格」は不合格に訂正しています
+        （詳細: <a href="method.html">測定方法</a>）。
+      </p>
     </div>
   </section>
   <section class="section">

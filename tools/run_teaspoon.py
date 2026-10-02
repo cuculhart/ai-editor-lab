@@ -8,10 +8,11 @@
 - 結果: agent.log（チャットダンプ）+ screenshot.png を run ディレクトリに保存
 
 usage:
-  python tools/run_teaspoon.py T1 [T2 ...]
+  python tools/run_teaspoon.py [--provider gemini] T1 [T2 ...]
 
 前提:
-  - Ollama 起動済み・qwen3.5:4b pull 済み
+  - (ollama) Ollama 起動済み・qwen3.5:4b pull 済み
+  - (gemini) .secrets/gemini-key.txt に Gemini API キー
   - teaspoon-ide が package 済み（npm run package）
   - python -m playwright install 済み（Electron 自動化はブラウザDL不要）
 
@@ -40,6 +41,8 @@ TEASPOON_EXE = (
 FIXTURE = BENCH / "fixture"
 RUNS = BENCH / "runs" / "forger"
 MODEL = "qwen3.5:4b"
+GEMINI_MODEL = "gemini-3.5-flash-lite"
+GEMINI_KEY_FILE = BENCH / ".secrets" / "gemini-key.txt"
 # パッケージ版(file://)からの fetch は Origin: null を送り Ollama の CORS で
 # 403 になる + CSP(connect-src http://localhost:*)が 127.0.0.1 を許可しない。
 # そのため localhost バインドの Origin 除去 + ACAO 付与プロキシを挟む
@@ -111,17 +114,18 @@ def find_prompt(task: str) -> Path:
     return matches[0]
 
 
-def prep_workdir(task: str, run_no: int) -> Path:
-    run_dir = RUNS / task / f"run{run_no}"
+def prep_workdir(task: str, run_name: str) -> Path:
+    run_dir = RUNS / task / run_name
     if run_dir.exists():
         shutil.rmtree(run_dir)
     shutil.copytree(FIXTURE, run_dir, ignore=shutil.ignore_patterns("__pycache__"))
     return run_dir
 
 
-def run_task(task: str, run_no: int = 1) -> dict:
+def run_task(task: str, provider: str = "ollama", run_no: int = 1) -> dict:
     prompt = find_prompt(task).read_text(encoding="utf-8").strip()
-    run_dir = prep_workdir(task, run_no)
+    run_name = f"run{run_no}" + ("-gemini" if provider == "gemini" else "")
+    run_dir = prep_workdir(task, run_name)
     log_lines: list[str] = []
 
     def log(msg: str) -> None:
@@ -131,7 +135,10 @@ def run_task(task: str, run_no: int = 1) -> dict:
 
     result = {"task": task, "interventions": 0, "timed_out": False}
     port = 9222
-    proxy = start_cors_proxy()
+    proxy = start_cors_proxy() if provider == "ollama" else None
+    gemini_key = ""
+    if provider == "gemini":
+        gemini_key = GEMINI_KEY_FILE.read_text(encoding="utf-8").strip()
 
     with sync_playwright() as p:
         # playwright-python は _electron 未公開のため CDP 経由で接続
@@ -169,17 +176,27 @@ def run_task(task: str, run_no: int = 1) -> dict:
         page.set_default_timeout(15_000)
         log("app launched")
 
-        # Ollama プロバイダを localStorage に事前設定して reload
-        page.evaluate(
-            """([model, url]) => {
-                localStorage.setItem('llm_provider', 'ollama')
-                localStorage.setItem('ollama_base_url', url)
-                localStorage.setItem('ollama_model', model)
-                // 同一projectPathの過去会話（前回失敗run等）を除去
-                localStorage.removeItem('chat_conversations')
-            }""",
-            [MODEL, OLLAMA_URL],
-        )
+        # プロバイダを localStorage に事前設定して reload
+        if provider == "ollama":
+            page.evaluate(
+                """([model, url]) => {
+                    localStorage.setItem('llm_provider', 'ollama')
+                    localStorage.setItem('ollama_base_url', url)
+                    localStorage.setItem('ollama_model', model)
+                    localStorage.removeItem('chat_conversations')
+                }""",
+                [MODEL, OLLAMA_URL],
+            )
+        else:
+            page.evaluate(
+                """([model, key]) => {
+                    localStorage.setItem('llm_provider', 'gemini')
+                    localStorage.setItem('gemini_api_key', key)
+                    localStorage.setItem('gemini_model', model)
+                    localStorage.removeItem('chat_conversations')
+                }""",
+                [GEMINI_MODEL, gemini_key],
+            )
         # Electron の reload は renderer detach で ERR_ABORTED を投げることがある
         try:
             page.reload(wait_until="domcontentloaded")
@@ -188,7 +205,7 @@ def run_task(task: str, run_no: int = 1) -> dict:
         page.wait_for_selector(".chat-input textarea", state="visible")
         # textarea は isLoading || !isConfigured で disabled → 有効化まで待機
         page.wait_for_selector(".chat-input textarea:not([disabled])", state="visible")
-        log("configured: ollama " + MODEL)
+        log(f"configured: {provider} " + (MODEL if provider == "ollama" else GEMINI_MODEL))
 
         page.fill(".chat-input textarea", prompt)
         t0 = time.time()
@@ -239,16 +256,37 @@ def run_task(task: str, run_no: int = 1) -> dict:
             log(f"chat dump failed: {e}")
         page.screenshot(path=str(run_dir / "screenshot.png"), full_page=True)
         proc.terminate()
-        proxy.shutdown()
+        if proxy:
+            proxy.shutdown()
 
     (run_dir / "agent.log").write_text("\n".join(log_lines), encoding="utf-8")
     return result
 
 
 def main() -> None:
-    tasks = sys.argv[1:] or sys.exit("usage: python tools/run_teaspoon.py T1 [T2 ...]")
+    argv = sys.argv[1:]
+    provider = "ollama"
+    tasks = []
+    i = 0
+    while i < len(argv):
+        if argv[i] == "--provider" and i + 1 < len(argv):
+            provider = argv[i + 1]
+            i += 2
+        else:
+            tasks.append(argv[i])
+            i += 1
+    if not tasks:
+        sys.exit("usage: python tools/run_teaspoon.py [--provider gemini] T1 [T2 ...]")
+    suffix = "-gemini" if provider == "gemini" else ""
     for t in tasks:
-        run_task(t)
+        # Preserve prior runs: pick the next free runN for this task/provider
+        # instead of overwriting run1.
+        task_dir = RUNS / t
+        existing = {p.name for p in task_dir.iterdir()} if task_dir.exists() else set()
+        run_no = 1
+        while f"run{run_no}{suffix}" in existing:
+            run_no += 1
+        run_task(t, provider=provider, run_no=run_no)
 
 
 if __name__ == "__main__":

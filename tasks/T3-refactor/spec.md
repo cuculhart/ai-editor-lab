@@ -9,3 +9,5 @@
 
 1. `TestCart` スイートがすべてパスすること
 2. Cart の公開 API（add/remove/count/quantities/subtotal）が仕様通り動作すること
+3. 実質的なリファクタが行われていること — `cart.py` がベースラインと同一の no-op、
+   または内部が「1個につき1要素」のリストのままの実装は不合格とする
