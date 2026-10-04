@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,23 +43,23 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 VS Code Marketplaceから通常導入でき、対象も初学者〜中級者で、BYOKならアカウント不要ですが、初回のモデル選択ではKiloアカウントへの誘導があります。BYOKのT6は42秒・介入5回で成功した一方、ローカルLLMではL1実行中にPC全体がフリーズして強制電源断となり、L2・L3も計測断念となったため、弱いモデルを使う初学者には大きな不確実性があります。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOKのT1〜T5は全成功し、介入3〜8回で指示範囲も比較的正確、T6も42秒で静的・Playwright検証を通過しているため、通常利用の性能は良好です。一方、ローカル4BモデルではL1実行中にPC全体がフリーズして強制電源断となりL2/L3も計測不能で、さらにBYOK設定後もKilo Gateway経由のNext Edit通知が残るため、弱いモデルでの安定性と安心感は大きく減点しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>1</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 VS Code拡張として手軽に導入できUIも見やすいものの、BYOK利用時にデフォルトのKilo Gatewayから手動でプロバイダを切り替える必要があり、初回認証の誘導も含めてやや戸惑う設計です。Gemini環境ではT6を42秒でこなす一方、ローカルLLM環境（L1）では実行中にPCが完全フリーズして強制電源断に至るなど、動作の安定性に重大な問題が確認されました。一般的スペックのPC環境においてフリーズリスクがあるため、初学者には安全面からおすすめできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>安心して使えるか</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張機能として導入しやすく、BYOK（Gemini）環境では指示範囲を厳守しながら高精度に全タスクを成功させる一方、ローカルLLM（L1）実行時にPC全体が完全フリーズして強制電源断に至る重篤な安定性問題が発生しました。初期設定でKilo Gatewayへのログインへ誘導される点や、BYOK構成時にオートコンプリート機能の通信エラー通知が出続けるなどバックグラウンド挙動にも不安が残ります。一般的なPC環境で安全に試したい初学者には注意が必要です。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 VS Code拡張としてMarketplaceから通常導入でき、対象は初学者〜中級者と明記され、コストやキャッシュ(hit率69.5%)の内訳表示も詳しい一方、初回のモデル選択でKiloアカウントのログイン画面に誘導され、BYOKには自分でGoogleプロバイダを選び直す必要があるため、初学者には最初の分かれ道が分かりにくいです。BYOK(gemini-3.5-flash-lite)のT6は静的・動的検証ともに成功しましたが42秒・介入5回と、他ツールと比べて承認操作が多めです。ローカルLLM(qwen3.5:4b)ではL1で5分超の応答待ちの末にPCが完全フリーズして強制電源断となり、L1〜L3が全て計測断念となったため、一般的なミニPCで弱いモデルを使う用途には安全におすすめできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)ではT1〜T6が全て成功し、T5で指示範囲を守ってdiscount.pyに手を触れず、T3も強化版acceptを通す真のリファクタを実現、T6は42秒・$0.02で、キャッシュ命中69.5%やin/out/cacheの詳細なコスト表示も初学者に親切です。一方でT1〜T4の介入が5〜8回と多く、初回のモデル選択でKiloアカウントのログイン画面に誘導され、BYOKに切り替えるには自分でGoogleプロバイダを選ぶ必要があります。ローカルLLM(qwen3.5:4b)ではL1で応答待ちが5分超続いた後にPCが完全フリーズして強制電源断となり、L1〜L3が計測断念で、弱い環境では実用できません。さらに、BYOK設定後も操作していない間にオートコンプリート(Next Edit)がKilo Gatewayへ依存して通知を出し続け、テレメトリー収集（opt-out可）と合わせて、データ経路や非操作中の外部通信の面で安心感に欠けるためセキュリティは2としました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>1</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 UI・導入は良好でT6も42秒だが、LocalLLM L1実行中に応答待ちが続いた末PCが完全フリーズし強制電源断を要した。BugCheckなしのOS応答不能は重大な安定性問題で、一般ビジネスPCでの実用は困難と判断し計測断念。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>1</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOK T1–T6を全て成功（介入3〜8）。T3は強化版acceptのreal_refactor判定も通る真のリファクタで、T5では指示範囲を厳守し、コスト内訳表示も詳細とRoo系で最も堅実。ただしBYOK(Google)のみの構成でもNext Edit自動補完がKilo Gateway経由で通信し続け、未使用時も通知エラーを出し続ける設計が確認されたほか、LocalLLM L1ではPC完全フリーズによる強制電源断を要した。</p>
       </div></div></div>
     </div>
   </section>

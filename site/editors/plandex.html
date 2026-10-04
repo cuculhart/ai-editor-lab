@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,22 +43,22 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 対象は中級者で、Windowsでは公式ビルドがなくWSLが必須のため、今回の環境では導入段階からL1〜L3をすべて計測できませんでした。実測タスクの成功・速度・エラー対応を確認できるデータがないため、初学者が難しい設定なしに使えることを裏付ける材料はありません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>1</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
+        <p class="small mb-0">💬 Windowsでは公式ビルドがなくWSL必須のため、この環境ではL1〜L3をすべて計測不能で、初学者が難しい設定なしに始められるとは評価しにくいです。一方で、全自動モード、rewind/branch、プロンプトキャッシュやtree-sitterのプロジェクトマップなどの機能は整っていますが、実機での成功率や速度を確認できないため、総合評価は低めにしました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
-        <p class="small mb-0">💬 公式にWindowsビルドが提供されておらずWSL環境が必須となるため、ベンチマークの計測以前にネイティブなWindows環境への導入が不可能です。CLI形態であることに加えてWSLの構築まで求められるのは、プログラミング初学者にとって非常に高いハードルとなります。難しい設定なしに動かすことが評価の前提である本観点においては、初学者におすすめできる要素がありません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 公式にWindows用バイナリが存在せず、利用にあたってWSL環境の構築が必須となるため、定量ベンチマークの全タスクが計測不能（—）という結果でした。プロンプトキャッシュやバージョン管理など中級者向けの機能は備わっているものの、CLI形態かつ導入ハードルが極めて高い設計となっています。Windows標準環境で手軽にAIツールを試したい初学者には全くおすすめできません。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>0</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
-        <p class="small mb-0">💬 公式にWindowsビルドがなく(darwin/linux/freebsdのみ)WSLが必須のため、本ベンチのWindows環境ではL1〜L3を含む全タスクが計測不能で、操縦性・速度・エラー時の挙動は評価できず0点としています（データ不足による最低点で、実際の性能が低いという意味ではありません）。対象も中級者とされ、accountの要否は△、ローカルLLMもOpenRouter等の経由という記載にとどまり、初学者が難しい設定なしに使い始められる条件を満たしていません。macOS/Linuxでは動作する可能性がありますが、Windowsが主流の初学者にはおすすめしにくいです。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>安心して使えるか</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 公式にWindowsビルドがなく（darwin/linux/freebsdのみ）WSLが必須のため、Windows 11の検証環境ではL1〜L3が全て計測不能となり、導入の時点で初学者には大きな壁になります。プロンプトキャッシュ内蔵・tree-sitterによるプロジェクトマップ・rewindやbranchによるバージョン管理・plandex usageでの詳細なコスト集計など機能面は充実していますが、対象は中級者で、実測データがないため速度や操縦性などは憶測せず最低点としました。セキュリティはセルフホストとenvでのキー管理に対応する一方、テレメトリーは不明（?）でアカウント要否も△のため、評価を保留気味の2としています。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>安心して使えるか</td><td class='score-num'>1</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
         <p class="small mb-0">💬 Windowsビルド非提供でWSL必須。計測以前に導入不能。</p>
       </div></div></div>
     </div>

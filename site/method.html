@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="index.html">トップ</a>
       <a href="method.html">測定方法</a>
-      <a href="article-harness.html">記事</a>
+      <a href="article.html">記事</a>
       <a href="about.html">運営者について</a>
     </nav>
   </div>
@@ -42,6 +42,15 @@
           <li>使用感スコア（5段階）: ChatGPT・Gemini・Claude・Devin(SWE-2) の4者で評価。
             外部AIは同一の実測データを読んで採点する方式。Devin (SWE-2) は計測実行者</li>
         </ul>
+      </div>
+      <div class="card-pop mb-3">
+        <h5>レビュー採点方法（使用感スコア）</h5>
+        <p class="small">各レビュアーは実測データ（成功率・時間・介入回数・失敗形）・機能マトリクス・導入メモを読み、以下の9軸を 0〜5 の整数で採点します。</p>
+        <ul class="small">
+          <li>ターゲット層の明確さ / 画面の見やすさ / 学習コスト / エージェントの操縦性 / 詰まりにくさ / エラー時の挙動 / 体感速度 / 安心して使えるか</li>
+          <li><strong>総合評価（overall）: 「初学者におすすめできるか」の主観的な総合判断。他8軸の平均ではないため、軸の平均とは一致しません</strong>（多くのレビュアーは軸平均より厳しめに付けています）</li>
+        </ul>
+        <p class="small">トップページの「平均スコア」列は、4者の総合評価の<strong>単純平均</strong>です（小数第1位）。各レビュアーの採点とコメント全文は各ツール詳細ページに掲載しています。</p>
       </div>
       <div class="card-pop mb-3">
         <h5>受入テスト（accept.py）と判定の訂正</h5>

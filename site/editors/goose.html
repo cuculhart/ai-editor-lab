@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,23 +43,23 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
-        <p class="small mb-0">💬 Windowsではzip展開のみで導入でき、BYOKではT1・T2・T4・T5・T6が12〜24秒・介入0回で成功しており、基本操作の扱いやすさは確認できます。一方、T3では公開APIの互換性を壊す修正が39秒で入り、ローカルLLMでは初回応答すら完了せずL1が900秒でタイムアウト、L2・L3も計測不能だったため、弱いモデル利用時の詰まりやすさには大きな課題があります。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOKのT1/T2/T4/T5/T6は12〜24秒・介入0で成功し、Windowsもzip展開のみで導入できるため、基本操作は比較的扱いやすいです。一方、T3では既存テストを通過しながら公開API互換性を壊し、ローカル4Bモデルでは初回推論すら15分で完了せずL2/L3も計測不能だったため、弱いモデルでの安定性とエラー時の信頼性は低めです。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>1</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 Windows環境でもzip展開のみで導入できますが、システムプロンプトやツールスキーマが巨大なため、ローカルLLM（CPU推論）環境では最小入力でも応答に85秒以上かかり15分上限でタイムアウト（L1〜L3計測不能）する致命的な重さがあります。Gemini環境ではT1〜T6を10〜20秒台の高速でこなすものの、T3リファクタリングでは unhashable なオブジェクトをdictキーに使ってTypeErrorを発生させ公開APIを破壊する不具合が起きました。弱いモデルやローカル環境での挙動に課題が多く、初学者にはあまりおすすめできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
+        <p class="small mb-0">💬 zipを解凍するだけで導入できる手軽さがあり、BYOK（Gemini）環境では15〜24秒と高速かつ介入なしで多くのタスクを成功させます。しかし、T3では公開APIを破壊する修正を行い、ローカルLLM（Ollama）環境では巨大なシステムプロンプトやツールスキーマの処理負荷が高すぎるため、CPU推論時に初回応答すら返さず15分上限でタイムアウト（L1）してしまいます。弱いモデルや標準的なPCスペックでの自力デバッグ・回復が困難なため、初学者への推奨は難しいツールです。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 GitHub ReleasesのWindows zipを展開するだけで導入でき、BYOK(gemini-3.5-flash-lite)ではT1〜T6のうちT3を除く5件が12〜39秒・介入0回で成功し、速度と操縦性は良好です。ただしT3では公開API維持を破り、unhashableな@dataclassをdictキーに使ってTypeErrorを起こしており、既存テストが通っても互換性を壊す点は初学者が気づきにくい弱点です。ローカルLLM(qwen3.5:4b)では巨大なシステムプロンプトとツールスキーマの処理がCPU推論で間に合わず、最小プロンプトでも85秒超無応答でL1が900秒タイムアウトとなり、L2/L3も計測不能だったため、弱いモデルでの利用は現実的でなく、対象も中級者向けです。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)ではT1・T2・T4・T5・T6が12〜24秒・介入0で成功し、導入もGitHub ReleasesのWindows zipを展開するだけと手軽ですが、T3ではunhashableな@dataclassのProductをdictキーに使って公開API互換を壊しました。ローカルLLM(qwen3.5:4b)では巨大なシステムプロンプトとツールスキーマの処理がCPU推論で間に合わず、L1が15分でタイムアウト、最小プロンプト(hi)でも85秒超無応答で、L2・L3も計測不能と、弱いモデルではまったく使えません。テレメトリーはopt-out可、アカウント不要、キー隠蔽にも対応し標準的な3ですが、コスト表示がなく対象も中級者で、弱いモデルでの動作が重視される初学者向けとしてはおすすめしにくいと判断しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 BYOKでは高速だがT3でunhashableキーをdictに使い公開APIを破壊する実害を出した。LocalLLMでは巨大システムプロンプトの評価がCPU環境で15分を超え、&#x27;hi&#x27;の最小入力すら応答せず計測不能。本体の重さが弱い環境を直撃する設計。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 BYOKではT1/T2/T4/T5/T6を12〜24秒・介入0で完走する実力者だが、T3ではunhashableなdataclassをdictキーに使い公開APIを破壊した。LocalLLMでは巨大システムプロンプトの評価がCPU環境で15分を超え、&#x27;hi&#x27;の最小入力すら応答せず計測不能。本体の重さが弱い環境を直撃する設計。</p>
       </div></div></div>
     </div>
   </section>

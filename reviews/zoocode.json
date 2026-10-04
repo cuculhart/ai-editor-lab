@@ -30,67 +30,71 @@
   "usability_reviews": [
     {
       "reviewer": "Devin (SWE-2)",
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 3,
         "ui": 4,
         "learning": 3,
-        "steering": 1,
-        "stuck_free": 1,
+        "steering": 2,
+        "stuck_free": 2,
         "error_handling": 1,
-        "speed_feel": 2,
-        "overall": 1
+        "speed_feel": 3,
+        "security": 2,
+        "overall": 2
       },
-      "comment": "導入は容易だがlocalhost指定でfetch failedが発生、ツール呼び出しを通常テキストとして出力、無関係な質問を幻覚する等、弱いモデルでの動作が破綻。BYOK T6も介入7回を要した。"
+      "comment": "BYOKでT1/T2/T4/T5/T6が成功し実用圏に入ったが、T3はcart.pyがベースラインとバイト同一のno-opで強化版acceptが不合格と判定（介入6〜16と多め）。LocalLLMはlocalhost指定でfetch failed、ツール呼び出しを通常テキストとして出力する等、実用不能な状態が続いている。"
     },
     {
       "reviewer": "Gemini",
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 4,
-        "ui": 4,
-        "learning": 3,
-        "steering": 2,
-        "stuck_free": 1,
-        "error_handling": 1,
-        "speed_feel": 2,
-        "overall": 1
-      },
-      "comment": "VS Code拡張として手軽に導入できUIも見やすい反面、ローカルLLM環境での接続トラブルや動作の破綻が顕著なツールです。localhost指定時の接続エラー（fetch failed）が発生するほか、軽量モデルではツール呼び出しを通常のJSONテキストとして出力したり無関係な質問を幻覚するなど正常に機能しません。BYOK（Gemini）ではT6を約1分で完了できるものの、介入が7回必要であり、弱いモデルやローカル環境での挙動の不安定さから初学者にはおすすめできません。"
-    },
-    {
-      "reviewer": "ChatGPT",
-      "date": "2026-09-30",
-      "version": "?",
-      "scores": {
-        "audience": 5,
         "ui": 4,
         "learning": 4,
         "steering": 3,
         "stuck_free": 2,
         "error_handling": 2,
         "speed_feel": 3,
+        "security": 4,
         "overall": 3
       },
-      "comment": "VS Code Marketplaceから通常導入でき、対象も初学者〜中級者で、BYOKのT6は60秒・介入7回で静的・動的検証とも成功しています。一方、ローカルLLMではqwen3.5:4bがfetch failedとなり、qwen2.5-coder:1.5bもツール呼び出しをJSONテキストとして出力するなど実用不能で、L2・L3は計測不能でした。"
+      "comment": "VS Codeマーケットプレイスから簡単に導入でき、BYOK（Gemini）環境ではバグ修正（T1）やWebアプリ生成（T6・約60秒）などのタスクを高精度でこなします。ただし、リファクタリング（T3）においてコードを変更せずに完了とするno-op不合格を露呈し、介入回数も5〜16回と多めです。さらにローカルLLM環境ではタイムアウトやJSONツールの誤出力・幻覚が多発し、実用不能でL2・L3の計測を断念する結果となったため、弱いモデルでの運用には注意が必要です。"
     },
     {
       "reviewer": "Claude",
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 4,
-        "ui": 3,
-        "learning": 3,
+        "ui": 4,
+        "learning": 4,
+        "steering": 3,
+        "stuck_free": 2,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "security": 3,
+        "overall": 3
+      },
+      "comment": "VS Code拡張としてMarketplaceから通常導入でき、アカウント不要・対象は初学者〜中級者と明確で、BYOK(gemini-3.5-flash-lite)ではT1・T2・T4・T5・T6が成功し、T6は約60秒で完走しました。ただし承認介入がT1で7回、T2で10回、T3で16回と多く、T3は強化版acceptでcart.pyがベースラインとバイト同一のno-opと判明し、実質リファクタなしで不合格です。ローカルLLM(qwen3.5:4b)ではfetch failedで接続できず、代替のqwen2.5-coder:1.5bもツール呼び出しをJSONテキストで出力し「こんにちは」に無関係な質問を返す幻覚が出てL1が実用不能、L2・L3も計測不能で、弱いモデルでの動作は期待できません。セキュリティはアカウント不要・キー隠蔽対応の一方、テレメトリーの有無が不明（?）のため標準的な3としました。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-10-04",
+      "version": "?",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 4,
         "steering": 2,
         "stuck_free": 2,
-        "error_handling": 1,
+        "error_handling": 2,
         "speed_feel": 3,
-        "overall": 2
+        "security": 3,
+        "overall": 3
       },
-      "comment": "VS Code拡張としてMarketplaceから通常導入でき、対象も初学者〜中級者と明記されていて入り口は分かりやすく、BYOK(gemini-3.5-flash-lite)のT6も約1分で静的・動的検証ともに成功しました。ただし介入が7回と承認操作が多く、ローカルLLM(qwen3.5:4b)ではlocalhost指定でfetch failedとなり、思考ON/OFFのどちらでも接続できずL1が実用不能でした。代わりに試したqwen2.5-coder:1.5bもツール呼出しをJSONテキストで出力したり無関係な質問を幻覚したりしたため、L2/L3は計測不能で、弱いモデルで使いたい初学者にはおすすめしにくいです。"
+      "comment": "VS Code拡張として通常導入でき、初学者〜中級者向け・アカウント不要で、T1/T2/T4/T5/T6は検証を通過している点は扱いやすいです。一方、T3は16回介入して実質no-opとなり、ローカルLLMではL1が接続・tool callingとも実用不能で、1.5Bモデルもツール呼出しをJSON文字列として出力するなど弱いモデルへの対応に大きな不安があります。"
     }
   ]
 }

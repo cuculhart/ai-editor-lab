@@ -2,7 +2,7 @@
 
 あなたは「初学者向けAIコーディングツール比較サイト」のレビュアーです。
 以下のベンチマーク実測データを読み、このツールを **初学者が使う場合の観点** で
-8つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
+9つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
 
 ## 評価の前提
 
@@ -31,6 +31,9 @@
 - stuck_free: 詰まりにくさ
 - error_handling: エラー時の挙動（自己回復・説明力）
 - speed_feel: 体感速度
+- security: 安心して使えるか（テレメトリー有無・opt-out可否、BYOKでもベンダーサーバーへ
+  データが流れる設計がないか、プロキシでのキー隠蔽可否、アカウント要否、
+  非操作中に動く機能［自動補完等］の外部通信、ハング中の課金継続の有無）
 - overall: 総合評価（初学者におすすめできるか）
 
 ## 回答フォーマット
@@ -40,7 +43,8 @@
 {
   "scores": {
     "audience": 0, "ui": 0, "learning": 0, "steering": 0,
-    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "overall": 0
+    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "security": 0,
+    "overall": 0
   },
   "comment": "（2〜3文の日本語コメント）"
 }
@@ -57,8 +61,17 @@
 
 | タスク | カテゴリ | 成否 | 秒 | 介入 | notes |
 |---|---|---|---|---|---|
-| T6 | localllm | ✓ | ? | ? | ?。動的検証pass |
-| T6 | byok-gemini | ✓ | 15 | ? | 静的検証全pass・約15秒。動的検証pass |
+| T1 | byok-gemini | ✓ | 32 | 0 | omise/discount.py を >= 3 に修正。accept.py: pass / tests未改変 / 全7テストpass（Agent Canvas版UIで実行）。run1は計測ミスのためrun2で再計測 |
+| T2 | byok-gemini | ✓ | 80 | 0 | omise/points.py を新規追加（int(amount*0.01)で1%切り捨て）。accept.py: pass / 既存ファイル未改変 / 回帰なし |
+| T3 | byok-gemini | ✓ | 86 | 0 | Cartをdict[(name,price)]管理にリファクタ。add/remove/count/quantities/subtotal全て公開API互換。accept.py: pass / cart suite pass（fixture由来のdiscount境界バグはT3範囲外で温存） |
+| T4 | byok-gemini | ✓ | 29 | 0 | tests/test_cart.py 新規追加（3テスト: remove/quantities/混合product、全てpass）。accept.py: pass / 既存ファイル未改変（唯一の失敗はfixture由来のT1バグ） |
+| T5 | byok-gemini | ✓ | 38 | 0 | README.md を初学者向けに全面改訂（概要/インストール/使い方+コード例/テスト実行/ライセンス全節あり・1569字）。accept.py: pass / 他ファイル未改変。※実行先が誤ってLocalLLM/T5 workspaceだったがBYOK(Gemini)実行のため byok-gemini に記録 |
+| T6 | byok-gemini | ✓ | 25 | 0 | agent-canvas環境で再計測。静的・動的(playwright)検証とも全pass・介入0。run1(9/27・旧コンテナ・約15秒)も成功 |
+| T1 | localllm | ✗ | 600+ | ? | 旧版: ctx 32768拡大済みでも litellm 300s タイムアウトを1ターンも完了できず中断（CPU推論で約30Kトークンのシステムプロンプト評価に10分超）。新版agent-canvasでも再検証: Ollama接続成功・timeout 1800sに延ばしたが推論中にOllamaプロセスが落ちてServerDisconnected。4B+CPUでは構造的に不成立 |
+| T2 | localllm | ✗ | ? | 0 | 環境不成立のため未試行。T1で ctx 32768 拡大後も litellm 300s タイムアウト超過を確認（OpenHandsの巨大システムプロンプトが4B+CPUに不適合） |
+| T3 | localllm | ✗ | ? | 0 | 環境不成立のため未試行。T1で ctx 32768 拡大後も litellm 300s タイムアウト超過を確認（OpenHandsの巨大システムプロンプトが4B+CPUに不適合） |
+| T4 | localllm | ✗ | ? | 0 | 環境不成立のため未試行。T1で ctx 32768 拡大後も litellm 300s タイムアウト超過を確認（OpenHandsの巨大システムプロンプトが4B+CPUに不適合） |
+| T5 | localllm | ✗ | ? | 0 | 環境不成立のため未試行。T1で ctx 32768 拡大後も litellm 300s タイムアウト超過を確認（OpenHandsの巨大システムプロンプトが4B+CPUに不適合） |
 
 ## 機能・環境面の調査メモ
 
@@ -70,7 +83,7 @@
 - custom_endpoint: ○
 - local_llm: ○ litellm経由
 - proxy_key_hiding: △ litellm経由。モデル指定は litellm 形式 (gemini/...) が必要
-- token_saving: ?
+- token_saving: ○ litellm経由のプロンプトキャッシュ（モデル依存）
 - telemetry: △
 - auto_approve: ○ 確認モード切替
 - parallel: ○ 複数会話可

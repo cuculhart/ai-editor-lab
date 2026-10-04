@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,23 +43,23 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>5</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>4</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
-        <p class="small mb-0">💬 VS Code拡張でMarketplaceから通常導入でき、対象も初学者〜中級者のため、初学者が始めやすい構成です。ローカルLLMでもL2は介入0回で全7テスト合格、L3も介入5回ながら自力デバッグを完走して全7テスト合格しましたが、L1ではパス誘導など2回の介入が必要で余分なサブディレクトリも作成しました。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>5</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張として通常導入でき、初学者〜中級者向け・アカウント不要で、BYOK/ローカルLLMにも対応する点は初学者に扱いやすいです。GeminiではT1〜T5が全成功した一方、ローカル4BモデルではT2/T3/T4が失敗し、PowerShellの文字コードやリダイレクト、永久リトライ・Ollamaタイムアウトなどで介入が増えたため、弱いモデルでの詰まりにくさとエラー処理は低めに評価しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
-        <p class="small mb-0">💬 VS Code拡張機能として導入しやすく直感的に操作できますが、ローカルLLM環境ではパスタイポやPowerShellのコマンドエラーを発生させるなど初学者にはやや手がかかる面があります。一方でエラー発生時には自力で再確認を行って最終的にデバッグ（L3）を成功させており、BYOK環境ではT6タスクを30秒で完走するなど高いポテンシャルを示しています。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張機能として簡単に導入でき、タスクごとのコスト表示や承認設定など初学者にもわかりやすいUI構造を備えています。BYOK環境では各種タスクを確実に成功させる高いポテンシャルを持つ一方、ローカルLLM環境ではPowerShell環境でのリダイレクトによるUTF-16化や文字化け（CP932）への誤診、コマンド失敗からの永久リトライ（T2で介入17回）が発生するなど、弱いモデルにおける自力回復力には難があります。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>4</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
-        <p class="small mb-0">💬 VS Code拡張としてMarketplaceから通常導入でき、対象も初学者〜中級者と明記されているため、Aiderのようなgit前提や環境依存の詰まりがなく入りやすいです。弱いローカルLLM(qwen3.5:4b)でもL1〜L3を全て完走し、L3ではテキスト不一致や文字化けで初回編集に失敗しても再確認して自力回復（介入5回・全7テスト合格）しており、エラー時の粘り強さが際立ちます。一方でL1ではパスのタイポと余分なcalc/ディレクトリ作成で要件から逸脱し、T6のBYOKでも動的検証が3回中2回の不安定さがあったため、操縦性は満点にはできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張としてMarketplaceから通常導入でき、アカウント不要・対象は初学者〜中級者と明確で、BYOK(gemini-3.5-flash-lite)ではT1〜T6が全て成功し、T6は30秒・$0.0091と軽量です。ただし承認介入がT1で3回、T3で10回と多く、T5では「他ファイルは変更しない」指示に反してdiscount.pyも修正しており、操縦性には課題が残ります。ローカルLLM(qwen3.5:4b)ではL1〜L3・T1・T5が成功した一方、T2〜T4はwrite_to_file不全やPowerShell出力のUTF-16化・CP932文字化けの誤診、Ollamaタイムアウトで失敗し、弱いモデルでは詰まりやすいものの、L3ではtypeコマンドで再確認して自己回復できた点は評価できます。テレメトリーは収集ありだがopt-out可で、LiteLLM経由のキー隠蔽にも対応するため、セキュリティは標準的な3としました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
-        <p class="small mb-0">💬 Marketplace導入だけで動き、T6を30秒・$0.0091で完走。LocalLLMのL-suiteも全完走したが、L1はパス誘導が必要、L3は編集不一致→type再確認(文字化け)→再編集と5介入を要した。自動承認設定で実用圏だが、弱いモデルでの手戻りは残る。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOK T1–T6が全て成功し、T6は30秒・$0.0091と速度・コストとも優秀。ただし各タスク3〜10介入を要し、T5では「他ファイル変更禁止」の指示に反してdiscount.pyを修正。LocalLLMではT2のUTF-16化+nullバイト混入でパッケージ全滅、T3でPowerShellへの疑似コード投入など破壊的失敗が確認された。</p>
       </div></div></div>
     </div>
   </section>

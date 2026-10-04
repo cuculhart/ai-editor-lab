@@ -179,11 +179,11 @@
       "notes": "OSS の Cursor 代替。独立エディタ"
     },
     {
-      "id": "forger",
+      "id": "teaspoon",
       "name": "Teaspoon IDE",
       "form": "独立 Electron アプリ",
       "license": "FSL-1.1-MIT",
-      "url": "https://cuculhart.com/forger.html",
+      "url": "https://cuculhart.com/teaspoon.html",
       "repo": "https://github.com/cuculhart/teaspoon-ide",
       "categories": [
         "byok-gemini",

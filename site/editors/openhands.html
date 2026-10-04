@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,23 +43,23 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>5</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 Web UIで操作でき、BYOKのT6は約15秒で静的・動的検証とも成功していますが、Docker Desktop＋WSL2が必須で対象も中〜上級者のため、初学者には導入負担があります。Windowsではwinnat問題で初回起動に追加操作が必要だったほか、LLMプロファイルに壊れたURLが自動入力され404になるケースもあり、詰まりにくさには課題があります。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 GeminiではT1〜T6が29〜86秒・介入0ですべて成功し、Web UI上で自律的にタスクを完遂できる点は強みですが、WindowsではWSL2+Dockerが必要でwinnat問題や壊れたURLの初期設定罠もあり、初学者向けの導入とは言いにくいです。ローカル4BモデルではT1が600秒超でも完了せず、Ollamaプロセスが落ち、T2〜T5も環境不成立で未試行となったため、弱いモデルでの実用性は低く評価しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 Windows環境ではWSL2やDocker Desktopが必須な上に、winnatのポート除外問題やLLMプロファイルの初期URL破損による404エラーなど導入の躓きどころが非常に多いツールです。BYOK（Gemini）環境ではT6を約15秒で完走する高い処理能力を示していますが、環境構築やトラブルシューティングのハードルが高すぎます。難しい設定なしで動かすことが前提のプログラミング初学者には全くおすすめできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>5</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
+        <p class="small mb-0">💬 BYOK（Gemini）環境ではAgent CanvasなどのわかりやすいWeb UIを使い、25〜86秒かつ全タスク介入0で完璧な結果を残す高い実力を持っています。しかし、導入にはWSL2やDocker Desktopが必須であり、winnatのポート競合や自動入力URLの壊れ（404エラー）など初学者を阻む設定の罠が多発します。さらに巨大なシステムプロンプトのためローカルLLM（CPU推論）環境ではタイムアウトやOllamaプロセスのクラッシュ（T1）が発生し動作不成立となるため、初心者への推奨は困難です。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)のT6は約15秒で静的・動的検証ともに成功し、動作自体は問題ありませんが、Windowsでは Docker Desktop(WSL2)が必須で、初回はwinnatのポート除外問題で失敗しnet stop/start winnatで解消する必要があり、さらにLLMプロファイルのベースURL欄に壊れたURLが自動入力されて404になる罠もあり、初学者には導入と設定の壁が非常に高いです。対象も中〜上級者(Docker前提)と明記されており、モデル指定にlitellm形式(gemini/...)が必要な点も分かりにくいです。T1〜T5とL1〜L3は計測データがないため、修正能力や弱いローカルモデルでの動作は評価できず、T6の1件の成功だけでは判断材料が不足しています。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)ではT1〜T6が全て成功して介入0、25〜86秒で完結し、Web UIからの操作で指示通りに動く完成度の高さは際立っています。しかし導入はDocker Desktop(WSL2)必須で、初回はwinnatのポート除外問題で失敗し、LLMプロファイルのベースURL欄に壊れたURLが自動入力されて404になる罠もあり、対象も中〜上級者（Docker前提）と初学者には非常に高いハードルです。ローカルLLM(qwen3.5:4b)では約30Kトークンの巨大なシステムプロンプトがCPU推論に不適合で、300秒のlitellmタイムアウトを超え、timeoutを1800秒に延ばしてもOllamaが落ちてT1〜T5が全て不成立でした。テレメトリーの詳細は不明（△）ながらアカウント不要でlitellm経由の運用ができるため、セキュリティは標準的な3としています。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)の実力自体は非常に高く、T1〜T6全て介入0・各15〜86秒で完走。一方LocalLLM(qwen3.5:4b・CPU)は巨大システムプロンプトによりlitellm 300sタイムアウトを1ターンも完了できず構造的に不成立。さらに旧openhandsイメージのフロントエンドが全画面クラッシュする不具合があり、現行のagent-canvasイメージへの移行が必要だった。Docker Desktop+WSL2前提でwinnatポート除外やプロファイルURL破損(404)など導入障害が連発し、初学者が自力で辿り着くのは現実的でない。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)の実力自体は非常に高く、T1〜T6全て介入0・各25〜86秒で完走。一方LocalLLM(qwen3.5:4b・CPU)は巨大システムプロンプトによりlitellm 300sタイムアウトを1ターンも完了できず構造的に不成立。Docker Desktop+WSL2前提でwinnatポート除外やプロファイルURL破損(404)など導入障害が連発し、初学者が自力で辿り着くのは現実的でない。</p>
       </div></div></div>
     </div>
   </section>

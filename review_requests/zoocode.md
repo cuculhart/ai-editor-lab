@@ -2,7 +2,7 @@
 
 あなたは「初学者向けAIコーディングツール比較サイト」のレビュアーです。
 以下のベンチマーク実測データを読み、このツールを **初学者が使う場合の観点** で
-8つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
+9つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
 
 ## 評価の前提
 
@@ -31,6 +31,9 @@
 - stuck_free: 詰まりにくさ
 - error_handling: エラー時の挙動（自己回復・説明力）
 - speed_feel: 体感速度
+- security: 安心して使えるか（テレメトリー有無・opt-out可否、BYOKでもベンダーサーバーへ
+  データが流れる設計がないか、プロキシでのキー隠蔽可否、アカウント要否、
+  非操作中に動く機能［自動補完等］の外部通信、ハング中の課金継続の有無）
 - overall: 総合評価（初学者におすすめできるか）
 
 ## 回答フォーマット
@@ -40,7 +43,8 @@
 {
   "scores": {
     "audience": 0, "ui": 0, "learning": 0, "steering": 0,
-    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "overall": 0
+    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "security": 0,
+    "overall": 0
   },
   "comment": "（2〜3文の日本語コメント）"
 }
@@ -57,6 +61,11 @@
 
 | タスク | カテゴリ | 成否 | 秒 | 介入 | notes |
 |---|---|---|---|---|---|
+| T1 | byok-gemini | ✓ | ? | 7 | omise/discount.py を >= 3 に修正。accept.py: pass / tests未改変 / 全テストpass |
+| T2 | byok-gemini | ✓ | ? | 10 | omise/points.py 追加（math.floor(amount*0.01)）。accept.py: pass / 回帰なし |
+| T3 | byok-gemini | ✗ | ? | 16 | Cartを内部Counter併用のlist管理にリファクタ（公開API互換）。accept.py: pass / cart suite pass 【訂正】強化版accept.py(real_refactor判定)ではcart.pyがベースラインとバイト同一=no-opのため不合格。API互換・TestCart passは事実だが実質リファクタなし |
+| T4 | byok-gemini | ✓ | ? | 6 | tests/test_cart.py 新規追加（3テスト、全てpass）。accept.py: pass / 既存ファイル未改変 |
+| T5 | byok-gemini | ✓ | ? | 5 | README.md全面改訂（全必須節・コード例あり・1312字）。accept.py: pass / 他ファイル未改変 |
 | T6 | localllm | ✓ | ? | ? | ?。動的検証pass |
 | T6 | byok-gemini | ✓ | 60 | 7 | 静的検証全pass・約1分弱。動的検証pass |
 | L1 | localllm | ✗ | ? | ? | 実用不能。localhost指定はfetch failed（127.0.0.1で接続確立）。qwen3.5:4bは思考ON/OFF両方でfetch failed（ロードtimeout推定）。qwen2.5-coder:1.5bは応答するも、ツール呼出しをJSONテキストとして出力・無関係な質問を幻覚（「こんにちは」にfrontend-config.jsonの所在を尋ねる） |
@@ -76,7 +85,7 @@
 - token_saving: ○ コンテキスト使用量表示
 - telemetry: ?
 - auto_approve: ○
-- parallel: ?
+- parallel: △ 単一タスク主体
 - checkpoint: ○
 - mcp: ○
 - cost_display: ○

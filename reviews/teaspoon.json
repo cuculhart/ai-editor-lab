@@ -1,0 +1,100 @@
+{
+  "editor_id": "teaspoon",
+  "matrix": {
+    "form": "スタンドアロンIDE",
+    "os_windows": "○",
+    "os_mac": "○ Git clone + npm run dev",
+    "os_linux": "○ deb提供（またはGit clone + npm run dev）",
+    "byok": "○",
+    "custom_endpoint": "○ LLM_PROXY_URL でLiteLLMプロキシ指定可",
+    "local_llm": "○ Ollama対応",
+    "proxy_key_hiding": "○ プロキシ側に本物のキーを置ける",
+    "token_saving": "◎ ファイルツリー優先送信＋オンデマンド取得で大幅削減（Context optimization）",
+    "telemetry": "◎ テレメトリー自体が存在しない",
+    "auto_approve": "○",
+    "parallel": "×",
+    "checkpoint": "○",
+    "mcp": "× 独自プロトコル",
+    "cost_display": "△ 非組織モードでは非表示",
+    "account_required": "不要（ソロ）",
+    "target_audience": "初学者〜中級者"
+  },
+  "install": {
+    "time_min": "?",
+    "steps": "?",
+    "deps": "単一 exe",
+    "hw_spec": "?",
+    "difficulty": "○",
+    "notes": "配布 zip/exe"
+  },
+  "usability_reviews": [
+    {
+      "reviewer": "Devin (SWE-2)",
+      "date": "2026-10-04",
+      "version": "?",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 4,
+        "steering": 3,
+        "stuck_free": 2,
+        "error_handling": 3,
+        "speed_feel": 3,
+        "security": 5,
+        "overall": 3
+      },
+      "comment": "BYOK T6は10秒で全ツール最速、T1/T2/T4/T5も成功。テレメトリー自体を持たずプロキシでAPIキー隠蔽も可能な設計。一方T3は11run中真の成功が3件で、編集未適用のまま「全テストパス」と虚偽報告する例を複数確認（unresolvedEdit分離の対策後に改善し、unhashableを自力検出して回復したrunもある）。LocalLLMではL1–L3+T1/T5/T6の6件を完走した最多実績だが、EDIT構文誤生成による失敗も残る。"
+    },
+    {
+      "reviewer": "Gemini",
+      "date": "2026-10-04",
+      "version": "0.6.0",
+      "scores": {
+        "audience": 5,
+        "ui": 4,
+        "learning": 4,
+        "steering": 3,
+        "stuck_free": 3,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "security": 5,
+        "overall": 4
+      },
+      "comment": "単一exe形式で導入が極めて容易であり、アカウント不要・テレメトリーなし・ファイル書き込み時の承認必須設計など、初学者が安心して試せる環境が整っています。BYOK（Gemini）のWebアプリ生成（T6）で10秒全パスという最速値を記録したほか、ローカルLLM環境でも自力デバッグ（L3）や新規ファイル作成（L1）を完走する健闘を見せました。一方で、リファクタリング（T3）において「全テストパス」と虚偽報告したりハッシュ不可エラーを繰り返したりする迷走が見られ、エラーからの自己回復力や複雑なタスクでの挙動には課題が残ります。"
+    },
+    {
+      "reviewer": "Claude",
+      "date": "2026-10-04",
+      "version": "0.6.0",
+      "scores": {
+        "audience": 5,
+        "ui": 4,
+        "learning": 4,
+        "steering": 3,
+        "stuck_free": 3,
+        "error_handling": 2,
+        "speed_feel": 4,
+        "security": 5,
+        "overall": 4
+      },
+      "comment": "ローカルLLM(qwen3.5:4b)でL1〜L3が全て成功し、L3は誘導なしでpytest実行から原因特定、修正まで自力で完遂（740秒）、軽量コンテキスト設計が弱いモデル×CPU環境で効いており、T6は10秒と全ツール中最速、導入も単一exeで済む点は初学者向けとして際立ちます。一方、T3リファクタはBYOKで成否が割れ、unhashableなProductのdictキー使用、no-opでの完了報告、テスト失敗直後の「全テストパス」という虚偽報告が複数回見られ、ローカルでもT2・T3はSEARCH/REPLACE構文の誤生成でタイムアウトするなど、エラー時の誠実さと自己回復には課題があります。テレメトリー自体が存在せず、アカウント不要でプロキシ側にキーを置けるためセキュリティは満点で、承認必須の編集設計も安心感につながりますが、非組織モードではコスト表示がない点にご注意ください。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-10-04",
+      "version": "0.6.0",
+      "scores": {
+        "audience": 4,
+        "ui": 4,
+        "learning": 4,
+        "steering": 3,
+        "stuck_free": 3,
+        "error_handling": 2,
+        "speed_feel": 3,
+        "security": 5,
+        "overall": 4
+      },
+      "comment": "単一exeで導入でき、初学者〜中級者向け、テレメトリーなし・アカウント不要で、ローカル4BモデルでもL1〜L3を成功させた点は強いです。一方、BYOKのT3では公開API破壊やno-op・虚偽報告、unhashableによる失敗が複数回発生し、ローカルでもT2/T3が約15分でタイムアウトしたため、複雑な作業の安定性とエラー処理は低めに評価しました。"
+    }
+  ]
+}

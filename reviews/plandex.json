@@ -30,7 +30,7 @@
   "usability_reviews": [
     {
       "reviewer": "Devin (SWE-2)",
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 2,
@@ -40,13 +40,14 @@
         "stuck_free": 0,
         "error_handling": 0,
         "speed_feel": 0,
+        "security": 1,
         "overall": 0
       },
       "comment": "Windowsビルド非提供でWSL必須。計測以前に導入不能。"
     },
     {
       "reviewer": "Gemini",
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 2,
@@ -56,41 +57,44 @@
         "stuck_free": 0,
         "error_handling": 0,
         "speed_feel": 0,
+        "security": 3,
         "overall": 0
       },
-      "comment": "公式にWindowsビルドが提供されておらずWSL環境が必須となるため、ベンチマークの計測以前にネイティブなWindows環境への導入が不可能です。CLI形態であることに加えてWSLの構築まで求められるのは、プログラミング初学者にとって非常に高いハードルとなります。難しい設定なしに動かすことが評価の前提である本観点においては、初学者におすすめできる要素がありません。"
+      "comment": "公式にWindows用バイナリが存在せず、利用にあたってWSL環境の構築が必須となるため、定量ベンチマークの全タスクが計測不能（—）という結果でした。プロンプトキャッシュやバージョン管理など中級者向けの機能は備わっているものの、CLI形態かつ導入ハードルが極めて高い設計となっています。Windows標準環境で手軽にAIツールを試したい初学者には全くおすすめできません。"
     },
     {
-      "reviewer": "ChatGPT",
-      "date": "2026-09-30",
+      "reviewer": "Claude",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 2,
         "ui": 2,
-        "learning": 1,
-        "steering": 0,
-        "stuck_free": 0,
-        "error_handling": 0,
-        "speed_feel": 0,
-        "overall": 1
-      },
-      "comment": "対象は中級者で、Windowsでは公式ビルドがなくWSLが必須のため、今回の環境では導入段階からL1〜L3をすべて計測できませんでした。実測タスクの成功・速度・エラー対応を確認できるデータがないため、初学者が難しい設定なしに使えることを裏付ける材料はありません。"
-    },
-    {
-      "reviewer": "Claude",
-      "date": "2026-09-30",
-      "version": "?",
-      "scores": {
-        "audience": 1,
-        "ui": 0,
         "learning": 0,
         "steering": 0,
         "stuck_free": 0,
         "error_handling": 0,
         "speed_feel": 0,
+        "security": 2,
         "overall": 0
       },
-      "comment": "公式にWindowsビルドがなく(darwin/linux/freebsdのみ)WSLが必須のため、本ベンチのWindows環境ではL1〜L3を含む全タスクが計測不能で、操縦性・速度・エラー時の挙動は評価できず0点としています（データ不足による最低点で、実際の性能が低いという意味ではありません）。対象も中級者とされ、accountの要否は△、ローカルLLMもOpenRouter等の経由という記載にとどまり、初学者が難しい設定なしに使い始められる条件を満たしていません。macOS/Linuxでは動作する可能性がありますが、Windowsが主流の初学者にはおすすめしにくいです。"
+      "comment": "公式にWindowsビルドがなく（darwin/linux/freebsdのみ）WSLが必須のため、Windows 11の検証環境ではL1〜L3が全て計測不能となり、導入の時点で初学者には大きな壁になります。プロンプトキャッシュ内蔵・tree-sitterによるプロジェクトマップ・rewindやbranchによるバージョン管理・plandex usageでの詳細なコスト集計など機能面は充実していますが、対象は中級者で、実測データがないため速度や操縦性などは憶測せず最低点としました。セキュリティはセルフホストとenvでのキー管理に対応する一方、テレメトリーは不明（?）でアカウント要否も△のため、評価を保留気味の2としています。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-10-04",
+      "version": "?",
+      "scores": {
+        "audience": 2,
+        "ui": 2,
+        "learning": 2,
+        "steering": 3,
+        "stuck_free": 1,
+        "error_handling": 2,
+        "speed_feel": 1,
+        "security": 3,
+        "overall": 1
+      },
+      "comment": "Windowsでは公式ビルドがなくWSL必須のため、この環境ではL1〜L3をすべて計測不能で、初学者が難しい設定なしに始められるとは評価しにくいです。一方で、全自動モード、rewind/branch、プロンプトキャッシュやtree-sitterのプロジェクトマップなどの機能は整っていますが、実機での成功率や速度を確認できないため、総合評価は低めにしました。"
     }
   ]
 }

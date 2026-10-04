@@ -42,6 +42,7 @@ SCORE_LABELS = {
     "stuck_free": "詰まりにくさ",
     "error_handling": "エラー時の挙動",
     "speed_feel": "体感速度",
+    "security": "安心して使えるか",
     "overall": "総合評価",
 }
 
@@ -112,7 +113,7 @@ def page(title: str, body: str, base: str = "") -> str:
     <nav class="site-nav">
       <a href="{base}index.html">トップ</a>
       <a href="{base}method.html">測定方法</a>
-      <a href="{base}article-harness.html">記事</a>
+      <a href="{base}article.html">記事</a>
       <a href="{base}about.html">運営者について</a>
     </nav>
   </div>
@@ -452,6 +453,15 @@ def method_page(data):
         </ul>
       </div>
       <div class="card-pop mb-3">
+        <h5>レビュー採点方法（使用感スコア）</h5>
+        <p class="small">各レビュアーは実測データ（成功率・時間・介入回数・失敗形）・機能マトリクス・導入メモを読み、以下の9軸を 0〜5 の整数で採点します。</p>
+        <ul class="small">
+          <li>ターゲット層の明確さ / 画面の見やすさ / 学習コスト / エージェントの操縦性 / 詰まりにくさ / エラー時の挙動 / 体感速度 / 安心して使えるか</li>
+          <li><strong>総合評価（overall）: 「初学者におすすめできるか」の主観的な総合判断。他8軸の平均ではないため、軸の平均とは一致しません</strong>（多くのレビュアーは軸平均より厳しめに付けています）</li>
+        </ul>
+        <p class="small">トップページの「平均スコア」列は、4者の総合評価の<strong>単純平均</strong>です（小数第1位）。各レビュアーの採点とコメント全文は各ツール詳細ページに掲載しています。</p>
+      </div>
+      <div class="card-pop mb-3">
         <h5>受入テスト（accept.py）と判定の訂正</h5>
         <ul>
           <li>各タスクの「成功」は同梱の accept.py が pass を返したことで判定。テスト不変・公開API互換・成果物の実在を検査します</li>
@@ -547,10 +557,117 @@ def article_page():
         <li><strong>受入テストは no-op を通し得る</strong>: 「テストがパスした」だけでは「仕事をした」ことにならない</li>
         <li><strong>リッチなハーネスにはコストがかかる</strong>: 軽量さと誠実さの両立が設計の腕の見せどころ</li>
       </ul>
-      <p class="small text-muted mt-4">この記事の内容は <a href="method.html">測定方法</a> の観察カードの詳細版です。全試行の生データは各ツール詳細ページの履歴表をご覧ください。</p>
+      <p class="small text-muted mt-4">この記事の内容は <a href="method.html">測定方法</a> の観察カードの詳細版です。全試行の生データは各ツール詳細ページの履歴表をご覧ください。<br><a href="article.html">← 記事一覧に戻る</a></p>
     </div>
   </section>"""
     return page("記事: ハーネス差", body)
+
+
+ARTICLES = [
+    {
+        "file": "article-harness.html",
+        "title": "同じLLMを使っているのに成功率が全然違う — AIコーディングツールの差は「ハーネス」だった",
+        "date": "2026-10",
+        "desc": "同一モデル・同一タスクで繰り返し計測したところ、no-op 完了報告・検証済みの事実と矛盾する実装・結果と矛盾する完了報告という3種の「嘘」が観察されました。差を生むのはモデルではなくツール側のハーネス設計でした。",
+    },
+    {
+        "file": "article-summarize.html",
+        "title": "会話が長くなるとAIは「最初の指示」を忘れる — 自動要約フラグをON/OFFで実測してみた",
+        "date": "2026-10",
+        "desc": "Teaspoon IDE v0.9.1 の会話要約機能を ON/OFF して実測。30メッセージ超で発火する要約は内容こそ正確なものの、モデルが「最初に見えるメッセージ」に答えを引っ張られる失敗も観察されました。",
+    },
+]
+
+
+def article_index_page():
+    cards = "".join(
+        f"""<div class="col-md-6 mb-3"><a class="card-link" href="{a['file']}">
+        <div class="card-pop"><div class="editor-name">{esc(a['title'])}</div>
+        <div class="text-muted small">公開実験ノート | {esc(a['date'])}</div>
+        <p class="mb-0 mt-2 small">{esc(a['desc'])}</p></div></a></div>"""
+        for a in ARTICLES
+    )
+    body = f"""
+  <section class="section">
+    <div class="container">
+      <h2>📝 記事</h2>
+      <p class="text-muted">ベンチマーク計測の中で見えた現象を掘り下げた実験ノートです。</p>
+      <div class="row">{cards}</div>
+    </div>
+  </section>"""
+    return page("記事", body)
+
+
+def article_summarize_page():
+    body = """
+  <section class="section">
+    <div class="container" style="max-width: 820px">
+      <h2>会話が長くなるとAIは「最初の指示」を忘れる — 自動要約フラグをON/OFFで実測してみた</h2>
+      <p class="text-muted">公開実験ノート | 計測: 2026-10</p>
+
+      <p>Teaspoon IDE v0.9.1 に「Summarize long conversations（長い会話を要約）」という設定が追加されました。ON にすると長い会話の古い部分を AI が要約して圧縮し、以降のターンのコンテキストに載せます。本当に結果が変わるのか、Playwright で IDE を自動操作して ON/OFF を比較しました。</p>
+
+      <h4 class="mt-4">仕組みと、最初に分かった重要な制約</h4>
+      <table class="table">
+        <thead><tr><th>項目</th><th>動作</th></tr></thead>
+        <tbody>
+          <tr><td>発火条件</td><td>未要約メッセージが <strong>30件超</strong>（各ターン完了時にチェック）</td></tr>
+          <tr><td>逐語で送る履歴</td><td>直近 <strong>20メッセージ</strong>のみ</td></tr>
+          <tr><td>OFF の挙動</td><td>古い側は単純に切り捨て。「最初のメッセージとは限らない」旨の注記のみ注入</td></tr>
+          <tr><td>ON の挙動</td><td>切り捨て分を AI が 1500字以内の要約に圧縮して注入（ターンごとに +1 リクエスト）</td></tr>
+        </tbody>
+      </table>
+      <p>コードを読んで判明した重要な制約として、<strong>要約処理はターン完了後にだけ実行</strong>されます。つまり「1つのプロンプトに対する応答」という単発の仕事では要約は一切関与しません — この機能は当サイトの単発ベンチマークスコアには原理的に影響を与えられず、効果が出るのは「長い会話の2ターン目以降」に限られます。</p>
+
+      <h4 class="mt-4">実験設計</h4>
+      <ul>
+        <li>1つの会話内でベンチタスクを6本連続実行（T1バグ修正→T2機能追加→T4テスト生成→T5ドキュメント→T6 Webアプリ→T3リファクタ）し、会話を30〜47メッセージまで積み上げる</li>
+        <li>最後に想起プローブを送信: <em>「この会話で私が最初にお願いしたタスクは何でしたか？」</em>（正解は T1 = omise/discount.py の割引境界値バグ修正）</li>
+        <li>バックエンドは gemini-3.5-flash-lite。承認操作はすべて自動で approve</li>
+        <li>要約が実際に発火したかは、保存された会話データの <code>summarizedCount</code> で確認</li>
+      </ul>
+
+      <h4 class="mt-4">結果</h4>
+      <table class="table">
+        <thead><tr><th>実行</th><th>メッセージ数</th><th>要約発火</th><th>「最初のタスク」の回答</th></tr></thead>
+        <tbody>
+          <tr><td>OFF #1</td><td>47</td><td>—</td><td>✗ T3（リファクタ）と誤答</td></tr>
+          <tr><td>OFF #2</td><td>39</td><td>—</td><td>✗ T4（テスト生成）と誤答</td></tr>
+          <tr><td>OFF #3</td><td>33</td><td>—</td><td>△ 割引バグ修正（正解だが曖昧）</td></tr>
+          <tr><td>ON #1</td><td>29</td><td>未発火</td><td>○ 正答（窓内に残存していただけ）</td></tr>
+          <tr><td>ON #2</td><td>41</td><td>発火（13件→要約）</td><td>✗ T4と誤答</td></tr>
+          <tr><td>ON #3</td><td>31</td><td>未発火</td><td>✗ T2と誤答（実質OFF同等）</td></tr>
+          <tr><td>ON #4</td><td>36</td><td>発火（13件→要約）</td><td><strong>○ 正答（quantity >= 3 まで正確に復唱）</strong></td></tr>
+          <tr><td>ON #5</td><td>33</td><td>発火（12件→要約）</td><td>✗ T4と誤答</td></tr>
+        </tbody>
+      </table>
+
+      <h4 class="mt-4">観察されたこと</h4>
+      <div class="card-pop mb-3">
+        <h6>要約自体は機械的に正確</h6>
+        <p>発火した実行で保存されていた要約（例）: <em>「omise/discount.py の bulk_discount_rate の割引適用条件を quantity > 3 から >= 3 に修正。omise/points.py を新規作成し earn_points を実装。未完了タスク: なし」</em>。ファイルパス・決定事項・未完了タスクが的確に保持されていました。</p>
+      </div>
+      <div class="card-pop mb-3">
+        <h6>でもモデルは要約を「使わない」ことがある</h6>
+        <p>ON #2・#5 では要約内に正解情報があるにもかかわらず、モデルは<strong>逐語で見えている最古のメッセージ</strong>（T4の指示）を「最初のタスク」として自信たっぷりに回答しました。特に #5 は、要約の「未完了タスク」欄に T4 のテスト作成が記録されていたため、そちらを答えとして選んでしまった形跡があります。</p>
+      </div>
+      <div class="card-pop mb-3">
+        <h6>発火は「その時点の件数」次第で不安定</h6>
+        <p>31メッセージの実行（ON #3）では要約が一度も発火しませんでした。チェックは各ターン完了時にしか行われないため、ターンの途中で件数を跨いでも発火せず、次のターン開始時点で30件を切っていれば先送りされます。</p>
+      </div>
+
+      <h4 class="mt-4">教訓</h4>
+      <ul>
+        <li><strong>単発タスクへの効果は原理的にゼロ</strong>: 要約はターン完了後に走るため、そのターン自身の成否を変えない。ベンチマークスコアがこの機能で上がることはない</li>
+        <li><strong>長い会話の文脈維持には意味がある</strong>: OFF では最初の指示が2/3で完全に消えたのに対し、ON では正確な要約が残り、正答したケースでは指示の細部まで復唱できた</li>
+        <li><strong>ただし想起は確実ではない</strong>: 要約があってもモデルが「最古の見えるメッセージ」に引っ張られる失敗が残る。要約の存在をプロンプトでもっと明示する余地がある</li>
+        <li><strong>コストはターンごと +1 リクエスト</strong>: 短い会話では発火しないため実害は小さいが、長いセッションでは課金が増える</li>
+      </ul>
+      <p>結論としてこのフラグは「ベンチマークスコアを上げる機能」ではなく、「実際の長い利用で早期の文脈を失わせない機能」でした。想起プローブの成績は不完全ですが、コンテキストが静かに欠落するよりは明確にマシです。</p>
+      <p class="small text-muted mt-4">対象: Teaspoon IDE v0.9.1（当サイト運営者の自作 IDE）。検証スクリプトと全ログは公開リポジトリにあります。<br><a href="article.html">← 記事一覧に戻る</a></p>
+    </div>
+  </section>"""
+    return page("記事: 自動要約の実測", body)
 
 
 def about_page(data):
@@ -591,7 +708,9 @@ def main() -> None:
 
     (SITE / "index.html").write_text(index_page(data, results_map, reviews_map), encoding="utf-8")
     (SITE / "method.html").write_text(method_page(data), encoding="utf-8")
+    (SITE / "article.html").write_text(article_index_page(), encoding="utf-8")
     (SITE / "article-harness.html").write_text(article_page(), encoding="utf-8")
+    (SITE / "article-summarize.html").write_text(article_summarize_page(), encoding="utf-8")
     (SITE / "about.html").write_text(about_page(data), encoding="utf-8")
     for e in data["editors"]:
         html_text = editor_page(

@@ -39,7 +39,7 @@ TEASPOON_EXE = (
     BENCH.parent / "teaspoon-ide" / "out" / "Teaspoon-win32-x64" / "Teaspoon.exe"
 )
 FIXTURE = BENCH / "fixture"
-RUNS = BENCH / "runs" / "forger"
+RUNS = BENCH / "runs" / "teaspoon"
 MODEL = "qwen3.5:4b"
 GEMINI_MODEL = "gemini-3.5-flash-lite"
 GEMINI_KEY_FILE = BENCH / ".secrets" / "gemini-key.txt"

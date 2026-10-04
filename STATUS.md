@@ -1,6 +1,6 @@
 # ベンチマーク実施状況
 
-生成: 2026-10-01 13:15 +0900 — `tools/status.py` により自動生成
+生成: 2026-10-04 20:11 +0900 — `tools/status.py` により自動生成
 
 再生成: `python tools/status.py`（`results/`・`reviews/`・`runs/` 更新後に実行）
 
@@ -11,8 +11,8 @@
 
 | カテゴリ | モデル | ✓ | ✗ | ? | — |
 |---|---|---|---|---|---|
-| BYOK（Gemini系） | gemini-3.5-flash-lite | 28 | 5 | 36 | 0 |
-| LocalLLM系 | qwen3.5:4b (Ollama) | 20 | 13 | 4 | 17 |
+| BYOK（Gemini系） | gemini-3.5-flash-lite | 51 | 14 | 13 | 0 |
+| LocalLLM系 | qwen3.5:4b (Ollama) | 21 | 21 | 5 | 17 |
 | その他系 | — | 0 | 1 | 0 | 0 |
 
 ## 定量ベンチ 実施状況（ツール×タスク）
@@ -21,18 +21,18 @@
 
 | ツール | T1 | T2 | T3 | T4 | T5 | T6 |
 |---|---|---|---|---|---|---|
-| Cline | ? | ? | ? | ? | ? | ✓(2/2) |
-| Zoo Code | ? | ? | ? | ? | ? | ✓ |
-| Kilo Code | ? | ? | ? | ? | ? | ✓ |
-| Continue | ? | ? | ? | ? | ? | ✓(1/2) |
-| OpenHands | ? | ? | ? | ? | ? | ✓ |
+| Cline | ✓ | ✓ | ✓ | ✓ | ✓ | ✓(2/2) |
+| Zoo Code | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ |
+| Kilo Code | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Continue | ✓ | ✗ | ✗ | ? | ? | ✓(1/2) |
+| OpenHands | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | SWE-agent | — | — | — | — | — | ✗ |
 | OpenCode | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Aider | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Goose | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ |
 | Plandex | ? | ? | ? | ? | ? | ? |
 | Void | ? | ? | ? | ? | ? | ✗ |
-| Teaspoon IDE | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ |
+| Teaspoon IDE | ✓ | ✓ | ✓(3/10) | ✓ | ✓ | ✓ |
 
 ### その他系
 
@@ -44,12 +44,12 @@
 
 | ツール | L1 | L2 | L3 | T1 | T2 | T3 | T4 | T5 | T6 |
 |---|---|---|---|---|---|---|---|---|---|
-| Cline | ✓ | ✓ | ✓ | — | — | — | — | — | ✓ |
+| Cline | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ |
 | Roo Code | ✗ | — | — | — | — | — | — | — | — |
 | Zoo Code | ✗ | — | — | — | — | — | — | — | ✓ |
 | Kilo Code | — | — | — | — | — | — | — | — | ✓ |
 | Continue | ✗ | ✗ | ✗ | — | — | — | — | — | ✓ |
-| OpenHands | ? | ? | ? | — | — | — | — | — | ✓ |
+| OpenHands | ? | ? | ? | ✗ | ✗ | ✗ | ✗ | ✗ | ? |
 | Devika | — | — | — | — | — | — | — | — | — |
 | OpenCode | ✗ | — | — | — | — | — | — | — | ✓ |
 | Aider | ✗ | ✓ | ✗ | — | — | — | — | — | ✓ |
@@ -88,19 +88,15 @@
 - aider T6 run1: 成功だが diff_url 未採取
 - cline T6 run1: 成功だが diff_url 未採取
 - continue T6 run1: 成功だが diff_url 未採取
-- forger T6 run1: 成功だが diff_url 未採取
 - goose T6 run1: 成功だが diff_url 未採取
 - kilocode T6 run1: 成功だが diff_url 未採取
 - opencode T6 run1: 成功だが diff_url 未採取
-- openhands T6 run1: 成功だが diff_url 未採取
+- teaspoon T6 run1: 成功だが diff_url 未採取
 - zoocode T6 run1: 成功だが diff_url 未採取
 
 ## 残作業の目安
 
-- Cline: 未計測 5 枠
-- Zoo Code: 未計測 5 枠
-- Kilo Code: 未計測 5 枠
-- Continue: 未計測 5 枠
-- OpenHands: 未計測 8 枠
+- Continue: 未計測 2 枠
+- OpenHands: 未計測 4 枠
 - Plandex: 未計測 6 枠
 - Void: 未計測 6 枠

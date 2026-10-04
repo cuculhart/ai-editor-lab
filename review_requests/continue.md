@@ -2,7 +2,7 @@
 
 あなたは「初学者向けAIコーディングツール比較サイト」のレビュアーです。
 以下のベンチマーク実測データを読み、このツールを **初学者が使う場合の観点** で
-8つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
+9つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
 
 ## 評価の前提
 
@@ -31,6 +31,9 @@
 - stuck_free: 詰まりにくさ
 - error_handling: エラー時の挙動（自己回復・説明力）
 - speed_feel: 体感速度
+- security: 安心して使えるか（テレメトリー有無・opt-out可否、BYOKでもベンダーサーバーへ
+  データが流れる設計がないか、プロキシでのキー隠蔽可否、アカウント要否、
+  非操作中に動く機能［自動補完等］の外部通信、ハング中の課金継続の有無）
 - overall: 総合評価（初学者におすすめできるか）
 
 ## 回答フォーマット
@@ -40,7 +43,8 @@
 {
   "scores": {
     "audience": 0, "ui": 0, "learning": 0, "steering": 0,
-    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "overall": 0
+    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "security": 0,
+    "overall": 0
   },
   "comment": "（2〜3文の日本語コメント）"
 }
@@ -57,6 +61,9 @@
 
 | タスク | カテゴリ | 成否 | 秒 | 介入 | notes |
 |---|---|---|---|---|---|
+| T1 | byok-gemini | ✓ | ? | 4 | Agentモードでquantity>=3を修正。tests不変・全7テストpass |
+| T2 | byok-gemini | ✗ | ? | 4 | pytest実行まで進むがpoints.py未作成のままGenerating...で5分超ハング(応答生成が継続課金される状態)。ユーザーが中断。指示外だがdiscount.pyのT1バグ(>=3)は修正済み |
+| T3 | byok-gemini | ✗ | ? | 1 | 介入1の後「Generating...」で3分超ハングし課金のみ継続・成果なしのため中断。T2と同じハング症状(ファイル未変更) |
 | T6 | localllm | ✓ | ? | ? | ?。生成3ファイルは動的検証pass。ただし生成完了応答でハング |
 | T6 | byok-gemini | ✓ | ? | ? | 3ファイル生成後ハング（成果物自体は静的検証pass）。生成3ファイルは動的検証pass。ただし生成完了応答でハング |
 | T6 | byok-gemini | ✗ | >300 | 2 | index.html・style.css 生成後、script.js 生成中に 'Generating...' 表示のまま5分以上ハング→手動キャンセル。script.js 未生成でハング |
@@ -74,10 +81,10 @@
 - custom_endpoint: ○
 - local_llm: ○ Ollama定番
 - proxy_key_hiding: ○
-- token_saving: ?
+- token_saving: △ 明示的なキャッシュ設定なし
 - telemetry: △ 匿名収集・opt-out可
 - auto_approve: △ ポリシー設定
-- parallel: ?
+- parallel: △ 単一タスク主体
 - checkpoint: ○
 - mcp: ○
 - cost_display: × 表示なし

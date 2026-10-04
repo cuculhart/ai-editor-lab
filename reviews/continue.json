@@ -31,7 +31,7 @@
   "usability_reviews": [
     {
       "reviewer": "Devin (SWE-2)",
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 3,
@@ -41,57 +41,61 @@
         "stuck_free": 1,
         "error_handling": 1,
         "speed_feel": 2,
+        "security": 2,
         "overall": 1
       },
-      "comment": "GUIでのモデル追加は容易だが、qwen3.5:4bではcapabilities:tool_useを有効化してもツール呼び出しが発行されず、L2では説明テキストのみで編集不発を2回確認。L3はPythonプロジェクトにnpm testを誤実行して停止。L1の生成物もソート欠落で仕様未達だった。"
+      "comment": "BYOKでも'Generating...'ハングがT2/T3/T6で再現し、応答生成による課金が続くまま成果なしで中断を要した（T1のみ成功）。ハング中も課金が止まらない点は安心して使えるかの観点でも問題。LocalLLMではcapabilities:tool_useを有効化してもツール呼び出しが不発で編集に至らず。"
     },
     {
       "reviewer": "Gemini",
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 3,
         "ui": 3,
         "learning": 2,
-        "steering": 1,
+        "steering": 2,
         "stuck_free": 1,
         "error_handling": 1,
         "speed_feel": 1,
+        "security": 2,
         "overall": 1
       },
-      "comment": "VS Code拡張から簡単に導入できるものの、設定にconfig.yamlの編集が必要でGemini環境でも生成途中や完了直後に5分以上ハングする問題が多発しました。ローカルLLM環境ではツール呼び出しが機能せずファイル編集が適用されない（L2）ほか、Python環境でnpm testを誤実行（L3）するなどエラー時の挙動や安定性に大きな課題があります。応答停止や仕様未達が目立ち、初学者がストレスなく使うには厳しい評価です。"
+      "comment": "VS Code等から拡張機能として簡単に導入できるものの、設定にconfig.yamlの編集が必要でありターゲット層や学習コストの面で初学者にはやや難があります。さらに実測では「Generating...」のまま数分以上ハングし成果物なしで課金が継続する症状（T2, T3, T6）が多発しました。ローカルLLM環境でもツール呼び出しが正常に機能せず（L2）、npm testを誤実行して停止する（L3）など自己回復力や安定性に欠けるため、初学者への推奨は困難です。"
     },
     {
-      "reviewer": "ChatGPT",
-      "date": "2026-09-30",
+      "reviewer": "Claude",
+      "date": "2026-10-04",
       "version": "?",
       "scores": {
         "audience": 2,
+        "ui": 3,
+        "learning": 2,
+        "steering": 2,
+        "stuck_free": 1,
+        "error_handling": 1,
+        "speed_feel": 2,
+        "security": 3,
+        "overall": 1
+      },
+      "comment": "BYOK(gemini-3.5-flash-lite)ではT1こそ成功したものの、T2・T3・T6で「Generating...」のまま3〜5分以上ハングして手動中断となり、ハング中も課金が継続するうえ、cost_displayが無く費用も確認できないため、初学者には危険度が高いです。ローカルLLM(qwen3.5:4b)ではL1で昇順ソート漏れ、L2は編集が一切適用されず、L3はPythonプロジェクトにnpm testを誤実行して停止と、ツール呼び出しが機能せず全滅で、エラー時の自己回復や説明も見られませんでした。導入自体はMarketplaceから通常どおり行えますが、config.yaml編集前提の中級者向けで、テレメトリーは匿名収集（opt-out可）、アカウントはHub利用時のみ必要という標準的な水準にとどまるため、初学者へのおすすめは難しいと判断しました。"
+    },
+    {
+      "reviewer": "ChatGPT",
+      "date": "2026-10-04",
+      "version": "?",
+      "scores": {
+        "audience": 3,
         "ui": 4,
         "learning": 3,
         "steering": 2,
         "stuck_free": 1,
-        "error_handling": 2,
-        "speed_feel": 2,
+        "error_handling": 1,
+        "speed_feel": 1,
+        "security": 3,
         "overall": 2
       },
-      "comment": "Marketplaceから通常導入できるVS Code/JetBrains拡張ですが、config.yaml編集前提で対象は中級者とされており、初学者向けとしては学習コストが残ります。ローカルLLMではL1が仕様未達、L2・L3は編集を一切適用できず、T6でも生成途中や完了直後のハングが複数回発生しているため、弱いモデル利用時の詰まりやすさが目立ちます。"
-    },
-    {
-      "reviewer": "Claude",
-      "date": "2026-09-30",
-      "version": "?",
-      "scores": {
-        "audience": 2,
-        "ui": 3,
-        "learning": 2,
-        "steering": 1,
-        "stuck_free": 1,
-        "error_handling": 1,
-        "speed_feel": 2,
-        "overall": 1
-      },
-      "comment": "Marketplaceから通常導入できるものの、BYOKやOllamaの利用にはconfig.yamlの編集が前提で、対象も中級者と明記されており、初学者には最初の設定から壁があります。BYOK(gemini-3.5-flash-lite)ではT6で3ファイル生成後のハングと、script.js生成中に5分以上『Generating...』のまま止まる失敗が起きています。ローカルLLM(qwen3.5:4b)でもL2は編集が一切適用されず、L3はPythonプロジェクトでnpm testを誤実行して停止、L1も昇順ソート漏れで、弱いモデルではツール呼び出しが機能せずL系タスクを1件も達成できませんでした。"
+      "comment": "VS Code/JetBrains拡張として導入は容易ですが、config.yaml編集前提で中級者向けとされ、BYOKのT2/T3では「Generating...」のまま3〜5分以上ハングして成果なし・課金継続となりました。さらにローカル4BモデルではL1が仕様未達、L2/L3はツール呼び出しや編集自体が行われず、弱いモデルでの詰まりにくさとエラー時の回復性はかなり低いと評価します。"
     }
   ]
 }

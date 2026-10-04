@@ -2,7 +2,7 @@
 
 あなたは「初学者向けAIコーディングツール比較サイト」のレビュアーです。
 以下のベンチマーク実測データを読み、このツールを **初学者が使う場合の観点** で
-8つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
+9つの軸について 0〜5 の整数で採点し、短いコメントを添えてください。
 
 ## 評価の前提
 
@@ -31,6 +31,9 @@
 - stuck_free: 詰まりにくさ
 - error_handling: エラー時の挙動（自己回復・説明力）
 - speed_feel: 体感速度
+- security: 安心して使えるか（テレメトリー有無・opt-out可否、BYOKでもベンダーサーバーへ
+  データが流れる設計がないか、プロキシでのキー隠蔽可否、アカウント要否、
+  非操作中に動く機能［自動補完等］の外部通信、ハング中の課金継続の有無）
 - overall: 総合評価（初学者におすすめできるか）
 
 ## 回答フォーマット
@@ -40,7 +43,8 @@
 {
   "scores": {
     "audience": 0, "ui": 0, "learning": 0, "steering": 0,
-    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "overall": 0
+    "stuck_free": 0, "error_handling": 0, "speed_feel": 0, "security": 0,
+    "overall": 0
   },
   "comment": "（2〜3文の日本語コメント）"
 }
@@ -68,16 +72,16 @@
 - os_mac: ○
 - os_linux: ○
 - byok: ○
-- custom_endpoint: ?
+- custom_endpoint: ○ カスタムプロバイダ/モデルパック設定
 - local_llm: ○ OpenRouter等経由
-- proxy_key_hiding: ?
-- token_saving: ?
+- proxy_key_hiding: ○ セルフホスト・envキー管理可
+- token_saving: ○ プロンプトキャッシュ内蔵・tree-sitterプロジェクトマップ
 - telemetry: ?
-- auto_approve: ?
-- parallel: ?
-- checkpoint: ?
-- mcp: ?
-- cost_display: ?
+- auto_approve: ○ 全自動モードあり
+- parallel: △ branchで代替案管理（並列実行ではない）
+- checkpoint: ○ バージョン管理・rewind・branchが中核機能
+- mcp: ○ plandex mcp connect
+- cost_display: ○ plandex usage でplan/branch/model別に集計
 - account_required: △
 - target_audience: 中級者
 - 導入: × / WSL 必須 / 公式に Windows ビルドなし（darwin/linux/freebsd のみ）

@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,22 +43,22 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>0</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
-        <p class="small mb-0">💬 VS Code拡張として導入できますが、開発終了済みで、Gemini・Ollamaの両経路ともAPIリクエストが無応答となり、T6は2分以上、L1は3分以上待っても進まず計測不能でした。エラー表示もなくハング状態が続いたため、初学者が難しい設定なしに使えることや、弱いモデルで動作することを実測から確認できません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>安心して使えるか</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張として導入自体は可能ですが、2026-05に開発終了済みで、実測ではGemini・Ollamaの両経路が2〜3分以上無応答となり、T6やL1を完了できませんでした。特にL1では「こんにちは」にも応答せず、タイムアウトやエラー表示もなかったため、初学者にとって詰まりにくさ・エラー対応ともに評価できず、現状はおすすめできません。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
-        <p class="small mb-0">💬 VS Code拡張としてUIの見やすさは維持されているものの、2026年5月に開発終了・バックエンド停止済みであり、GeminiおよびOllamaのどちらの経路でも「APIリクエスト...」のまま応答が得られず動作しません。ローカルLLM環境でもリクエスト自体が発生せずにハング（L1）するなど実用不能な状態となっています。新規導入するメリットは皆無であり、初学者には絶対におすすめできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>安心して使えるか</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 VS Code拡張機能として導入自体は簡単ですが、2026年5月にリポジトリがアーカイブされ開発が終了しています。実測でもGemini・Ollamaの両経路で「APIリクエスト...」のままエラー表示すら出ずに無応答でハングし、ローカルLLMへの接続処理すら発生しない状態でした（T6・L1）。ツール自体が実質的に動作不能となっており、初学者が利用することは全くおすすめできません。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>0</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
-        <p class="small mb-0">💬 2026-05に開発終了・リポジトリがアーカイブされ、運営メモ上も対象は非推奨です。最終版v3.54.0はgemini-3.5-flash-liteに非対応で、BYOK(Gemini)のT6は2分以上「APIリクエスト...」のまま無応答、ローカルLLM(qwen3.5:4b)のL1も「こんにちは」に3分以上応答せず、いずれもタイムアウトやエラー表示すらなく原因が分からない点は初学者に致命的です。L2/L3も計測不能で、Marketplaceから導入できてもまともに使えない状態のため、初学者にはおすすめできません（uiのみ導入自体は可能な点を考慮して最低点にはしていません）。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>0</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>安心して使えるか</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <p class="small mb-0">💬 2026-05-15にv3.54.0で開発が終了しリポジトリもアーカイブ済みで、運営メモ上も対象は非推奨です。T6ではGemini・Ollamaの両経路で「APIリクエスト...」のまま2分以上無応答、L1では「こんにちは」にも3分以上無応答（CPU100%）でローカルLLMへのリクエスト自体が発生せず、タイムアウトやエラー表示もないため原因を把握できず、L2・L3も計測不能でした。VS Code拡張としてMarketplaceから導入でき、アカウント不要・コスト表示・MCP・チェックポイントなど機能面は揃っていますが、gemini-3.5-flash-liteに非対応で実使用できず、今後の修正も期待できないため初学者にはおすすめできません。セキュリティは、テレメトリー収集ありで今後のセキュリティ更新が見込めない点を踏まえ、アカウント不要・キー隠蔽対応を考慮しつつ2としました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>1</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>0</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>0</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>0</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>0</td></tr><tr><td>体感速度</td><td class='score-num'>0</td></tr><tr><td>安心して使えるか</td><td class='score-num'>0</td></tr><tr><td>総合評価</td><td class='score-num'>0</td></tr></table>
         <p class="small mb-0">💬 開発終了・バックエンド停止済みで、&#x27;こんにちは&#x27;への応答すら得られず。記録保存として残しているのみ。</p>
       </div></div></div>
     </div>

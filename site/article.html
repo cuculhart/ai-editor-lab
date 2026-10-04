@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>記事 — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="index.html">トップ</a>
+      <a href="method.html">測定方法</a>
+      <a href="article.html">記事</a>
+      <a href="about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container">
+      <h2>📝 記事</h2>
+      <p class="text-muted">ベンチマーク計測の中で見えた現象を掘り下げた実験ノートです。</p>
+      <div class="row"><div class="col-md-6 mb-3"><a class="card-link" href="article-harness.html">
+        <div class="card-pop"><div class="editor-name">同じLLMを使っているのに成功率が全然違う — AIコーディングツールの差は「ハーネス」だった</div>
+        <div class="text-muted small">公開実験ノート | 2026-10</div>
+        <p class="mb-0 mt-2 small">同一モデル・同一タスクで繰り返し計測したところ、no-op 完了報告・検証済みの事実と矛盾する実装・結果と矛盾する完了報告という3種の「嘘」が観察されました。差を生むのはモデルではなくツール側のハーネス設計でした。</p></div></a></div><div class="col-md-6 mb-3"><a class="card-link" href="article-summarize.html">
+        <div class="card-pop"><div class="editor-name">会話が長くなるとAIは「最初の指示」を忘れる — 自動要約フラグをON/OFFで実測してみた</div>
+        <div class="text-muted small">公開実験ノート | 2026-10</div>
+        <p class="mb-0 mt-2 small">Teaspoon IDE v0.9.1 の会話要約機能を ON/OFF して実測。30メッセージ超で発火する要約は内容こそ正確なものの、モデルが「最初に見えるメッセージ」に答えを引っ張られる失敗も観察されました。</p></div></a></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,22 +43,22 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
-        <p class="small mb-0">💬 zip展開して起動でき、L1はローカルLLMで仕様完全一致、L3もEDIT失敗を経て全7テスト合格まで自己確認できており、基本的な開発作業は実行できています。一方、T6では81秒でツール呼び出しが10回以上エラーになり、空ファイルだけ生成して最終的にユーザーのコピペを要求し、L2でもインデント喪失によるIndentationErrorでファイルを破壊しました。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>5</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 ポータブル起動・アカウント不要で、L1はローカルLLMでも仕様どおり完走し、L3も最終的に全7テスト合格まで自己確認できた点は初学者にも好材料です。一方、T6ではツール呼び出しが10回以上エラーになりコードのコピペを要求、L2でもインデントを壊して完了宣言するなど、Gemini系の操縦性とエラー処理には不安が残ります。テレメトリーなし・プロバイダ直接接続でセキュリティ面は高評価ですが、総合的には中級者向けです。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 VS Codeフォークのエディタとしてzip展開のみで簡単に導入できUIも見やすい一方、BYOK（Gemini）でのT6タスクではツール呼び出しが10回以上エラーを起こして0バイトの空ファイルを生成しチャットへのコピペを求めて破綻しました。ローカルLLM環境でも、自力デバッグ（L3）で修正を成功させたものの、1行修正（L2）では行頭インデントを失わせてコードを破壊するなど編集精度の粗さが目立ちます。環境によってはコードの自動適用でファイルを破壊するリスクがあり、エラー時の適切なリカバリが難しい点から初学者にはおすすめしづらいツールです。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 ZIPを解凍するだけで起動できるVS Codeフォーク型IDEで、プライバシーに配慮された設計や視認性の高さは評価できます。しかし、BYOK（Gemini）でのWebアプリ生成（T6）ではツール呼び出しエラーを10回以上発生させて空ファイルを生成し、チャット欄に要件外のコードを出力してコピペを求める挙動を見せました。ローカルLLM環境でも自力デバッグ（L3）を成功させる一面はあるものの、1行修正（L2）でインデントを喪失させてコードを破壊し完了宣言をするなど、初学者がトラブルなく扱うには信頼性に欠けます。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 Void.exeを展開するだけで起動でき、プライバシー重視でアカウントも不要な一方、対象は中級者で、BYOK(gemini-3.5-flash-lite)のT6ではツール呼び出しが10回以上エラーとなり、0バイトの空ファイル3つしか作れず、最後はコードをチャットに出してコピペを求め、その内容も要件外(id=&quot;start-btn&quot;・class=&quot;hole&quot;)でした。ローカルLLM(qwen3.5:4b)ではL1(sorted+filterで仕様一致)とL3(EDITを2回失敗後に修正し全7件合格を自己確認)は成功しましたが、L2では編集でインデントが失われIndentationErrorとなりファイルを破壊したうえで完了を宣言しており、初学者が気づきにくい危うさがあります。ファイル生成や自力デバッグは動く場面もあるものの、モデルとの相性で挙動が大きく変わるため、初学者には積極的におすすめしにくいです。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 導入はVoid.exeを展開するだけのポータブル形式で手軽ですが、BYOK(gemini-3.5-flash-lite)のT6ではツール呼び出しが10回以上エラーで破綻し、0バイトの空ファイル3つしか作れず、チャットに出したコードも要件外でユーザーにコピペを求める結果となり、81秒で失敗しました。ローカルLLM(qwen3.5:4b)ではL1・L3が成功した一方、L2では編集後に行頭インデントが失われてIndentationErrorとなりファイルを壊しており、完了宣言をしたうえで状況が悪化する点は初学者にとって危険です（L3はEDITを2回失敗後に3回目で成功し、unittestで全7件合格を自己確認できました）。テレメトリーはプライバシー重視設計でアカウント不要、プロバイダ直接接続のためセキュリティは高めの4ですが、トークン節約が未実装でコスト表示も不明であり、対象も中級者のため、初学者へのおすすめは難しいと判断しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>2</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
         <p class="small mb-0">💬 VS Codeフォークで導入は容易。L1・L3は完走したが、L2ではEDIT適用時に行頭インデントを喪失させてファイルをIndentationErrorで破壊。BYOK T6でもツール呼び出しが10回以上連続失敗し0バイトファイル+コピペ要求に破綻。編集適用の安定性に深刻な課題。</p>
       </div></div></div>
     </div>

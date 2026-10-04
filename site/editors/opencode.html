@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,22 +43,22 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>5</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
-        <p class="small mb-0">💬 npmで即導入でき、BYOKではT1〜T6が20〜62秒・介入0回で非対話完結しており、指示通りに作業を進める性能は高く出ています。一方、対象は中級者で、ローカルLLMでは初回トークンが300秒を超えてheader timeoutとなり、タイムアウト後もプロセスがCPUを占有し続け、L2・L3も計測不能でした。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOKではT1〜T5が20〜62秒、介入0で全成功し、T6も22秒で動的検証まで通過、npmで即導入できるため、CLIに慣れれば扱いやすいです。一方、ローカル4Bモデルでは初回トークンが300秒を超えてタイムアウトし、その後もOllamaへのリクエストとCPU占有が継続したため、弱いモデルでの詰まりにくさとエラー時の挙動は低く評価しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 `npm i -g opencode-ai`で導入でき、非対話モード（opencode run）を活用したBYOK環境（Gemini）では全タスクを介入0かつ20〜60秒台の高速で完走できます。一方でターミナル（TUI）前提の操作体系のため黒い画面に慣れていない初学者には心理的ハードルが高く、ローカルLLM環境ではシステムプロンプトの重さから300秒超のヘッダータイムアウトを起こす上に、CPUを占有したままプロセスが残存する重大な挙動が確認されました。ローカル実行時の自己回復性や詰まりにくさに欠けるため、初心者や弱小環境ユーザーにはおすすめできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 npm経由で簡単に導入でき、`opencode run` による非対話実行やBYOK（Gemini）環境では全タスクを介入0・20〜62秒で完結させる高い処理能力を示します。一方で、ターミナル（TUI）操作前提のため黒い画面に慣れていない初学者には心理的ハードルが高く、画面の見やすさや操作性で戸惑う可能性があります。さらにローカルLLM（L1）接続時には重いシステムプロンプトにより300秒超の header timeout が発生し、タイムアウト後もプロセスが残存してCPUを占有し続けるなど、弱いモデルやリカバリー面で課題が残ります。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 npm i -g opencode-ai で即導入でき、BYOK(gemini-3.5-flash-lite)ではT1〜T6の全6件が20〜62秒・介入0回で成功し、公開API維持が問われたT3も通っており、操縦性と速度は非常に良好です。ただし対象は中級者向けのTUIで、ローカルLLM(qwen3.5:4b)ではOpenAI互換endpointを自分で追加設定する必要があり、しかもシステムプロンプトが重すぎて初回トークンが300秒のheader timeoutを超え、L1が失敗、L2/L3は計測不能でした。さらにタイムアウト後もプロセスが残ってollamaへのリクエストとCPU占有が続くため、弱いモデルや非力なPCを使う初学者にはおすすめしにくいです。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>3</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>5</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)ではT1〜T6が全て成功し、介入0で20〜62秒と速く、指示通りに動く操縦性の高さが光ります。導入もnpm i -g opencode-aiだけで済みますが、ターミナル(TUI)操作が前提で対象は中級者です。ローカルLLM(qwen3.5:4b)では重いシステムプロンプトのため初回トークンが300秒のheader timeoutを超えてL1が失敗し、L2・L3は計測不能で、さらにタイムアウト後もプロセスが残ってollamaへのリクエストとCPU占有を続ける点は、初学者がつまずく危険な挙動です。テレメトリーは匿名収集ですがOPENCODE_DISABLE_TELEMETRYで無効化でき、アカウント不要でキー隠蔽にも対応するため、セキュリティは標準的な3としました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>3</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
         <p class="small mb-0">💬 npm導入だけで非対話runが回り、BYOK T1–T6を介入0・20–60秒台で完走した実力者。ただしTUI前提で初学者の心理的ハードルは高く、LocalLLMではヘッダータイムアウト後もプロセスがCPUを握ったまま残る問題を確認。</p>
       </div></div></div>
     </div>

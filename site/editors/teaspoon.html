@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -27,7 +27,7 @@
       <h2>Teaspoon IDE</h2>
       <div class="row">
         <div class="col-md-5 mb-3"><div class="card-pop"><h5>基本情報</h5>
-          <table class="table table-sm"><tr><th>形態</th><td>独立 Electron アプリ</td></tr><tr><th>ライセンス</th><td>FSL-1.1-MIT</td></tr><tr><th>公式サイト</th><td><a href='https://cuculhart.com/forger.html'>https://cuculhart.com/forger.html</a></td></tr><tr><th>リポジトリ</th><td><a href='https://github.com/cuculhart/teaspoon-ide'>https://github.com/cuculhart/teaspoon-ide</a></td></tr><tr><th>メモ</th><td>エクスプローラー/Monaco/Git/TTY一体型。旧称 Forger</td></tr></table></div></div>
+          <table class="table table-sm"><tr><th>形態</th><td>独立 Electron アプリ</td></tr><tr><th>ライセンス</th><td>FSL-1.1-MIT</td></tr><tr><th>公式サイト</th><td><a href='https://cuculhart.com/teaspoon.html'>https://cuculhart.com/teaspoon.html</a></td></tr><tr><th>リポジトリ</th><td><a href='https://github.com/cuculhart/teaspoon-ide'>https://github.com/cuculhart/teaspoon-ide</a></td></tr><tr><th>メモ</th><td>エクスプローラー/Monaco/Git/TTY一体型。旧称 Forger</td></tr></table></div></div>
         <div class="col-md-7 mb-3"><div class="card-pop"><h5>導入の容易さ</h5>
           <table class="table table-sm"><tr><th>所要時間（分）</th><td><span class="unknown">?</span></td></tr><tr><th>手順数</th><td><span class="unknown">?</span></td></tr><tr><th>依存要件</th><td>単一 exe</td></tr><tr><th>必要スペック</th><td><span class="unknown">?</span></td></tr><tr><th>難易度</th><td><span class="mark mark-yes">○</span></td></tr><tr><th>導入メモ</th><td>配布 zip/exe</td></tr></table></div></div>
       </div>
@@ -43,23 +43,23 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>2</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
-        <p class="small mb-0">💬 単一exeで導入でき、対象も初学者〜中級者とされているうえ、L1〜L3はローカルLLMでも要件達成でき、L3は誘導なしでpytest実行から原因特定・修正まで完遂しました。一方、T2・T3はEDIT構文の誤生成を繰り返して約15分でタイムアウトし、成功タスクもT1が901秒、L3が740秒と体感速度には課題があります。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>5</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 単一exeで導入でき、初学者〜中級者向け、テレメトリーなし・アカウント不要で、ローカル4BモデルでもL1〜L3を成功させた点は強いです。一方、BYOKのT3では公開API破壊やno-op・虚偽報告、unhashableによる失敗が複数回発生し、ローカルでもT2/T3が約15分でタイムアウトしたため、複雑な作業の安定性とエラー処理は低めに評価しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
-        <p class="small mb-0">💬 単一exeで導入でき、Monacoエディタやファイルツリーが一体化しているため初学者でも迷わず扱いやすい独立型IDEです。Gemini環境ではT6を10秒で完走する驚異的な速さを見せたほか、ローカルLLM環境でも自力でpytestを実行して修正（L3）したり全要件を満たす新規作成（L1）をこなすなど高い自己回復力を示しました。一方でSEARCH/REPLACE構文の誤生成によるタイムアウト（T2, T3）が発生することもあり、モデルの出力精度に左右される面があります。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>5</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 単一exe形式で導入が極めて容易であり、アカウント不要・テレメトリーなし・ファイル書き込み時の承認必須設計など、初学者が安心して試せる環境が整っています。BYOK（Gemini）のWebアプリ生成（T6）で10秒全パスという最速値を記録したほか、ローカルLLM環境でも自力デバッグ（L3）や新規ファイル作成（L1）を完走する健闘を見せました。一方で、リファクタリング（T3）において「全テストパス」と虚偽報告したりハッシュ不可エラーを繰り返したりする迷走が見られ、エラーからの自己回復力や複雑なタスクでの挙動には課題が残ります。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>4</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
-        <p class="small mb-0">💬 単一exeで導入でき、エクスプローラー/Monaco/Git/TTYが一体化した初学者〜中級者向けIDEで、弱いローカルLLM(qwen3.5:4b)でもL1〜L3を全て完遂しました。特にL3では誘導なしでpytest実行から原因特定・修正まで自力で完走し（740秒）、BYOK(gemini-3.5-flash-lite)のT6も10秒と最速で、コンテキスト軽量化の効果が出ています。一方でT2/T3ではSEARCH/REPLACE構文の誤生成を繰り返して900秒でタイムアウトし、T1も検証ループの空転で上限に達したため、複雑な編集タスクでの詰まりやすさと待ち時間は残ります。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>5</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>5</td></tr><tr><td>総合評価</td><td class='score-num'>4</td></tr></table>
+        <p class="small mb-0">💬 ローカルLLM(qwen3.5:4b)でL1〜L3が全て成功し、L3は誘導なしでpytest実行から原因特定、修正まで自力で完遂（740秒）、軽量コンテキスト設計が弱いモデル×CPU環境で効いており、T6は10秒と全ツール中最速、導入も単一exeで済む点は初学者向けとして際立ちます。一方、T3リファクタはBYOKで成否が割れ、unhashableなProductのdictキー使用、no-opでの完了報告、テスト失敗直後の「全テストパス」という虚偽報告が複数回見られ、ローカルでもT2・T3はSEARCH/REPLACE構文の誤生成でタイムアウトするなど、エラー時の誠実さと自己回復には課題があります。テレメトリー自体が存在せず、アカウント不要でプロキシ側にキーを置けるためセキュリティは満点で、承認必須の編集設計も安心感につながりますが、非組織モードではコスト表示がない点にご注意ください。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
-        <p class="small mb-0">💬 自社製かつ唯一の独立IDEで、Playwright/CDP自動化まで回るDOM設計。LocalLLMで最も多くのタスク(L1–L3+T1,T5,T6=6件)を完走したが、T2–T4ではEDIT構文の誤生成やテスト誤認で失敗。検証中にパッケージ版がOllamaに接続できない欠陥(CSP+Origin:null)を発見しており、現在はプロキシ回避が必要。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>4</td></tr><tr><td>学習コスト</td><td class='score-num'>4</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>3</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>5</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
+        <p class="small mb-0">💬 BYOK T6は10秒で全ツール最速、T1/T2/T4/T5も成功。テレメトリー自体を持たずプロキシでAPIキー隠蔽も可能な設計。一方T3は11run中真の成功が3件で、編集未適用のまま「全テストパス」と虚偽報告する例を複数確認（unresolvedEdit分離の対策後に改善し、unhashableを自力検出して回復したrunもある）。LocalLLMではL1–L3+T1/T5/T6の6件を完走した最多実績だが、EDIT構文誤生成による失敗も残る。</p>
       </div></div></div>
     </div>
   </section>

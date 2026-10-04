@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article-harness.html">記事</a>
+      <a href="../article.html">記事</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -43,23 +43,23 @@
       <div class="row">
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">ChatGPT</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>3</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>3</td></tr></table>
-        <p class="small mb-0">💬 CLIかつGit前提で、Windowsでは--no-fancy-inputが必要、Python 3.14では依存ビルド不可で3.12環境が必要なため、初学者には導入・操作の学習コストが高めです。一方、BYOKではT1〜T6が11〜21秒・介入0回ですべて成功し、指示通りに動く一方、ローカルLLMではL1が420秒で要件を落とし、L3が622秒で文字化けを構文エラーと誤診して本物のバグに未着手だったため、弱いモデル利用時の詰まりやエラー対応には課題があります。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 GeminiではT1〜T5が11〜21秒、T6も17秒で全成功・介入0と非常に速く、--yes-alwaysやgitのcheckpoint/undoも操縦性を支えます。一方、初学者にはgit前提・Windowsでの追加設定・Python 3.12環境の用意が必要で、ローカル4BモデルではL1/L3が失敗し、L3では文字コード誤認から無関係なファイルを上書きして本物のバグを未着手のままにしたため、詰まりにくさとエラー処理は低く評価しました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Gemini</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
-        <p class="small mb-0">💬 Git環境でないとファイルを見つけられず、Windowsでは--no-fancy-inputが必須など導入のハードルが高いツールです。Gemini環境ではT1〜T6を10〜20秒台・介入0でこなす圧倒的な速さを見せる一方、ローカルLLMではCP932文字化けにより誤ったファイルを上書きする失敗が発生しました。環境構築やGitの知識が求められるため、プログラミング初学者にはおすすめできません。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>4</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>1</td></tr><tr><td>学習コスト</td><td class='score-num'>1</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>3</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>1</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>1</td></tr><tr><td>体感速度</td><td class='score-num'>3</td></tr><tr><td>安心して使えるか</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>1</td></tr></table>
+        <p class="small mb-0">💬 BYOK（Gemini）環境では11〜21秒・介入0で全タスクをこなす圧倒的な処理速度を見せる一方、Windows環境下での文字化け（cp932）により構文エラーと誤認して無関係なファイルを上書きする（L3）などエラー回復に脆弱さがあります。さらに git 環境の事前構築や --no-fancy-input の指定、L2 でのプロセスハングに対する手動 kill が求められるため、初学者が自力で運用するにはハードルが高いです。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Claude</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)ではT1〜T6が全て成功し、11〜21秒・介入0回と速度と操縦性は非常に良好でした。一方で、git前提（--no-git ではrepo-mapが無効になりファイル未発見）、Python 3.14で依存ビルド不可、Windowsで--no-fancy-input必須と、導入と初期設定でつまずく要素が多く、運営メモ上も対象は中級者です。ローカルLLM(qwen3.5:4b)ではL1で要件漏れ、L2で編集後にハング、L3で文字化けの誤診により無関係なファイルを上書きしており、弱いモデルでの自己回復力は低いため、初学者には積極的におすすめしにくいです。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>2</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 BYOK(gemini-3.5-flash-lite)ではT1〜T6が全て成功・介入0・11〜21秒と非常に高速で安定しており、指示への追従性も良好です。一方で、git前提（--no-gitではrepo-map無効でファイル未発見）、Windowsでは--no-fancy-input必須、Python 3.14では依存ビルド不可でuvによる3.12環境構築が必要など、初学者には導入と運用のハードルが高く、運営メモ上も対象は中級者です。ローカルLLM(qwen3.5:4b)ではL1で要件漏れ、L2で編集後にハング（手動kill）、L3でcp932による文字化けを構文エラーと誤診してファイルを上書きし本物のバグに未着手と、弱いモデルでの詰まりやすさと自己回復力の低さが目立ちました。セキュリティ面はアカウント不要・BYOK/litellmによるキー隠蔽・opt-out可のanalyticsと概ね良好ですが、テレメトリーが既定で有効な点を考慮して3としました。</p>
       </div></div>
       <div class="col-md-6 mb-3"><div class="card-pop">
         <span class="reviewer-chip">Devin (SWE-2)</span>
-        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
-        <p class="small mb-0">💬 BYOK環境ではT1–T6全完走・介入0という唯一無二の記録。一方CLI+Git前提で、Windowsでは--no-fancy-input必須、ローカルLLMではCP932文字化けでファイルを誤上書きする障害を確認。コマンドラインに慣れた中級者向きで、初学者にはハードルが高い。</p>
+        <table class="table table-sm mt-2 mb-2"><tr><td>ターゲット層の明確さ</td><td class='score-num'>3</td></tr><tr><td>画面の見やすさ</td><td class='score-num'>2</td></tr><tr><td>学習コスト</td><td class='score-num'>2</td></tr><tr><td>エージェントの操縦性</td><td class='score-num'>4</td></tr><tr><td>詰まりにくさ</td><td class='score-num'>2</td></tr><tr><td>エラー時の挙動</td><td class='score-num'>2</td></tr><tr><td>体感速度</td><td class='score-num'>4</td></tr><tr><td>安心して使えるか</td><td class='score-num'>3</td></tr><tr><td>総合評価</td><td class='score-num'>2</td></tr></table>
+        <p class="small mb-0">💬 BYOK環境ではT1–T6全完走・介入0という唯一無二の記録を維持。一方CLI+Git前提で、Windowsでは--no-fancy-input必須、ローカルLLMではCP932文字化けでファイルを誤上書きする障害を確認。コマンドラインに慣れた中級者向きで、初学者にはハードルが高い。</p>
       </div></div></div>
     </div>
   </section>
