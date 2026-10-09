@@ -1,0 +1,17 @@
+name: "AI Editor Lab CodeQL config"
+
+# Only real project code is worth scanning; everything else in this repo is
+# benchmark output, vendored tools, or scratch data (much of it intentionally
+# broken agent-generated code, which trips the "syntax errors" warning).
+paths-ignore:
+  - runs
+  - tmp
+  - work
+  - .tools
+  - tasks
+  - fixture
+  - experiments
+  - results
+  - data
+  - reviews
+  - review_requests
