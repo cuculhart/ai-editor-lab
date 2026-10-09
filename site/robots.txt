@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://labo.mond.jp/sitemap.xml
