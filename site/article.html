@@ -26,7 +26,10 @@
     <div class="container">
       <h2>📝 記事</h2>
       <p class="text-muted">ベンチマーク計測の中で見えた現象を掘り下げた実験ノートです。</p>
-      <div class="row"><div class="col-md-6 mb-3"><a class="card-link" href="article-harness.html">
+      <div class="row"><div class="col-md-6 mb-3"><a class="card-link" href="articles/ollama-cpu-threads.html">
+        <div class="card-pop"><div class="editor-name">トークンは届いているのに画面に出ない — ローカルLLMのCPU割り当てを絞ると「体感速度」はむしろ上がった</div>
+        <div class="text-muted small">公開実験ノート | 2026-10</div>
+        <p class="mb-0 mt-2 small">Teaspoon IDEのCPU Threads設定を全コア/4コアで実測。Ollama 0.21.0では生成速度が同じなのに表示遅延はP95で181ms→2ms・UI応答は929ms→158msの劇的差が出ましたが、最新の0.40.2ではエンジン刷新（llama-server化・デフォルト3スレッド）で差は解消。バージョンをまたいだ追跡記録です。OllamaネイティブAPIにしかない num_thread・think オプションの価値も検証しました。</p></div></a></div><div class="col-md-6 mb-3"><a class="card-link" href="article-harness.html">
         <div class="card-pop"><div class="editor-name">同じLLMを使っているのに成功率が全然違う — AIコーディングツールの差は「ハーネス」だった</div>
         <div class="text-muted small">公開実験ノート | 2026-10</div>
         <p class="mb-0 mt-2 small">同一モデル・同一タスクで繰り返し計測したところ、no-op 完了報告・検証済みの事実と矛盾する実装・結果と矛盾する完了報告という3種の「嘘」が観察されました。差を生むのはモデルではなくツール側のハーネス設計でした。</p></div></a></div><div class="col-md-6 mb-3"><a class="card-link" href="article-summarize.html">
