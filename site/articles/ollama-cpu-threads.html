@@ -35,7 +35,7 @@
         <li>全コア使用: LLMがCPUを張り付かせ、レンダラ（画面描画側）がCPUを奪われて、届いたトークンが表示に追いつかない</li>
         <li>コア数を絞る: 生成速度はほぼ同じなのに、表示・操作が滑らかで体感はむしろ速い</li>
       </ul>
-      <p>この仮説を、Teaspoon IDE（当サイト運営者の自作IDE、Electron製）の未公開機能「CPU Threads」設定を通して実測しました。</p>
+      <p>この仮説を、Teaspoon IDE（当サイト運営者の自作IDE、Electron製）の「CPU Threads」設定を通して実測しました。この機能は本記事に合わせて <a href="https://github.com/cuculhart/teaspoon-ide/releases">v1.2.0 として公開</a>されています。</p>
 
       <h4 class="mt-4">計測方法: ワイヤ側と画面側を別々に時刻を採る</h4>
       <div class="card-pop mb-3">
