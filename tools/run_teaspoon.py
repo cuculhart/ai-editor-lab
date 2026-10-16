@@ -76,9 +76,12 @@ class _CorsProxyHandler(BaseHTTPRequestHandler):
         res = conn.getresponse()
         self.send_response(res.status)
         for k, v in res.getheaders():
-            if k.lower() not in ("transfer-encoding", "content-length",
-                                 "connection"):
-                self.send_header(k, v)
+            if k.lower() in ("transfer-encoding", "content-length",
+                             "connection"):
+                continue
+            if "\r" in k or "\n" in k or "\r" in v or "\n" in v:
+                continue  # HTTP response-splitting guard
+            self.send_header(k, v)
         self._cors()
         if res.length is not None:
             self.send_header("Content-Length", str(res.length))
