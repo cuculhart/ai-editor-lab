@@ -26,7 +26,7 @@
       <h2>GPUなし・CPUだけのPCでコーディングエージェントはどこまで行けるか — 全数字の実測記録</h2>
       <p class="text-muted">公開実験ノート | 計測: 2026-10 | シリーズ: CPUだけのローカルLLMコーディング</p>
 
-      <p>ローカルLLMの検証記事は、だいたい GPU 前提です。RTX 4090 とか M4 Max とか。それを読んで「うちのPCじゃ無理だな」と思う人は多いと思います。</p>
+      <p>ローカルLLMの検証記事は、だいたい GPU 前提です。RTX 5090 とか Apple M5 系とか。それを読んで「うちのPCじゃ無理だな」と思う人は多いと思います。</p>
       <p><strong>GPUなし・CPU推論だけ</strong>で、コーディングエージェントがどこまで動くかを全数字で測りました。環境は Ryzen 5 4500U（ノート向け・6コア・SMTなし）・メモリ32GB・Windows・Ollama 0.40.2。GPU は統合グラフィックスのみで、推論は全て CPU です。</p>
       <h4 class="mt-4">結論: 「動く」と「実用」の間にはモデル選定がある</h4>
       <p>まず全モデルの結果を並べます:</p>
@@ -69,7 +69,7 @@
       <h4 class="mt-4">まとめ</h4>
       <p>GPU がないとローカルLLMエージェントは無理、ではありません。<strong>「遅いが動く」領域が実在し、そこには適切なモデル選定とハーネス設計で届く</strong>。</p>
       <p>その「ハーネス設計」がいかに成功率を左右するか — 次の記事で、自分のハーネスのバグが「モデルの弱さ」に見えていた話をします。</p>
-      <p class="small text-muted mt-4"><a href="../index.html">← 記事一覧に戻る</a></p>
+      <p class="small text-muted mt-4"><a href="localllm-terms.html">← シリーズ第1回: ローカルLLM記事の最小用語集</a> ｜ <a href="localllm-bench-design.html">次の記事: 5. 自分のAIツールを測るベンチマークの作り方 →</a><br><a href="../index.html">← 記事一覧に戻る</a></p>
     </div>
   </section>
 </main>
