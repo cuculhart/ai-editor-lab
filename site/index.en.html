@@ -64,7 +64,7 @@
       <div class="row">
         <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-terms.html">
         <div class="card-pop"><div class="editor-name">1. A minimal glossary for local-LLM articles <span class="text-muted small">(JA)</span></div>
-        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-beginner">Intro</span> | Japanese</div>
+        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-beginner">Intro</span> | <span class="difficulty lang-ja">Japanese</span></div>
         <p class="mb-0 mt-2 small">tok/s, prefill/decode, num_ctx, temperature, thinking, harness, hallucination — a friendly walk-through of every term used in the series. (Japanese only for now.)</p></div></a></div>
         <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-usable.en.html">
         <div class="card-pop"><div class="editor-name">2. For those who thought local LLMs can't be practical — all numbers, CPU only</div>
@@ -76,27 +76,27 @@
         <p class="mb-0 mt-2 small">Tracking why an agent "lost" a file it had just read revealed a design flaw: tool results survived only one turn of history. Fix + control experiment turned a broken run into a clean pass (Teaspoon IDE v1.5.1).</p></div></a></div>
         <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-cpu-only.html">
         <div class="card-pop"><div class="editor-name">4. How far can a coding agent go on CPU alone, no GPU? <span class="text-muted small">(JA)</span></div>
-        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-elementary">Beginner</span> | Japanese</div>
+        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-elementary">Beginner</span> | <span class="difficulty lang-ja">Japanese</span></div>
         <p class="mb-0 mt-2 small">6 models measured on real tasks with Ryzen 5 4500U / 32 GB / Ollama 0.40.2. The bottleneck turned out to be prefill, not decode — plus the settings that actually help on CPU.</p></div></a></div>
         <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-bench-design.html">
         <div class="card-pop"><div class="editor-name">5. How to build a benchmark for your own AI tool <span class="text-muted small">(JA)</span></div>
-        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-intermediate">Intermediate</span> | Japanese</div>
+        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-intermediate">Intermediate</span> | <span class="difficulty lang-ja">Japanese</span></div>
         <p class="mb-0 mt-2 small">T0–T3 design for measuring the failures your tool actually produces, not public-benchmark scores — and how having a control experiment proved a "model weakness" was my own bug.</p></div></a></div>
         <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-model-vs-harness.html">
         <div class="card-pop"><div class="editor-name">6. The weaker the model, the more the harness matters <span class="text-muted small">(JA)</span></div>
-        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-advanced">Advanced</span> | Japanese</div>
+        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-advanced">Advanced</span> | <span class="difficulty lang-ja">Japanese</span></div>
         <p class="mb-0 mt-2 small">[RESULT] verdicts, [STATE] digests, quote absorption, the pitfalls of temperature 0.2 — what the harness had to carry to prop up weak models, and the remaining problem it can't fix.</p></div></a></div>
       </div>
       <p class="text-muted mt-3"><strong>Earlier experiment notes</strong> (Japanese)</p>
       <div class="row"><div class="col-md-6 mb-3"><a class="card-link" href="articles/ollama-cpu-threads.html">
         <div class="card-pop"><div class="editor-name">Tokens were arriving but nothing appeared — capping local-LLM CPU threads actually made it feel faster <span class="text-muted small">(JA)</span></div>
-        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-intermediate">Intermediate</span> | Japanese</div>
+        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-intermediate">Intermediate</span> | <span class="difficulty lang-ja">Japanese</span></div>
         <p class="mb-0 mt-2 small">Full-core vs 4-thread CPU allocation in Teaspoon IDE: on Ollama 0.21.0, same generation speed but P95 display lag dropped 181ms→2ms and UI response 929ms→158ms. On 0.40.2 the engine rewrite made the gap vanish — a cross-version tracking record.</p></div></a></div><div class="col-md-6 mb-3"><a class="card-link" href="article-harness.html">
         <div class="card-pop"><div class="editor-name">Same LLM, wildly different success rates — the difference was the harness <span class="text-muted small">(JA)</span></div>
-        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-intermediate">Intermediate</span> | Japanese</div>
+        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-intermediate">Intermediate</span> | <span class="difficulty lang-ja">Japanese</span></div>
         <p class="mb-0 mt-2 small">Repeated runs with identical model and task surfaced three kinds of "lies": no-op completion claims, implementations contradicting verified facts, and reports contradicting their own results. The differentiator was tool-side harness design, not the model.</p></div></a></div><div class="col-md-6 mb-3"><a class="card-link" href="article-summarize.html">
         <div class="card-pop"><div class="editor-name">When conversations get long, AI forgets the original instructions — measuring an auto-summarize flag ON vs OFF <span class="text-muted small">(JA)</span></div>
-        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-elementary">Beginner</span> | Japanese</div>
+        <div class="text-muted small">Public experiment note | 2026-10 | Difficulty: <span class="difficulty diff-elementary">Beginner</span> | <span class="difficulty lang-ja">Japanese</span></div>
         <p class="mb-0 mt-2 small">Teaspoon IDE v0.9.1's conversation summarization measured on and off. The 30+ message summary was accurate, but we also observed failures where the model got pulled toward whatever appears first in context.</p></div></a></div></div>
     </div>
   </section>

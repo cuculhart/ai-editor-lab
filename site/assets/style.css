@@ -140,6 +140,7 @@ h1, h2, h3, h4, h5, h6,
 .diff-elementary { background: var(--pop-blue); color: #fff; }   /* 初級 */
 .diff-intermediate { background: var(--pop-yellow); color: #6d5626; } /* 中級 */
 .diff-advanced { background: var(--pop-pink); color: #7a3d4a; }  /* 上級 */
+.lang-ja { background: #d9d3e3; color: #6b6280; }              /* 日本語記事 */
 
 /* 言語スイッチ（日本語 / English） */
 .lang-switch {
