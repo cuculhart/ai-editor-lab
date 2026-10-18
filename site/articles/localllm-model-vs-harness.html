@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>記事: 弱いモデルほどハーネスが効く — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="../index.html">トップ</a>
+      <a href="../method.html">測定方法</a>
+      <a href="../article.html">記事</a>
+      <a href="../about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container" style="max-width: 820px">
+      <h2>「弱いモデルほどハーネスが効く」— モデルに任せるかハーネスで保証するかの設計判断</h2>
+      <p class="text-muted">公開実験ノート | 計測: 2026-10 | シリーズ: CPUだけのローカルLLMコーディング</p>
+
+      <p>ローカルLLMエージェントの実測をしていて気づいたことがあります。</p>
+      <p><strong>「モデルの知性」として見えている部分のかなりを、ハーネス（ツール側の仕組み）で代替できる</strong>。そして逆に、<strong>ハーネスではどうやっても防げない失敗もある</strong>。この境界線の設計が、弱いモデルを使うときの成否を分けます。</p>
+      <h4 class="mt-4">ハーネスが担える「知性」: 判定・記憶・形式</h4>
+      <p>弱いモデル（4B級）が失敗する場面を分析すると、「考える力」そのものではなく、<strong>「読み取る」「覚える」「形式を守る」</strong>という周辺的な処理でつまずいていました。これらはハーネスで代替できます。</p>
+      <h5>判定: 「この実行は成功か失敗か」をモデルに読ませない</h5>
+      <p>失敗したタスクでは、pytest の出力 <code>1 failed, 3 passed</code> をモデルが読み違えて「command not found」と解釈し、存在しないエラー文言を幻視していました。</p>
+      <p>対策として、ツール結果の先頭に<strong>ハーネスが判定した結論行</strong>を付けるようにしました:</p>
+      <pre class="card-pop"><code>[RESULT] FAILED — 1 failed, 3 passed</code></pre>
+      <p>「この結果は失敗である」をモデルに解釈させない設計です。これで誤読の余地が消えました。</p>
+      <h5>記憶: 「さっき何をしたか」を毎ターン再提示</h5>
+      <p>小さいモデルは「自分がさっきファイルを書き換えた」ことも忘れます。毎ターンの開始に、ハーネス側が把握している状態を注入するようにしました:</p>
+      <pre class="card-pop"><code>[STATE] modified: calc.py | read: test_calc.py, cart.py</code></pre>
+      <p>「記憶力」をモデルに期待するのではなく、<strong>事実を毎ターン提示する</strong>設計です。</p>
+      <h5>形式の寛容さ: モデルの出力崩れを吸収する</h5>
+      <p>モデルは検索パターンを <code>GREP &quot;member.*discount&quot;</code> のように引用符で囲んで送出することがあります。これをそのまま正規表現に流すと、<code>&quot;</code> 自体を検索して全件0件になり、モデルが「探したのに見つからない」とループに入ります。</p>
+      <p>パーサで外側のクォートを剥がす（<code>cleanSearchArg</code>）ことで、<strong>モデルに「正しい出力」を要求し続けるのではなく、ハーネスが吸収する</strong>設計にしました。クォート剥がしのユニットテストも追加しています。</p>
+      <h5>温度 0.2: 「安定させる」は本当に良いことか</h5>
+      <p>エージェント呼び出しの温度をモデル既定（~1.0）から 0.2 に下げると、言語ドリフトや幻視は確かに減ります。<strong>ただし決定性は「同じ失敗を再現し続ける性質」も固定します</strong>。</p>
+      <p>実測では、4B モデルが「クォート付きパターンで検索 → 0件 → 別のクォート付きパターンを試す」という同じ失敗を7ターン連続で繰り返しました。温度 1.0 では揺らぎのおかげで別の選択肢（READ_FILE）に辿り着けていたのです。</p>
+      <p>つまり温度を下げるのは「平均を上げる」効果がある一方で、「最悪値を底上げする」効果は期待できません。<strong>決定性が高いモデルほど、ハーネス側で失敗パターンを破る仕組みが必要</strong>です。</p>
+      <h4 class="mt-4">ハーネスでは防げないもの</h4>
+      <p>逆に、いくらハーネスを強化しても防げない失敗があります。実測で一番怖かったのはこれです:</p>
+      <blockquote class="card-pop"><p class="mb-0">モデルが「要求されていない pytest を自発実行 → 失敗を検出 → <strong>『Do not change anything else』と推論内で明示しながら、無関係な <code>discount</code> 関数まで修正した</strong>」</p></blockquote>
+      <p>指示の範囲を認識しながら破る。これは「解釈が難しい」「形式が分からない」ではなく、<strong>モデルの判断力の問題</strong>で、プロンプトや温度では止められません。</p>
+      <p>対策はハーネスの別の層（「変更差分をユーザーに事前提示して承認させる」diff ガード等）が必要です。第7弾として未実装のバックログになっています。</p>
+      <h4 class="mt-4">まとめ</h4>
+      <table class="table"><thead><tr><th>層</th><th>モデル任せ</th><th>ハーネスで担保</th></tr></thead>
+      <tbody>
+      <tr><td>結果の成否判定</td><td>弱いモデルは誤読する</td><td>[RESULT] 行でハーネスが先に判定</td></tr>
+      <tr><td>自分の作業履歴</td><td>忘れる</td><td>[STATE] で毎ターン提示</td></tr>
+      <tr><td>ファイル内容の記憶</td><td>長期化すると失う</td><td>history 永続化で維持</td></tr>
+      <tr><td>出力形式の正確さ</td><td>揺らぐ</td><td>パーサで吸収</td></tr>
+      <tr><td><strong>「やるな」と言われたことをやらない</strong></td><td><strong>どうにもならない</strong></td><td><strong>diff ガード等の人間承認が必要</strong></td></tr>
+      </tbody></table>
+      <p>「ローカルLLMは使えない」という評価の大半は、<strong>この右列を設計していないツールで測った結果</strong>だと思います。逆に、右列をちゃんと設計したハーネスの上では、4B モデルでも十分に仕事が回ります。</p>
+      <p class="small text-muted mt-4"><a href="../article.html">← 記事一覧に戻る</a></p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -31,6 +31,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://labo.mond.jp/articles/localllm-terms.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/localllm-usable.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/localllm-harness-bug.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/localllm-cpu-only.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/localllm-bench-design.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/localllm-model-vs-harness.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labo.mond.jp/about.html</loc>
     <lastmod>2026-10-04</lastmod>
     <priority>0.5</priority>

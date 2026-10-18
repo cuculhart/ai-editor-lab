@@ -1,0 +1,12 @@
+```python
+def is_palindrome(s: str) -> bool:
+    """
+    Checks if a string is a palindrome, ignoring case and non-alphanumeric characters.
+    
+    Example:
+        >>> is_palindrome("A man, a plan, a canal: Panama")
+        True
+    """
+    cleaned = ''.join(char.lower() for char in s if char.isalnum())
+    return cleaned == cleaned[::-1]
+```

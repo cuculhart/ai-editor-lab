@@ -1,0 +1,1 @@
+Add an optional third parameter `scale` (default 1) to `mul` in calc.py so it returns a * b * scale. Do not change anything else.

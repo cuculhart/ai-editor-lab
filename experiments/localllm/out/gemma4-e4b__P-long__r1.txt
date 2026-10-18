@@ -1,0 +1,5 @@
+This file implements a `ContextService` designed to manage and build a context window from a set of project files, simulating how an IDE might prepare relevant code context for an AI model.
+
+### Exported Symbols
+
+1. **`contextService`**: An instance of `ContextService` that provides methods to build, manage, and retrieve the accumulated context from multiple files, respecting a defined token limit.

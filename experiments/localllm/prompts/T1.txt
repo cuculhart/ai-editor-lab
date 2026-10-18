@@ -1,0 +1,1 @@
+Which file and which function computes the final price a customer pays, including the member discount? Look it up in the project, don't guess.

@@ -1,0 +1,15 @@
+=== thinking ===
+We need overall description and exported symbols. Only export is contextService. Also maybe types? But only export const. So answer.
+=== response ===
+**Overall purpose**
+
+The file implements a lightweight “context builder” for a VS Code‑style IDE.  
+It scans a project’s file list, scores files by importance, reads the most relevant ones, splits long files into 2 k‑token chunks, keeps a running token count (capped at 100 k for Gemini 3.8 Flash), and produces a single string that contains the selected file contents and a summary of the token usage. The resulting context can be fed to a language model to give it a concise view of the project.
+
+**Exported symbols**
+
+| Export | What it is | One‑sentence explanation |
+|--------|------------|--------------------------|
+| `contextService` | An instance of `ContextService` | The singleton object that manages the context window, providing methods to build, clear, and query the context for the current project. |
+
+(Only the instance is exported; the helper interfaces and class are internal.)

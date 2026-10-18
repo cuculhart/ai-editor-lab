@@ -1,0 +1,6 @@
+This TypeScript file defines a `ContextService` class that manages a sliding window of project files for an AI assistant, estimating token usage to prevent exceeding limits while prioritizing important source code files based on naming patterns and directory structure.
+
+**Exported Symbols:**
+
+*   **`contextService`**: A singleton instance of the `ContextService` class that is exported for use elsewhere in the application.
+*   **`ContextService`**: The main class responsible for managing file chunks, estimating token counts, prioritizing files, and building a context string within a defined token limit.

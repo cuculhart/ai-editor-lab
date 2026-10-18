@@ -1,0 +1,5 @@
+### Overall Purpose
+This file defines a `ContextService` class designed to manage and build a "context window" for a Large Language Model (LLM) by processing project files. It identifies important files based on naming patterns and file types, estimates their token counts, chunks large files into smaller pieces, and aggregates their content into a single formatted string while staying within a predefined token limit (100k tokens).
+
+### Exported Symbols
+*   **`contextService`**: A singleton instance of the `ContextService` class used to manage project context throughout the application.

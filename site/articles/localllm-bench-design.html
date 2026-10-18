@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>記事: 自分のAIツールを測るベンチマークの作り方 — AIエディターラボ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.html">🧪 AIエディターラボ</a>
+    <nav class="site-nav">
+      <a href="../index.html">トップ</a>
+      <a href="../method.html">測定方法</a>
+      <a href="../article.html">記事</a>
+      <a href="../about.html">運営者について</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container" style="max-width: 820px">
+      <h2>自分のAIツールを測るベンチマークの作り方 — 「実際に起きる失敗」を測る設計</h2>
+      <p class="text-muted">公開実験ノート | 計測: 2026-10 | シリーズ: CPUだけのローカルLLMコーディング</p>
+
+      <p>自作IDE（Teaspoon IDE）でローカルLLMエージェントを動かすとき、「このモデルは使えるのか」を判断するために小さなベンチマークを作りました。HumanEval や SWE-bench のような公開ベンチではなく、<strong>自分のツールで実際に起きる失敗だけを測る</strong>ためのものです。</p>
+      <p>設計の裏側を書きます。</p>
+      <h4 class="mt-4">なぜ公開ベンチを使わなかったか</h4>
+      <p>公開ベンチは「モデルの絶対的な能力」を測るのには良いのですが、私が知りたかったのは別のことでした:</p>
+      <ul>
+      <li><strong>自分のツールのコマンド形式を、モデルがちゃんと使いこなせるか</strong></li>
+      <li><strong>エージェントループ（複数ターンの往復）が途切れず回るか</strong></li>
+      <li><strong>結果の嘘（「直した」と言いつつ直していない）を見抜けるか</strong></li>
+      </ul>
+      <p>これらはハーネス依存で、公開ベンチでは測れません。</p>
+      <h4 class="mt-4">タスク設計: T0〜T3</h4>
+      <p>全部で4タスク。難易度というより「失敗様式の分類」です:</p>
+      <table class="table"><thead><tr><th>ID</th><th>タスク</th><th>測るもの</th></tr></thead>
+      <tbody>
+      <tr><td>T0</td><td><code>hello.py</code> を1ファイル新規作成</td><td>コマンド形式を1回正しく出せるか</td></tr>
+      <tr><td>T1</td><td>「最終価格を計算する関数はどこ？」と探させて回答</td><td>探索（GREP/READ）と、読んだ内容を正しく伝える力</td></tr>
+      <tr><td>T2</td><td>「<code>mul</code> に引数を1つ足して。<strong>他は変えるな</strong>」</td><td>EDIT_FILE の形式遵守と、<strong>指示範囲の遵守</strong></td></tr>
+      <tr><td>T3</td><td>「pytest が1件失敗。原因を直して全部通して」</td><td>診断→修正→検証の完全な自律ループ</td></tr>
+      </tbody></table>
+      <p>ポイントは、<strong>各タスクが違う種類の失敗を引き出す</strong>こと:</p>
+      <ul>
+      <li>T0 は「形式が出せるか」の最低ライン</li>
+      <li>T1 は読解＋報告の正しさ</li>
+      <li>T2 は「やるな」と言われたことをやるか（誘惑への抵抗）</li>
+      <li>T3 は複数ステップを自分で組み立てられるか</li>
+      </ul>
+      <h4 class="mt-4">固定化の工夫</h4>
+      <p>同じ条件で測れるよう、全部を固定しました:</p>
+      <ul>
+      <li><strong>プロンプト文は完全固定</strong>（<code>bench/prompts/T0.txt</code>〜<code>T3.txt</code> としてファイル管理）</li>
+      <li><strong>対象コードは fixture</strong>（<code>bench/fixture/</code> の4ファイルの小さな疑似プロジェクト。<code>discount</code> 関数に意図的なバグを埋め込んで T3 用に）</li>
+      <li><strong>実行はラン番号付きディレクトリ</strong>（<code>runs/&lt;model&gt;/T3-2</code> のように fixture コピーを使う。実行後のファイルはそのまま残るので、人間が diff を確認できる）</li>
+      <li><strong>判定は人間が最終確認</strong>（「4 passed」と出力されたか・実際の diff が意図通りか — 両方見る。モデルの報告だけを信用しない）</li>
+      </ul>
+      <h4 class="mt-4">対照実験の設計が最大の収穫だった</h4>
+      <p>最初に「モデルは同じ・ハーネスだけ違う」という対照を意識して設計していました。これが後で効きました。</p>
+      <table class="table"><thead><tr><th>ラン</th><th>モデル</th><th>ハーネス</th><th>結果</th></tr></thead>
+      <tbody>
+      <tr><td>T3-2</td><td>qwen3.5:4b</td><td>修正前</td><td><strong>6ターン消費・再読ループで破綻</strong></td></tr>
+      <tr><td>T3-3</td><td>qwen3.5:4b</td><td>修正後</td><td><strong>5ターン・最短経路で完走</strong></td></tr>
+      </tbody></table>
+      <p><strong>変わったのはハーネスだけ</strong>です。これで「モデルの弱さ」と見えた現象が、実はツール側のバグ（ツール結果が履歴に永続化されていなかった）だと実証できました。</p>
+      <p>同様に 9B モデルは旧ハーネスで「再読を繰り返す」（7step）と評価されていましたが、修正版では3ステップ・再読ゼロに。ハーネスの制約に対して「消えた内容を取り直す適応」をしていただけでした。</p>
+      <h4 class="mt-4">n=1 の限界と、それでも得られたもの</h4>
+      <p>正直なところ、これは統計的なベンチではありません — 各タスクは1回ずつの実行で、ランダムなばらつきは評価できていません。例えば T2 の「スコープ外を修正する」行動は、2回目では再現しませんでした（テストを実行するかどうかの行動分岐に依存する確率的リスクと解釈しています）。</p>
+      <p>それでも、以下は確実に言えます:</p>
+      <ul>
+      <li><strong>同じモデルがハーネスを変えただけで破綻→完走になった</strong>（因果が分離できた）</li>
+      <li><strong>「9b &gt; 4b」「e4b &gt; 12b」という順位の見直し</strong>（旧計測の評価軸が間違っていた可能性が暴けた）</li>
+      <li><strong>失敗様式のカタログ</strong>ができた（クォート付きGREP・再読ループ・先走り報告・スコープ逸脱…）</li>
+      </ul>
+      <h4 class="mt-4">実践: 真似したい人への最短コース</h4>
+      <ol>
+      <li><strong>自分のツールの「失敗」から逆算してタスクを作る</strong> — 私の場合「モデルがループで止まる」を再現したかったので T3 を作った</li>
+      <li><strong>プロンプト・対象コード・条件を全部ファイルに固定</strong> — 人間の記憶に頼ると再現できない</li>
+      <li><strong>実行結果はディレクトリにそのまま残す</strong> — 「あとで diff を見る」が証拠になる</li>
+      <li><strong>「モデルが悪い」を決める前に、ハーネスを疑う対照を用意する</strong> — 修正前後で同じタスクを回せる状態にしておく</li>
+      </ol>
+      <h4 class="mt-4">データ公開</h4>
+      <p>fixture・プロンプト・全ランの実行結果・判定表は ai-editor-lab リポジトリの <code>experiments/localllm/</code> に公開しています。最終評価まとめは同ディレクトリの <code>results.md</code> です。</p>
+      <ul>
+      <li>データ一式: <a href="https://github.com/cuculhart/ai-editor-lab/tree/main/experiments/localllm">https://github.com/cuculhart/ai-editor-lab/tree/main/experiments/localllm</a></li>
+      </ul>
+      <p class="small text-muted mt-4"><a href="../article.html">← 記事一覧に戻る</a></p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
+    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
+  </div>
+</footer>
+</body>
+</html>

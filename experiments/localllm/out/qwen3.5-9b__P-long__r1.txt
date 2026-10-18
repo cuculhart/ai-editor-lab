@@ -1,0 +1,5 @@
+This TypeScript file defines a `ContextService` class designed to manage an AI model's context window by intelligently selecting important project files, chunking large content to fit token limits, and building a structured text representation of the codebase for LLM consumption; it exports a singleton instance named `contextService` that provides methods to add files, build the full project context string, clear the current session, and retrieve usage statistics.
+
+### Exported Symbols
+
+1.  **`contextService`**: A singleton instance of the `ContextService` class that serves as the primary interface for adding files, building the AI's project context, and managing token limits.

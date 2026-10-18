@@ -1,0 +1,1 @@
+Write a Python function is_palindrome(s: str) -> bool that ignores case and non-alphanumeric characters. Then show one example call with its expected result as a comment. Output code only, no explanation.
