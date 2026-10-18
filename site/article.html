@@ -3,74 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=index.html">
   <title>記事 — AIエディターラボ</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="canonical" href="https://labo.mond.jp/">
 </head>
 <body>
-<header class="site-header">
-  <div class="container d-flex justify-content-between align-items-center">
-    <a class="site-logo" href="index.html">🧪 AIエディターラボ</a>
-    <nav class="site-nav">
-      <a href="index.html">トップ</a>
-      <a href="method.html">測定方法</a>
-      <a href="article.html">記事</a>
-      <a href="about.html">運営者について</a>
-    </nav>
-  </div>
-</header>
-<main>
-
-  <section class="section">
-    <div class="container">
-      <h2>📝 記事</h2>
-      <p class="text-muted">ベンチマーク計測の中で見えた現象を掘り下げた実験ノートです。</p>
-      <p class="text-muted mt-3"><strong>シリーズ: CPUだけのローカルLLMコーディング</strong> — GPUなし・32GB RAMの普通のPCで、コーディングエージェントを全数字で計測した記録。</p>
-      <div class="row">
-        <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-terms.html">
-        <div class="card-pop"><div class="editor-name">1. ローカルLLM記事の最小用語集 — 「だから使える/使えない」までを一気通貫で</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">tok/s・prefill/decode・num_ctx・温度・thinking・ハーネス・幻視…実測記事に出てくる用語を「一言でいうと→なぜ重要か→実例」の形でやさしく解説。これだけでローカルLLM系の記事が読めるようになる橋渡し編。</p></div></a></div>
-        <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-usable.html">
-        <div class="card-pop"><div class="editor-name">2. 「ローカルLLMは実用にならない」と思っていた人へ — CPUだけで全数字検証</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">ソースコードを外部に送れない現場のための実証。最高8 tok/sでも「読んで・直して・テストを回す」自律ループが完走するモデル（gemma4:e4b）が存在すること、そして正直な限界まで全部書きます。</p></div></a></div>
-        <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-harness-bug.html">
-        <div class="card-pop"><div class="editor-name">3. 「モデルが弱い」と思ったら自分のアプリのバグだった — 計測がハーネス欠陥を暴いた話</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">エージェントが「読んだはずのファイルを見失う」現象を追ったら、ツール結果が1ターンしか履歴に残っていない設計欠陥だった。修正→対照実験で破綻が最短経路完走に変わった記録（Teaspoon IDE v1.5.1）。</p></div></a></div>
-        <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-cpu-only.html">
-        <div class="card-pop"><div class="editor-name">4. GPUなし・CPUだけでコーディングエージェントはどこまで行けるか</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">Ryzen 5 4500U・32GB・Ollama 0.40.2で6モデルを実タスク計測。律速はdecodeではなくprefill（1ターン1〜2分半）だった話と、CPU環境で効く設定（num_thread/num_ctx/think）を実測値つきで。</p></div></a></div>
-        <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-bench-design.html">
-        <div class="card-pop"><div class="editor-name">5. 自分のAIツールを測るベンチマークの作り方 — 「実際に起きる失敗」を測る設計</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">公開ベンチではなく自分のツールの失敗を測る T0〜T3 設計。プロンプト・fixture・判定の固定化と、「対照実験」を用意しておいたらモデルの弱点が自分のバグだと証明できた話。</p></div></a></div>
-        <div class="col-md-6 mb-3"><a class="card-link" href="articles/localllm-model-vs-harness.html">
-        <div class="card-pop"><div class="editor-name">6. 「弱いモデルほどハーネスが効く」— モデルに任せるかハーネスで保証するか</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">[RESULT]判定・[STATE]ダイジェスト・クォート吸収・温度0.2の落とし穴…弱いモデルを支えるためにハーネスに持たせたもの。そしてハーネスではどうしても防げない「指示範囲外の修正」という残課題。</p></div></a></div>
-      </div>
-      <div class="row"><div class="col-md-6 mb-3"><a class="card-link" href="articles/ollama-cpu-threads.html">
-        <div class="card-pop"><div class="editor-name">トークンは届いているのに画面に出ない — ローカルLLMのCPU割り当てを絞ると「体感速度」はむしろ上がった</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">Teaspoon IDEのCPU Threads設定を全コア/4コアで実測。Ollama 0.21.0では生成速度が同じなのに表示遅延はP95で181ms→2ms・UI応答は929ms→158msの劇的差が出ましたが、最新の0.40.2ではエンジン刷新（llama-server化・デフォルト3スレッド）で差は解消。バージョンをまたいだ追跡記録です。OllamaネイティブAPIにしかない num_thread・think オプションの価値も検証しました。</p></div></a></div><div class="col-md-6 mb-3"><a class="card-link" href="article-harness.html">
-        <div class="card-pop"><div class="editor-name">同じLLMを使っているのに成功率が全然違う — AIコーディングツールの差は「ハーネス」だった</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">同一モデル・同一タスクで繰り返し計測したところ、no-op 完了報告・検証済みの事実と矛盾する実装・結果と矛盾する完了報告という3種の「嘘」が観察されました。差を生むのはモデルではなくツール側のハーネス設計でした。</p></div></a></div><div class="col-md-6 mb-3"><a class="card-link" href="article-summarize.html">
-        <div class="card-pop"><div class="editor-name">会話が長くなるとAIは「最初の指示」を忘れる — 自動要約フラグをON/OFFで実測してみた</div>
-        <div class="text-muted small">公開実験ノート | 2026-10</div>
-        <p class="mb-0 mt-2 small">Teaspoon IDE v0.9.1 の会話要約機能を ON/OFF して実測。30メッセージ超で発火する要約は内容こそ正確なものの、モデルが「最初に見えるメッセージ」に答えを引っ張られる失敗も観察されました。</p></div></a></div></div>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container">
-    <p>「?」は計測・調査中の値です。測定方法・生データはすべて公開しています。</p>
-    <p>&copy; 2026 AIエディターラボ（運営: cuculhart管理者）</p>
-  </div>
-</footer>
+<p>記事一覧はトップページに移動しました。<a href="index.html">→ AIエディターラボ トップ</a></p>
 </body>
 </html>

@@ -15,7 +15,7 @@
     <nav class="site-nav">
       <a href="../index.html">トップ</a>
       <a href="../method.html">測定方法</a>
-      <a href="../article.html">記事</a>
+      <a href="editor-benchmark.html">ベンチマーク</a>
       <a href="../about.html">運営者について</a>
     </nav>
   </div>
@@ -137,7 +137,7 @@
         <li><strong>UIの応答性も計測対象にできる</strong>: ワイヤ時刻とDOM時刻を分けて採れば「体感の遅さ」は定量化できる</li>
         <li><strong>ローカルLLM機能はAPI到達範囲で決まる</strong>: 互換APIの共通部分しか使えない設計だと、num_threadやthinkのような実用スイッチを実装できない</li>
       </ul>
-      <p class="small text-muted mt-4">計測スクリプトは Teaspoon IDE リポジトリの <code>e2e/bench-threads.mjs</code>（Playwright + 計測プロキシ）、生データは <code>e2e/bench-threads-results.json</code> にあります。<code>BENCH_THREADS=6,4 BENCH_RUNS=3 BENCH_MODEL=qwen3.5:4b node e2e/bench-threads.mjs</code> で再現できます。<br><a href="../article.html">← 記事一覧に戻る</a></p>
+      <p class="small text-muted mt-4">計測スクリプトは Teaspoon IDE リポジトリの <code>e2e/bench-threads.mjs</code>（Playwright + 計測プロキシ）、生データは <code>e2e/bench-threads-results.json</code> にあります。<code>BENCH_THREADS=6,4 BENCH_RUNS=3 BENCH_MODEL=qwen3.5:4b node e2e/bench-threads.mjs</code> で再現できます。<br><a href="../index.html">← 記事一覧に戻る</a></p>
     </div>
   </section>
 </main>
