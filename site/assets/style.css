@@ -197,7 +197,7 @@ footer.site-footer {
   margin-top: 3rem;
   padding: 2rem 0;
   background: #fff;
-  border-top: 4px solid var(--pop-yellow);
+  border-top: 4px solid #d6b98c;
   text-align: center;
   color: #8a80a0;
 }
