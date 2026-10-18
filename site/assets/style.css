@@ -28,10 +28,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-header {
-  background: linear-gradient(120deg, var(--pop-pink), var(--pop-yellow) 55%, var(--pop-mint));
+  background: #d6b98c;
   padding: 1rem 0;
   border-bottom: 4px solid #fff;
-  box-shadow: 0 2px 12px rgba(255, 143, 179, 0.25);
+  box-shadow: 0 2px 12px rgba(160, 122, 70, 0.3);
 }
 
 .site-logo {
