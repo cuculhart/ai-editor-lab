@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmark: Agent-type AI editor comparison — AI Editor Lab</title>
+  <link rel="canonical" href="https://labo.mond.jp/articles/editor-benchmark.en.html">
+  <link rel="alternate" hreflang="ja" href="https://labo.mond.jp/articles/editor-benchmark.html">
+  <link rel="alternate" hreflang="en" href="https://labo.mond.jp/articles/editor-benchmark.en.html">
+  <link rel="alternate" hreflang="x-default" href="https://labo.mond.jp/articles/editor-benchmark.html">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.en.html">🧪 AI Editor Lab</a>
+    <nav class="site-nav">
+      <a href="../index.en.html">Home</a>
+      <a href="editor-benchmark.en.html">Benchmark</a>
+      <a href="../about.html">About</a>
+      <a class="lang-switch" href="editor-benchmark.html">日本語</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">BYOK & agent-type tools only</span>
+      <h1>AI Editor Lab</h1>
+      <p class="lead">A serious comparison of agent-type AI editors only — no subscriptions, running on your own API key</p>
+      <p class="mb-0"><small class="text-muted">Measured: Sep–Oct 2026 | On an ordinary PC — Windows 11 + Ryzen 5 4500U | Difficulty: <span class="difficulty diff-elementary">Beginner</span></small></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-pop">
+        <strong>This site compares agent-type tools only.</strong>
+        We collect tools that can autonomously loop through reading/writing files and running commands.
+        Completion/chat assistants (GitHub Copilot etc.) and major paid subscription tools
+        (Claude Code / Devin / Cursor etc.) are out of scope.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>🏆 BYOK (Gemini) <small class="text-muted fs-6">gemini-3.5-flash-lite</small></h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>Tool</th><th>Passes/attempts (success rate — last 2 runs per task)</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code extension</small></td><td>7 / 7 (100%)</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code extension</small></td><td>6 / 6 (100%)</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>6 / 6 (100%)</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>Terminal (TUI)</small></td><td>6 / 6 (100%)</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>6 / 6 (100%)</td></tr><tr><td class='editor-name'><a href='editors/teaspoon.html'>Teaspoon IDE</a><br><small class='text-muted'>Standalone Electron app</small></td><td>6 / 7 (86%)</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code extension + CLI</small></td><td>5 / 6 (83%)</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + desktop</small></td><td>5 / 6 (83%)</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains extension</small></td><td>2 / 5 (40%)</td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a><br><small class='text-muted'>CLI (Docker backend)</small></td><td>0 / 1 (0%)</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code fork</small></td><td>0 / 1 (0%)</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        * Success rates count only the <strong>last 2 attempts per task</strong> (2 consecutive passes = 100%, a single pass = 50%). Older attempts remain as full history in each tool's detail table.
+        Also, T3 (refactoring) had its acceptance tests strengthened — results identical to baseline ("no-op pass") are now marked failed
+        (details: <a href="../method.html">methodology</a>, in Japanese).
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>🏆 Others <small class="text-muted fs-6"></small></h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>Tool</th><th>Passes/attempts (success rate — last 2 runs per task)</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code extension</small></td><td>0 / 1 (0%)</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        * Success rates count only the <strong>last 2 attempts per task</strong> (2 consecutive passes = 100%, a single pass = 50%). Older attempts remain as full history in each tool's detail table.
+        Also, T3 (refactoring) had its acceptance tests strengthened — results identical to baseline ("no-op pass") are now marked failed
+        (details: <a href="../method.html">methodology</a>, in Japanese).
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>🏆 Local LLM <small class="text-muted fs-6">qwen3.5:4b (Ollama)</small></h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>Tool</th><th>Passes/attempts (success rate — last 2 runs per task)</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a><br><small class='text-muted'>VS Code extension</small></td><td>6 / 9 (67%)</td></tr><tr><td class='editor-name'><a href='editors/teaspoon.html'>Teaspoon IDE</a><br><small class='text-muted'>Standalone Electron app</small></td><td>6 / 9 (67%)</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a><br><small class='text-muted'>VS Code fork</small></td><td>2 / 3 (67%)</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a><br><small class='text-muted'>CLI</small></td><td>2 / 4 (50%)</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a><br><small class='text-muted'>VS Code extension + CLI</small></td><td>1 / 4 (25%)</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a><br><small class='text-muted'>VS Code extension</small></td><td>1 / 4 (25%)</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a><br><small class='text-muted'>VS Code/JetBrains extension</small></td><td>1 / 4 (25%)</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a><br><small class='text-muted'>Terminal (TUI)</small></td><td>1 / 4 (25%)</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a><br><small class='text-muted'>CLI + desktop</small></td><td>1 / 4 (25%)</td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a><br><small class='text-muted'>VS Code extension</small></td><td>0 / 3 (0%)</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a><br><small class='text-muted'>Web UI + Docker</small></td><td>0 / 5 (0%)</td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a><br><small class='text-muted'>Web UI (Python)</small></td><td>0 / 3 (0%)</td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a><br><small class='text-muted'>CLI</small></td><td>0 / 3 (0%)</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        * Success rates count only the <strong>last 2 attempts per task</strong> (2 consecutive passes = 100%, a single pass = 50%). Older attempts remain as full history in each tool's detail table.
+        Also, T3 (refactoring) had its acceptance tests strengthened — results identical to baseline ("no-op pass") are now marked failed
+        (details: <a href="../method.html">methodology</a>, in Japanese).
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>📋 Feature matrix</h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>Tool</th><th>Windows</th><th>BYOK</th><th>Local LLM</th><th>Telemetry</th><th>Auto-run</th><th>Multi-terminal/parallel</th><th>Retry</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama etc.">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ collects data · opt-out">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ zero-intervention via settings">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ single-task oriented">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ configurable, but the API never responded">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama etc. (no response in testing — backend likely down)">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ collects data">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ configurable">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ single-task oriented">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama etc.">○</span></td><td class='text-center'><span class="unknown">?</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ single-task oriented">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama etc.">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ collects data · opt-out">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ single-task oriented">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ config.yaml">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama staple">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ anonymous collection · opt-out">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ policy settings">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ single-task oriented">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a></td><td class='text-center'><span class="mark mark-mid" title="△ Requires WSL2+Docker · winnat issues">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ specify in litellm format">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ via litellm">○</span></td><td class='text-center'><span class="mark mark-mid" title="△">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ confirm-mode toggle">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ multiple conversations">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ git managed inside sandbox">△</span></td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a></td><td class='text-center'><span class="mark mark-no" title="× Dependency hell (gave up in testing)">×</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama supported">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ no collection (OSS, development stalled)">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ autonomous execution">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-no" title="× No restore feature">×</span></td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a></td><td class='text-center'><span class="mark mark-mid" title="△ Docker required · cp932 workaround (PYTHONUTF8) · no empty repos · submit fails on autocrlf clones (tool scripts get CRLF'd)">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ litellm">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ tool calling needs verification">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ no collection">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ fully automatic">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ ollama provider">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ anonymous collection · off via OPENCODE_DISABLE_TELEMETRY">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ auto-approve via run">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ multiple sessions">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ snapshot/revert">○</span></td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a></td><td class='text-center'><span class="mark mark-mid" title="△ Requires --no-fancy-input & git">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ ollama">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ analytics · opt-out available">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ --yes-always">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-yes" title="○ git commit/undo">○</span></td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ ollama">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ opt-out available">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-mid" title="△">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ session resume">△</span></td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a></td><td class='text-center'><span class="mark mark-no" title="× No Windows build (WSL required)">×</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ via OpenRouter etc.">○</span></td><td class='text-center'><span class="unknown">?</span></td><td class='text-center'><span class="mark mark-yes" title="○ has full-auto mode">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ Alternative plans via branches (not parallel runs)">△</span></td><td class='text-center'><span class="mark mark-yes" title="○ versioning, rewind & branching are core features">○</span></td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ claims Ollama support">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ privacy-first design">○</span></td><td class='text-center'><span class="mark mark-mid" title="△ Tool calls break on gemini-3.5-lite">△</span></td><td class='text-center'><span class="mark mark-mid" title="△ multiple threads (not parallel agents)">△</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr><tr><td class='editor-name'><a href='editors/teaspoon.html'>Teaspoon IDE</a></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-yes" title="○ Ollama supported">○</span></td><td class='text-center'><span class="mark mark-yes" title="◎ no telemetry at all">◎</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td><td class='text-center'><span class="mark mark-no" title="×">×</span></td><td class='text-center'><span class="mark mark-yes" title="○">○</span></td></tr></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>⭐ 4-way review (beginner-friendliness, 0–5)</h2>
+      <div class='table-responsive'><table class='table table-pop mb-0'><thead><tr><th>Tool</th><th class='text-center'>Avg</th><th class='text-center'>ChatGPT</th><th class='text-center'>Gemini</th><th class='text-center'>Claude</th><th class='text-center'>Devin (SWE-2)</th></tr></thead><tbody><tr><td class='editor-name'><a href='editors/teaspoon.html'>Teaspoon IDE</a></td><td class='text-center'><strong>3.8</strong></td><td class='text-center'>4</td><td class='text-center'>4</td><td class='text-center'>4</td><td class='text-center'>3</td></tr><tr><td class='editor-name'><a href='editors/cline.html'>Cline</a></td><td class='text-center'><strong>3.5</strong></td><td class='text-center'>4</td><td class='text-center'>3</td><td class='text-center'>4</td><td class='text-center'>3</td></tr><tr><td class='editor-name'><a href='editors/zoocode.html'>Zoo Code</a></td><td class='text-center'><strong>2.8</strong></td><td class='text-center'>3</td><td class='text-center'>3</td><td class='text-center'>3</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/kilocode.html'>Kilo Code</a></td><td class='text-center'><strong>2.8</strong></td><td class='text-center'>3</td><td class='text-center'>2</td><td class='text-center'>3</td><td class='text-center'>3</td></tr><tr><td class='editor-name'><a href='editors/opencode.html'>OpenCode</a></td><td class='text-center'><strong>2.5</strong></td><td class='text-center'>3</td><td class='text-center'>2</td><td class='text-center'>3</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/void.html'>Void</a></td><td class='text-center'><strong>2.2</strong></td><td class='text-center'>3</td><td class='text-center'>2</td><td class='text-center'>2</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/goose.html'>Goose</a></td><td class='text-center'><strong>2.0</strong></td><td class='text-center'>3</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/aider.html'>Aider</a></td><td class='text-center'><strong>1.8</strong></td><td class='text-center'>2</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>2</td></tr><tr><td class='editor-name'><a href='editors/openhands.html'>OpenHands</a></td><td class='text-center'><strong>1.5</strong></td><td class='text-center'>2</td><td class='text-center'>1</td><td class='text-center'>2</td><td class='text-center'>1</td></tr><tr><td class='editor-name'><a href='editors/continue.html'>Continue</a></td><td class='text-center'><strong>1.2</strong></td><td class='text-center'>2</td><td class='text-center'>1</td><td class='text-center'>1</td><td class='text-center'>1</td></tr><tr><td class='editor-name'><a href='editors/devika.html'>Devika</a></td><td class='text-center'><strong>0.2</strong></td><td class='text-center'>1</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr><tr><td class='editor-name'><a href='editors/sweagent.html'>SWE-agent</a></td><td class='text-center'><strong>0.2</strong></td><td class='text-center'>1</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr><tr><td class='editor-name'><a href='editors/plandex.html'>Plandex</a></td><td class='text-center'><strong>0.2</strong></td><td class='text-center'>1</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr><tr><td class='editor-name'><a href='editors/roocode.html'>Roo Code</a></td><td class='text-center'><strong>0.0</strong></td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td></tr></tbody></table></div>
+      <p class="small text-muted mt-2 mb-0">
+        * ChatGPT / Gemini / Claude scored these tools by reading this site's measured data (results and logs); the AIs did not operate the tools themselves. Devin (SWE-2) is the measurement runner for this benchmark.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>🧰 Tools covered (14)</h2>
+      <div class="row"><div class="col-md-4 mb-3"><a class="card-link" href="../editors/cline.html">
+        <div class="card-pop"><div class="editor-name">Cline</div>
+        <div class="text-muted small">VS Code extension / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Arguably the most popular. BYOK & Ollama supported</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/roocode.html">
+        <div class="card-pop"><div class="editor-name">Roo Code</div>
+        <div class="text-muted small">VS Code extension / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Development ended and the repo was archived at v3.54.0 (2026-05-15). Successor Roomote is a cloud-agent product, not an IDE tool, so it's out of scope. Community continuation moved to the Zoo Code line. Measurement attempts got no response via either Gemini or Ollama (backend likely down) — recorded as not evaluable</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/zoocode.html">
+        <div class="card-pop"><div class="editor-name">Zoo Code</div>
+        <div class="text-muted small">VS Code extension + CLI / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Community fork of Roo Code. Runnable via CLI</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/kilocode.html">
+        <div class="card-pop"><div class="editor-name">Kilo Code</div>
+        <div class="text-muted small">VS Code extension / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Fork in the Roo Code line. Large user base. Local-LLM measurement abandoned — full system freeze (hard power-off) at L1</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/continue.html">
+        <div class="card-pop"><div class="editor-name">Continue</div>
+        <div class="text-muted small">VS Code/JetBrains extension / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">Chat-centric, but has an agent mode</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/openhands.html">
+        <div class="card-pop"><div class="editor-name">OpenHands</div>
+        <div class="text-muted small">Web UI + Docker / MIT</div>
+        <p class="mb-0 mt-2 small">Autonomous agent type. CLI also available</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/devika.html">
+        <div class="card-pop"><div class="editor-name">Devika</div>
+        <div class="text-muted small">Web UI (Python) / MIT</div>
+        <p class="mb-0 mt-2 small">Development stalled (last commit 2025-09). Heavy dependencies — install attempt abandoned; recorded as unmeasurable</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/sweagent.html">
+        <div class="card-pop"><div class="editor-name">SWE-agent</div>
+        <div class="text-muted small">CLI (Docker backend) / MIT</div>
+        <p class="mb-0 mt-2 small">Autonomous agent by the SWE-bench team, driven via sweagent run. Requires a Docker sandbox. After the T6 failure, v1.1.0 turned out unable to submit under a standard Windows clone (autocrlf) — further measurement skipped; recorded as not evaluable</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/opencode.html">
+        <div class="card-pop"><div class="editor-name">OpenCode</div>
+        <div class="text-muted small">Terminal (TUI) / MIT</div>
+        <p class="mb-0 mt-2 small">By SST. Non-interactive runs via opencode run</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/aider.html">
+        <div class="card-pop"><div class="editor-name">Aider</div>
+        <div class="text-muted small">CLI / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">The flagship CLI. Easy to automate with --yes</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/goose.html">
+        <div class="card-pop"><div class="editor-name">Goose</div>
+        <div class="text-muted small">CLI + desktop / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">OSS agent by Block</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/plandex.html">
+        <div class="card-pop"><div class="editor-name">Plandex</div>
+        <div class="text-muted small">CLI / MIT</div>
+        <p class="mb-0 mt-2 small">No official Windows build (darwin/linux/freebsd only). WSL required — not measurable on this bench; recorded under installability</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/void.html">
+        <div class="card-pop"><div class="editor-name">Void</div>
+        <div class="text-muted small">VS Code fork / Apache-2.0</div>
+        <p class="mb-0 mt-2 small">OSS Cursor alternative. Standalone editor</p></div></a></div><div class="col-md-4 mb-3"><a class="card-link" href="../editors/teaspoon.html">
+        <div class="card-pop"><div class="editor-name">Teaspoon IDE</div>
+        <div class="text-muted small">Standalone Electron app / FSL-1.1-MIT</div>
+        <p class="mb-0 mt-2 small">Integrated Explorer/Monaco/Git/TTY. Formerly Forger</p></div></a></div></div>
+    </div>
+  </section>
+  <div class="container" style="max-width: 820px">
+    <p class="small text-muted"><a href="../index.en.html">← Back to the article list (home)</a></p>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>"?" marks values still being measured. All methodology and raw data are published.</p>
+    <p>&copy; 2026 AI Editor Lab (operated by cuculhart)</p>
+  </div>
+</footer>
+</body>
+</html>

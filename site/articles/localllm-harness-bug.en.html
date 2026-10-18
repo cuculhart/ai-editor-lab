@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Article: I thought the model was weak — it was my harness bug — AI Editor Lab</title>
+  <link rel="canonical" href="https://labo.mond.jp/articles/localllm-harness-bug.en.html">
+  <link rel="alternate" hreflang="ja" href="https://labo.mond.jp/articles/localllm-harness-bug.html">
+  <link rel="alternate" hreflang="en" href="https://labo.mond.jp/articles/localllm-harness-bug.en.html">
+  <link rel="alternate" hreflang="x-default" href="https://labo.mond.jp/articles/localllm-harness-bug.html">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="site-logo" href="../index.en.html">🧪 AI Editor Lab</a>
+    <nav class="site-nav">
+      <a href="../index.en.html">Home</a>
+      <a href="editor-benchmark.en.html">Benchmark</a>
+      <a href="../about.html">About</a>
+      <a class="lang-switch" href="localllm-harness-bug.html">日本語</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+  <section class="section">
+    <div class="container" style="max-width: 820px">
+      <h2>I thought "the model was weak" — it was my own app's bug. How local-LLM measurement exposed a harness design flaw</h2>
+      <p class="text-muted">Public experiment note | Measured: 2026-10 | Series: CPU-only local-LLM coding | Difficulty: <span class="difficulty diff-intermediate">Intermediate</span></p>
+
+      <p>I've been embedding local LLMs into my own IDE (Teaspoon IDE) and measuring coding-agent performance in a CPU-only environment.</p>
+      <p>Along the way I kept observing symptoms like "this model has a weak memory" and "it re-reads the same file over and over." <strong>Those turned out not to be model weaknesses — they were a bug in my own harness</strong>. This is that record.</p>
+      <h4 class="mt-4">How it started: a strange failure in qwen3.5:4b</h4>
+      <p>I gave the small 4B model a task (T3): "fix one failing test and confirm everything passes."</p>
+      <p>On the old harness (v1.5.0), this is what happened:</p>
+      <ol>
+      <li><code>READ_FILE: test_calc.py</code> — reads it</li>
+      <li><code>READ_FILE: calc.py</code> — reads it</li>
+      <li><code>READ_FILE: test_calc.py</code> — <strong>reads it again</strong>. Response: "unchanged — use the content you already read"</li>
+      <li>The model says: <strong>"I read them, but the contents aren't visible here"</strong></li>
+      <li>Tries GREP, gets 0 hits → re-reads again → exhausts all 6 turns and fails</li>
+      </ol>
+      <p>It's told "unchanged," yet insists "I can't see the contents." At first I assumed the 4B simply lacked the comprehension.</p>
+      <h4 class="mt-4">Investigation: tool results survived only one turn</h4>
+      <p>Tracing the code revealed a design flaw.</p>
+      <p>The history sent to the model in the agent loop (<code>historyForRequest</code>) accumulated user messages and assistant replies. <strong>But "tool execution results" — READ_FILE contents, command output — existed in context only for the immediately following turn, and were absent from history in every turn after that</strong>.</p>
+      <p>In other words:</p>
+      <ul>
+      <li>Step 1 reads the file → in step 2 the content is in context → everything works</li>
+      <li>From step 3 onward, that content has <strong>already vanished from context</strong></li>
+      <li>The duplicate-read suppression message "unchanged — use what you have" was <strong>pointing at content the model didn't have</strong></li>
+      </ul>
+      <p>The model's "I can't see the contents" was an <strong>accurate status report</strong>.</p>
+      <h4 class="mt-4">Implication: past evaluations needed reinterpreting</h4>
+      <p>Knowing about this flaw changes how earlier measurements look.</p>
+      <p>I had rated the 9B model as "redundantly re-reading files" on the old harness (2 of 7 steps wasted). That was likely not "weak memory" but <strong>a legitimate self-repair — retrieving content that had disappeared</strong>. In other words, the smarter models were devising workarounds for my bug.</p>
+      <h4 class="mt-4">The fix</h4>
+      <p>I made each step's tool-result prompt persist into the running history. Tool results now stay in context for the entire run, and the "unchanged" response finally becomes true.</p>
+      <p>I also fixed a second problem this experiment exposed — <strong>models wrapping entire search patterns in quotes</strong> (e.g. <code>GREP "member.*discount"</code>, where the literal <code>"</code> ended up in the regex and matched nothing). The parser now strips outer quotes.</p>
+      <h4 class="mt-4">Control experiment: same model, same task, only the fix differs</h4>
+      <table class="table"><thead><tr><th>Condition</th><th>Result</th></tr></thead>
+      <tbody>
+      <tr><td>4b · old harness (T3-2)</td><td><strong>Consumed all 6 turns · stuck in re-read loop · unfinished</strong></td></tr>
+      <tr><td>4b · fixed (T3-3)</td><td><strong>Completed in 5 turns</strong> (shortest path: pytest → read → fix → re-verify · correct)</td></tr>
+      <tr><td>9b · old harness (T3-2)</td><td>Completed in 3 turns (batching reads into one turn dodged the bug by accident)</td></tr>
+      <tr><td>9b · fixed (T3-3)</td><td>Completed in 3 turns (<strong>zero re-reads</strong> · shortest path)</td></tr>
+      <tr><td>e4b · fixed (T3-3)</td><td>Completed in 4 turns (zero re-reads · no format breakage)</td></tr>
+      </tbody></table>
+      <p>The same model went from "broken" to "clean shortest-path completion" — just by fixing the harness. And the 9b dropped from 7 steps (with 2 re-reads) on the old harness to 3 steps — <strong>the re-reading really did vanish</strong>.</p>
+      <h4 class="mt-4">Lessons</h4>
+      <ol>
+      <li><strong>"Model weakness" and "harness weakness" must be evaluated separately</strong>: articles claiming "this model is useless" may be rating the harness's constraints along with the model. If you build tools, suspect what's actually in the context before suspecting the model</li>
+      </ol>
+      <ol>
+      <li><strong>Design dedup and context-saving against what the model can actually see</strong>: "it read it before, so it must have it" is only true when that content is really present in the context</li>
+      </ol>
+      <ol>
+      <li><strong>Weak-model behavior is worth watching precisely because it's weak</strong>: a borderline 4B model has no slack, so it faithfully visualizes harness flaws. The strong models papered over the defect with self-repair — the weak one exposed it</li>
+      </ol>
+      <h4 class="mt-4">About the implementation</h4>
+      <p>The fix shipped as Teaspoon IDE v1.5.1 (see the CHANGELOG for details). The command protocol, history management, and feedback injection live in <code>src/components/Chat.tsx</code> and under <code>src/services/</code>.</p>
+      <ul>
+      <li>Repository: <a href="https://github.com/cuculhart/teaspoon-ide">https://github.com/cuculhart/teaspoon-ide</a></li>
+      <li>Full measurement record: <a href="https://github.com/cuculhart/ai-editor-lab/tree/main/experiments/localllm/results.md">https://github.com/cuculhart/ai-editor-lab/tree/main/experiments/localllm/results.md</a></li>
+      </ul>
+      <p class="small text-muted mt-4"><a href="localllm-terms.html">← Series part 1: Minimal glossary (JA)</a> ｜ <a href="localllm-cpu-only.html">Next: 4. How far can a coding agent go on CPU alone? (JA) →</a><br><a href="../index.en.html">← Back to article list</a></p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>"?" marks values still being measured. All methodology and raw data are published.</p>
+    <p>&copy; 2026 AI Editor Lab (operated by cuculhart)</p>
+  </div>
+</footer>
+</body>
+</html>

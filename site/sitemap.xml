@@ -66,6 +66,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://labo.mond.jp/index.en.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/editor-benchmark.en.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/localllm-usable.en.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labo.mond.jp/articles/localllm-harness-bug.en.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labo.mond.jp/about.html</loc>
     <lastmod>2026-10-04</lastmod>
     <priority>0.5</priority>

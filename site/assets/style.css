@@ -141,6 +141,14 @@ h1, h2, h3, h4, h5, h6,
 .diff-intermediate { background: var(--pop-yellow); color: #6d5626; } /* 中級 */
 .diff-advanced { background: var(--pop-pink); color: #7a3d4a; }  /* 上級 */
 
+/* 言語スイッチ（日本語 / English） */
+.lang-switch {
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 999px;
+  padding: 0.1rem 0.7rem;
+  font-size: 0.78rem;
+}
+
 .mark {
   display: inline-block;
   min-width: 1.8rem;
